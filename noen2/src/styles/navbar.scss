@@ -1,10 +1,11 @@
-@import '../../styles/variables';
+@import './variables';
+@import './mixins';
 
-nav {
+.navbar {
     background-color: Satin-gold;
     padding: 1rem;
   
-    .nav-link {
+    .navLink {
       color: white;
       text-decoration: none;
       margin-right: 15px;
