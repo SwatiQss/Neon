@@ -1,0 +1,58 @@
+@import './variables';
+@import './mixins';
+
+
+.cards{
+    display: flex;
+    width: 550px;
+    flex-direction: column;
+
+   
+    .img{
+       
+        img{
+            width: 550px;
+            border: none;
+            height: 300px;
+            border-radius: 20px;
+        }
+    }
+    .content{
+        .heading{
+           font-size: 16px;
+           font-weight: 600;
+        }
+        .span{
+            font-size: 12px;
+            font-weight: 500;
+            color: grey;
+        }
+
+        .para{
+            font-size: 14px;
+            font-weight: bold;
+            color: rgb(97, 95, 95);
+        }
+        .accept{
+            display: flex;
+            
+            .btn{
+                background-color: black;
+                color: white;
+                padding: 2px;
+                border: none;
+                height: 40px;
+                width: 160px;
+                border-radius: 4px;
+                
+            }
+            .no{
+                padding: 20px;
+                display: flex;
+                align-content: center;
+            }
+        }
+
+    }
+
+}

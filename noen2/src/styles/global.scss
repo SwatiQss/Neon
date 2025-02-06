@@ -6,22 +6,12 @@ body {
   background-color: $Background-colour;
 }
 
-.container {
-  @include flexCenter;
-  height: 100vh;
+
+.divider {
+  border: none;
+  height: 1px; // Adjust thickness
+  background-color: #ddd9d991; // Line color
+  margin: 2px 0; // Space around the line
+  width: 100%;
 }
 
-nav {
-  background-color: Satin-gold;
-  padding: 1rem;
-
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    margin-right: 15px;
-
-    &:hover {
-      color: darken(white, 10%);
-    }
-  }
-}

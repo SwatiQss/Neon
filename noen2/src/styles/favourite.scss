@@ -1,0 +1,33 @@
+@import './mixins';
+
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/IvyMode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.favourite{
+    padding-left: 60px;
+    font-family: 'CustomFont',sans-serif;
+    .heading{
+        font-size: 30px;
+    }
+    .para{
+        font-size: 16px;
+        text-align: left;
+        letter-spacing: 0.4px;
+        color: #222222;
+        opacity: 1;
+    }
+    .card-section{
+        display: flex;
+        gap: 10px;
+        padding: 6px;
+
+
+    }
+
+}

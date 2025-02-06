@@ -1,0 +1,93 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// Apply the font to elements
+body {
+    font-family: 'CustomFont', sans-serif;
+}
+
+
+.card {
+    display: flex;
+    width: 550px;
+    height: 250px;
+    background-image: url('../../public/assets/img/golf.jpg'); // Remove 'public' from path
+    background-size: cover;
+    background-position: top-right; // Aligns image to the top
+    background-repeat: no-repeat;
+    border: 1px solid rgb(77, 71, 71); // Fix border property
+    border-radius: 10px;
+    .sun-logo{
+        width: 200px;
+        display: flex;
+        align-items: end;
+        justify-content: end;
+        padding: 2px;
+        .img{
+            width: 60px;
+        }
+        
+    }
+    .card-content{
+        background-color: $Background-colour;
+        width: 350px;
+        padding: 6px;
+        font-family: 'CustomFont', sans-serif;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        .head{
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            .heading{
+                display: block;
+                margin-block-start: 0.5rem !important;
+                margin-block-end: 0.4rem !important;
+                font-weight: 500 !important;
+                font-size: 20px;
+            }
+
+        }
+
+        .para{
+            font-size: 10px;
+            color: #222222;
+        }
+        .address{
+            .content{
+                font-size: 10px;
+                color: #222222;
+                .span{
+                    padding: 4px;
+                }
+            }
+        }
+
+        .outer{
+            display:flex;
+            align-content: center;
+            margin-top: 10px;
+            .quote{
+                font-size: 10px;
+                color: #222222;
+                font-weight: 600;
+                display: flex;
+              
+
+            }
+            .schedule{
+                font-size: 12px;
+                font-weight: 500;
+                margin-left: 20px;
+
+            }
+        }
+
+    }
+}

@@ -1,0 +1,46 @@
+@import './variables';
+@import './mixins';
+
+.small-cards{
+    width: 220px;
+    .img{
+        width: 220px;
+        img{
+            width: 220px;
+            height: 300px;
+            border-radius: 10px;
+        }
+
+    }
+    .content{
+        .heading{
+            display: flex;
+            font-size: 10px;
+            justify-content: space-around;
+            .left{
+                font-weight: 600;
+            }
+            .right{
+                color: grey;
+            }
+          
+        }
+
+        .mid{
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 10px;
+            margin-block-start: 0.5rem;
+            margin-block-end: 0.5rem;
+        }
+         .last{
+            font-size:12px ;
+            font-weight: 500;
+            margin-left: 10px;
+            margin-block-start: 0.5rem;
+            margin-block-end: 0.5rem;
+        
+         }
+    }
+
+}
