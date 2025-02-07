@@ -29,9 +29,25 @@
         justify-content: end;
         color: #fff;
         font-size: 10px;
-        margin-top: 40px;
+        margin-top: 120px;
+        padding: 10px;
         .vibepara1{
-            
+            margin-block-start: 0.2rem;
+            margin-block-end: 0.2rem;
+
+        }
+        .vibedate{
+            margin-block-start: 0.2rem;
+            margin-block-end: 0.2rem;
+            font-size: 8px;
+            font-weight: 400;
+
+        }
+        .reviews{
+            margin-block-start: 0.2rem;
+            margin-block-end: 0.2rem;
+            font-size: 8px;
+            font-weight: 400;
         }
     }
         
