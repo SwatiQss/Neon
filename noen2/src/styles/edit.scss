@@ -1,0 +1,15 @@
+@import './variables';
+@import './mixins';
+
+
+.edit{
+    background-color:$Background-colour;
+    .under{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+
+    }
+
+
+}

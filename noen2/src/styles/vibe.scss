@@ -1,0 +1,50 @@
+
+
+.vibes{
+    background-image: linear-gradient(116deg, #fee8a6 0%, #f1d9ff 86%);
+    height: 340px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    .right{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 36px;
+        .right-up{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+           
+            .emoji{
+                font-size: 30px;
+            }
+            .heading1{
+                font-size: 20px;
+            }
+            
+        }
+
+        .right-down{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            .vibe{
+                font-size: 28px;
+            }
+            .vibe-para{
+                font-size: 14px;
+            }
+           
+        }
+        }
+        .left{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .vibe-img{
+                width: 400px;
+            }
+        }
+        
+}

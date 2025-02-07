@@ -6,7 +6,14 @@ import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
 import Recomedation from "../../components/Recommendation";
+import { MdOutlineArrowCircleRight } from "react-icons/md";
+import { MdOutlineArrowCircleLeft } from "react-icons/md";
+import Button1 from "../../components/Button1";
+import Button2 from "../../components/Button2";
 const imgarr2=[img1,img2,img3,img4,img5]
+const heading="Explore the deep Sea";
+const date="from Nov 10 to 29, 2022";
+const para="10:30 AM -7:40 PM";
 
 const Favourite=()=>{
     return (
@@ -24,13 +31,36 @@ const Favourite=()=>{
      <div className="card-section">
   {
     imgarr2.map((img,index)=>(
-    <Smal key={index} props={img}/>
+    <Smal key={index} props={img} />
     ))
   }
      </div>
      <p className="heading">Charlie, we have founds some recomedation for You</p>
-     <Recomedation props={img1}/>
-        
+     <div className="cards">
+      <div className="recommend">
+      <Recomedation props={img1}  prop2={heading} prop3={date} prop4={para}/>
+      </div>
+    <div className="recommend">
+    <Recomedation props={img5}  prop2={"Swimming game for below 18years"} prop3={date} prop4={para}/>
+    </div>
+    
+     </div>
+     <div className="arrow">
+          <MdOutlineArrowCircleLeft style={{color:"grey"}}/>
+          <MdOutlineArrowCircleRight style={{color:"#2222"}}/>
+           
+     
+          </div>
+          <p className="heading">Top 5 activities on the island today</p>
+          <div className="card-section">
+  {
+    imgarr2.map((img,index)=>(
+    <Smal key={index} props={img}/>
+    ))
+  }
+     </div>
+
+        <Button2/>
         </div>
         
         </>
