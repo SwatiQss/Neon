@@ -1,11 +1,24 @@
 @import './variables';
 @import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/IvyMode-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 .small-cards{
+    font-family: 'CustomFont',sans-serif;
     width: 220px;
+    background-color: linear-gradient(0 0 0 #222222);
+    
     .img{
         width: 220px;
+     
+        
         img{
+            
             width: 220px;
             height: 300px;
             border-radius: 10px;
@@ -16,12 +29,17 @@
         .heading{
             display: flex;
             font-size: 10px;
+            gap: 6px;
             justify-content: space-around;
             .left{
                 font-weight: 600;
+                letter-spacing: 0.31;
+                display: flex;
+                gap: 6px;
+                margin-right: 40px;
             }
             .right{
-                color: grey;
+                color: #222;
             }
           
         }
@@ -34,7 +52,7 @@
             margin-block-end: 0.5rem;
         }
          .last{
-            font-size:12px ;
+            font-size:10px ;
             font-weight: 500;
             margin-left: 10px;
             margin-block-start: 0.5rem;

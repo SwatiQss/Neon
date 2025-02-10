@@ -1,6 +1,7 @@
 import "../styles/recomedation.scss"
 import { FaHeart } from "react-icons/fa";
-import { MdEmojiEmotions } from "react-icons/md";
+import { FaGrinHearts } from "react-icons/fa";
+
 
 const Recomedation=({props,prop2,prop3,prop4})=>{
     return (
@@ -18,8 +19,8 @@ const Recomedation=({props,prop2,prop3,prop4})=>{
 
             </div>
             <div className="right">
-                  <span className="span"><MdEmojiEmotions style={{color:"green"
-                  }}/></span>OverWhelm
+                  <span className="span"><FaGrinHearts style={{color:"green"
+                  }}/></span>OverWhelmed
             </div>
 
           </div>

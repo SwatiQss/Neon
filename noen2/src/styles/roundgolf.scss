@@ -1,0 +1,79 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/IvyMode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.roundGolf{
+    font-family: "CustomFont",sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-left: 120px;
+    .round-heading{
+        display: flex;
+        flex-direction: column;
+        .main-heading{
+            font-size: 26px;
+            
+        }
+        .down{
+            display: flex;
+            gap: 2px;
+            .star{
+                display: flex;
+                align-items: center;
+                font-size: 10px;
+                color: #FF385C;
+            }
+            .paraa{
+                padding-left: 4px;
+                font-size: 10px;
+                color: #222222;
+                font-family:'CustomFont2';
+                
+            }
+        }
+    }
+
+    .carasoul{
+        width: 1200px;
+        height: 500px;
+        display: flex;
+        gap: 10px;
+        .carasoul-left{
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+             width: 600px;
+             height: 500px;
+             .up,.down{
+                width: 600px;
+                height: 250px;
+                display: flex;
+                gap: 10px;
+                .photo1,.photo2{
+                    width: 300px;
+                    background-image: url("../img//golf.jpg");
+                    height: 250px;
+                }
+             }
+        }
+        .carasoul-right{
+            width: 600px;
+            height: 500px;
+            background-image: url("../img//golf.jpg");
+
+        }
+    }
+
+}

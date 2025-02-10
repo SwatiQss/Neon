@@ -1,11 +1,18 @@
 import "../../styles/Understand.scss"
+import { FaGrinHearts } from "react-icons/fa";
+import { PiSmileyFill } from "react-icons/pi";
 
-const Understand =({props})=>{
+
+const Understand =({props,props2})=>{
     return (
         <>
         <div className="cards">
             <div className="img">
+               <div className="card-icon">
+               <FaGrinHearts/>
+               </div>
                 <img src={props}/>
+
 
             </div>
             <div className="content">
@@ -26,9 +33,9 @@ const Understand =({props})=>{
                     Yes, I accept
                 </button>
 
-                <div className="no">
-                    No, thanks
-                </div>
+                <p className="no">
+                    No,thanks
+                </p>
 
                </div>
             </div>

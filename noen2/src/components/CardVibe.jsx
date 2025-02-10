@@ -11,7 +11,7 @@ const CardVibe=({props})=>{
         <div className="Vibe-card">
             <div className="vibecard-img" >
                 <div className="vibeimg-content">
-                    <p className="vibepara1">Swimming game for below 18 pear old kid</p>
+                    <p className="vibepara1">Mens's Golf Leauge</p>
                     <p className="vibedate">Nov 10, 2022</p>
                     <p className="reviews">121 reviews</p>
                 </div>

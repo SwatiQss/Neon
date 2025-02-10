@@ -9,6 +9,8 @@ import Recomedation from "../../components/Recommendation";
 import { MdOutlineArrowCircleRight } from "react-icons/md";
 import { MdOutlineArrowCircleLeft } from "react-icons/md";
 import Button1 from "../../components/Button1";
+import { PiArrowCircleLeftThin } from "react-icons/pi";
+import { PiArrowCircleRightThin } from "react-icons/pi";
 import Button2 from "../../components/Button2";
 const imgarr2=[img1,img2,img3,img4,img5]
 const heading="Explore the deep Sea";
@@ -46,8 +48,8 @@ const Favourite=()=>{
     
      </div>
      <div className="arrow">
-          <MdOutlineArrowCircleLeft style={{color:"grey"}}/>
-          <MdOutlineArrowCircleRight style={{color:"#2222"}}/>
+          <PiArrowCircleLeftThin style={{color:"grey",fontSize:"48px"}} />
+          <PiArrowCircleRightThin style={{color:"black",fontSize:"48px"}} />
            
      
           </div>
@@ -60,7 +62,6 @@ const Favourite=()=>{
   }
      </div>
 
-        <Button2/>
         </div>
         
         </>

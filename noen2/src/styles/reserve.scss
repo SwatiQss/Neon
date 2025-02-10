@@ -1,0 +1,74 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/BrownMedium-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.reserve-card{
+    font-family: 'CustomFont',sans-serif;
+    background-color: #fff;
+    width: 260px;
+    height: 200px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .reserve-main{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        padding: 6px;
+        gap: 10px;
+        .reserve-date{
+            padding: 4px;
+            font-size: 18px;
+            font-weight: 600;
+
+        }
+        .reserve-mid{
+            border: 1px solid rgb(85, 83, 83);
+            border-radius: 6px;
+            width: 220px;
+            
+            font-size: 10px;
+            .reserve-first{
+                border: 1px solid rgb(85, 83, 83); 
+                padding: 4px;
+                display: flex;
+                justify-content: space-around;
+                .span{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+
+                
+            }
+            .reserve-second{
+                padding: 4px;
+                justify-content: space-around;
+                .span{
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+                margin-left: 25px;
+ 
+            }
+
+        }
+        .seats{
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .reserve-btn{
+            background-color: black;
+            color: #fff;
+            width: 220px;
+            padding: 6px;
+            border: none;
+            height: 40px;
+            border-radius: 8px;
+        }
+    }
+}

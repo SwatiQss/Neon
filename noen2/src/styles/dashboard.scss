@@ -10,34 +10,75 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 
 .dashboard{
-    padding-left: 60px;
+    padding-left: 80px;
     font-family: 'CustomFont',sans-serif;
+    color: #222222;
+    
     
     .heading{
-        font-size: 30px;
+        font-size: 26px;
     }
     .para{
+        font-family: 'CustomFont2',sans-serif;
         font-size: 16px;
         text-align: left;
         letter-spacing: 0.4px;
         color: #222222;
         opacity: 1;
     }
-    .card-section{
+    .para0{
+        font-family: 'CustomFont2',sans-serif;
+        font-size: 14px;
+        text-align: left;
+        letter-spacing: 0.4px;
+        color: #222222;
+        opacity: 1;
+        line-height: 2px;
+    }
+    .Card-container{
+        margin-top: 10px;
         display: flex;
-        gap: 10px;
-        padding: 6px;
-
+        flex-direction: column;
+       
+        position: relative;
+        .card-section{
+        
+            display: flex;
+            gap: 10px;
+            margin-top: 50px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; // Hides scrollbar in Firefox
+            -ms-overflow-style: none; // Hides scrollbar in Internet Explorer
+        
+            &::-webkit-scrollbar {
+                display: none; // Hides scrollbar in Chrome/Safari
+            }
+           
+    
+    
+        }
+        .arrow{
+            margin-top: 20px;
+            display: flex;
+            gap: 6px;
+            font-size: 40px;
+            font-weight: 400;
+        }
 
     }
-    .arrow{
-        display: flex;
-        gap: 10px;
-        font-size: 40px;
-        font-weight: 400;
-    }
+    
+    
     .map{
         display: flex;
         flex-direction: column;

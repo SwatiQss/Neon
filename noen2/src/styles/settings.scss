@@ -1,0 +1,115 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.settings {
+    font-family: 'CustomFont',sans-serif;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+   
+    .settings-top{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            
+      
+          }
+        
+          p {
+            font-size: 16px;
+            margin-bottom: 20px;
+          }
+        
+
+    }
+  
+   
+    .section {
+      margin-bottom: 30px;
+      width: 500px;
+  
+      h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .para-toggle{
+        display: flex;
+        
+      p {
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: #666;
+      }
+    }
+
+      }
+  
+  
+    .toggle {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+  
+      input[type="checkbox"] {
+        display: none;
+  
+        &:checked + .slider {
+          background-color: #4caf50;
+        }
+      }
+  
+      .slider {
+        width: 40px;
+        height: 20px;
+        background-color: #ccc;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+  
+        &::before {
+          content: "";
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          background-color: #fff;
+          border-radius: 50%;
+          top: 1px;
+          left: 1px;
+          transition: 0.2s;
+        }
+      }
+  
+      input:checked + .slider::before {
+        transform: translateX(20px);
+      }
+    }
+  
+    .radio-group {
+      display: flex;
+      gap: 20px;
+  
+      .radio {
+        display: flex;
+        align-items: center;
+  
+        input[type="radio"] {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  

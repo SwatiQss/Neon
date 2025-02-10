@@ -13,10 +13,10 @@ const Smal=({props})=>{
             <div className="content">
                 <div className="heading">
                     <div className="left">
-                         <span className="span"><MdEmojiEmotions style={{ color: "#55BF3B",width:"14px" }} /></span>Integrating&Uplifiting
+                         <span className="span"><MdEmojiEmotions style={{ color: "#9ACC0D",fontSize:"14px" }} /></span>Integrating&Uplifiting
                     </div>
                     <div className="right">
-                        Nov,10
+                        Nov 10-29
 
                     </div>
 

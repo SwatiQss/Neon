@@ -11,8 +11,6 @@ const EditProfile=()=>{
           <div className="under">
           <Profile/>
           </div>
-<Vibe/>
-<CardVibe/>
         </div>
         
         

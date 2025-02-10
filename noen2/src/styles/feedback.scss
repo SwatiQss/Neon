@@ -1,0 +1,30 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/IvyMode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.feedback{
+  
+    font-family: 'CustomFont',sans-serif;
+    .feedback-container{
+        padding: 30px;
+        padding-left: 300px;
+        .feedback-heading{
+            font-size: 30px;
+            margin-block-end: 0.2rem;
+            color: #222222;
+
+        }
+        .feedback-para{
+            font-size: 30px;
+            margin-block-start: 0.2rem;
+            color: #222222;
+        }
+    }
+
+}

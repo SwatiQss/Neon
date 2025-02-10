@@ -1,50 +1,85 @@
-.recomm{
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/IvyMode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.recomm {
+    font-family: 'CustomFont', sans-serif;
     width: 800px;
     height: 450px;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+
+    background: transparent linear-gradient(180deg, #00000000 0%, #000000CF 100%) 0% 0% no-repeat padding-box;
+
+
     background-image: url('../../public/assets/img/golf.jpg');
     background-size: cover;
     background-position: top-right; // Aligns image to the top
     background-repeat: no-repeat;
     opacity: 0.9;
-    .heart{
+
+    .heart {
         display: flex;
         justify-content: end;
         padding: 10px;
         font-size: 20px;
-        
+
     }
-    .content{
+
+    .content {
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
-        gap: 300px;
+        gap: 10px;
         margin-top: 300px;
-        .left{
+
+        .left {
+            margin-left: 20px;
             color: #fff;
             display: flex;
             flex-direction: column;
-            .heading{
+            font-weight: 400 !important;
+            width: 500px;
+
+            .heading {
                 margin-block-start: 0.2rem;
-                margin-block-end: 0.4rem;
-                font-size: 20px;
+                margin-block-end: 1.2rem;
+                font-size: 28px;
+                font-weight: 400 !important;
+                letter-spacing: 1.19px;
+                color: #FFFFFF;
+                text-shadow: 0px 2px 2px #00000099;
 
             }
-            .para{
+
+            .para {
                 margin-block-start: 0.2rem;
-                color: #fff;
                 margin-block-end: 0.2rem;
                 font-size: 10px;
+                letter-spacing: 0.35px;
+                color: #FFFFFF;
             }
-            
+
         }
 
-        .right{
+        .right {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
             color: #fff;
             font-size: 10px;
-            align-content: end;
-            .span{
+
+            
+
+            .span {
                 font-size: 20px;
                 padding: 6px;
-                
+
             }
         }
     }

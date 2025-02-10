@@ -1,0 +1,71 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.reviewcard{
+    font-family: 'CustomFont',sans-serif;
+    background-color: &Background-color;
+    width: 260px;
+    height: 200px;
+    border: 1px solid #222;
+    border-radius: 8px;
+    padding: 5px;
+   
+    .reviewcard-main{
+        display: flex;
+        flex-direction: column;
+        justify-items: start;
+        padding: 6px;
+        gap: 8px;
+        .user{
+            display: flex;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 8px;
+            .user-img{
+                width: 36px;
+                height: 36px;
+                background-color: #222;
+                border-radius: 100px;
+            }
+            .user-name{
+                padding: 6px;
+            }
+
+            .review-span{
+                font-size: 8px;
+                color: #222;
+                opacity: 0.8;
+            }
+
+
+        }
+
+        .reviewCard-para{
+            width: 220px;
+            line-height: 1rem;
+            font-size: 10px;
+            color: #222222;
+            
+        }  
+
+        .review-star{
+            font-size: 10px;
+        }
+        .read-more{
+            color: #222222;
+            font-size: 10px;
+            text-decoration: underline;
+        }
+
+
+
+    }
+
+
+}

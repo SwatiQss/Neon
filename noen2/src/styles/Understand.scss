@@ -9,36 +9,52 @@
 
    
     .img{
+        .card-icon{
+            position: absolute;
+            margin-top: 20px;
+            z-index: 10000;
+            padding: 6px;
+            font-size: 40px;
+            color: green;
+        }
        
         img{
             width: 550px;
             border: none;
             height: 300px;
             border-radius: 20px;
+            position: relative;
         }
     }
     .content{
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
         .heading{
-           font-size: 16px;
+           font-size: 14px;
            font-weight: 600;
+           height: 20px;
         }
         .span{
-            font-size: 12px;
+            margin-top: 10px;
+            font-size: 10px;
             font-weight: 500;
             color: grey;
         }
 
         .para{
             font-size: 14px;
-            font-weight: bold;
-            color: rgb(97, 95, 95);
+            color: #222
         }
         .accept{
             display: flex;
             
             .btn{
-                background-color: black;
-                color: white;
+                background-color: #222222;
+                color: #FFFFFF;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 padding: 2px;
                 border: none;
                 height: 40px;
@@ -50,6 +66,10 @@
                 padding: 20px;
                 display: flex;
                 align-content: center;
+                justify-content: start;
+                font-size: 12px;
+                text-decoration: underline;
+                
             }
         }
 

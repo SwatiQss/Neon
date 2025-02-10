@@ -7,6 +7,8 @@ import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
+import Button3 from "../../components/Button3";
+import Button4 from "../../components/Button4";
 const imgarr2=[img1,img2,img3,img4,img5]
 
 
@@ -14,8 +16,8 @@ const Events=()=>{
     return (
         <>
 <div className="events">
-<p className="heading">Hey Charlie,</p>
-<p className="para">Let's find something exiting for you.</p>
+<div className="heading">Hey Charlie,</div>
+<div className="para">Let's find something exiting for you.</div>
 <div className="btns">
 <div className="upper">
     <div className="left">
@@ -29,7 +31,7 @@ const Events=()=>{
 
             </div>
             <div className="btn2">
-              <Button1/>
+              <Button3/>
             </div>
 
         </div>
@@ -61,7 +63,7 @@ const Events=()=>{
     <div className="right">
         <div className="down">
         <div className="btn1">
-        <Button1/>
+        <Button4 props={"No limits"}/>
        </div>
         </div>
        
@@ -78,35 +80,39 @@ const Events=()=>{
     </div>
     <div className="down">
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Stand up comedy"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Ramp Walk"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Box Cricketer"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Swimming"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Golf Tournament"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Singing"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Talk Shows"}/>
 
         </div>
         <div className="btn1">
-            <Button1/>
+        <Button4 props={"Kite surfing"}/>
+
+        </div>
+        <div className="btn1">
+        <Button4 props={"Book exhibitions"}/>
 
         </div>
 

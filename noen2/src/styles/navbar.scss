@@ -1,15 +1,24 @@
 @import './variables';
 @import './mixins';
-
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../../public/assets/fonts/BrownMedium-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 .navbar {
+  font-family: 'CustomFont',sans-serif;
     background-color: Satin-gold;
     display: flex;
     justify-content: space-around;
+    height: 60px;
+    color: #222222;
     //align-items: center;
     .logo{
-      padding: 10px;
+     display: flex;
+     align-items: center;
       .img{
-        width: 50px;
+        width: 45px;
         margin-right:300px
 
 
@@ -19,6 +28,7 @@
         display: flex;
         justify-content: space-around;
         margin-left: 300px;
+        font-family: 'CustomFont',sans-serif;
 
         .navLink {
           display: flex;
@@ -27,10 +37,10 @@
             padding: 2px;
             text-decoration: none;
             margin-right: 15px;
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 10px;
+            font-weight: 600;
         
-            &:hover {
+            &.active {
               color: rgb(255, 9, 9);
               text-decoration: underline;
             }
@@ -41,6 +51,35 @@
               width: 40px;
               padding: 4px;
             }
+          }
+          .user-menu{
+          display: flex;
+          align-items: center;
+          .white-back{
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            width: 50px;
+            height: 25px;
+            padding: 4px;
+            
+            border-radius: 16px;
+            .user-img{
+              width: 20px;
+              height: 20px;
+              border-radius: 100px;
+              background-color: #B79535;
+            }
+          }
+          .dropdown{
+            position:absolute;
+            z-index: 10000;
+            top: 10%;
+            right: 10%;
+          }
+    
           }
     }
     .line{

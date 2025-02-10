@@ -52,17 +52,29 @@ body {
                 font-weight: 500 !important;
                 font-size: 20px;
             }
+            .rating{
+               
+                .star{
+                    display: flex;
+                }
+            }
 
         }
 
         .para{
-            font-size: 10px;
+            font-size: 12px;
+            letter-spacing: 0.35px;
             color: #222222;
         }
         .address{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
             .content{
                 font-size: 10px;
                 color: #222222;
+
                 .span{
                     padding: 4px;
                 }
@@ -74,17 +86,18 @@ body {
             align-content: center;
             margin-top: 10px;
             .quote{
+                margin-left: 6px;
                 font-size: 10px;
                 color: #222222;
-                font-weight: 600;
                 display: flex;
+                gap: 4px;
               
 
             }
             .schedule{
-                font-size: 12px;
-                font-weight: 500;
-                margin-left: 20px;
+                font-size: 10px;
+                font-weight: 600;
+                margin-left: 80px;
 
             }
         }
