@@ -31,28 +31,28 @@ const Profile = ({ props }) => {
                             <p className="para">
                                 What should we call you?
                             </p>
-                            <input className="input"></input>
+                            <input className="input" value="Charlie"></input>
 
                         </div>
                         <div className="input-section">
                             <p className="para">
                                 What's your email address?
                             </p>
-                            <input className="input" style={{ backgroundColor: "#F5F5F5" }}></input>
+                            <input className="input" style={{ backgroundColor: "#F5F5F5" }} value="charlie@gmail.com"></input>
 
                         </div>
                         <div className="input-section">
                             <p className="para">
                                 On which number can we contact you?
                             </p>
-                            <input className="input"></input>
+                            <input className="input" value="9231243434"></input>
 
                         </div>
                         <div className="input-section">
                             <p className="para">
                                 When can we wish a happy birthday?
                             </p>
-                            <input className="input"></input>
+                            <input className="input" value="09 / 01 / 1979"></input>
 
                         </div>
                         <div className="card-section">
