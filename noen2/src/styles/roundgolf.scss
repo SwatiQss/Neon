@@ -92,20 +92,21 @@ gap: 50px;
 .helper-div{
     display: flex;
     gap: 100px;
-}
-
-.about-left{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    .about-left1{
+    .about-left{
         display: flex;
+        flex-direction: column;
         gap: 10px;
-        font-size: 14px;
-
+    
+        .about-left1{
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+    
+        }
     }
+    
 }
+
 
     }
 

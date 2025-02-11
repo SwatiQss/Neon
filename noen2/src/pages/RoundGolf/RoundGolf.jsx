@@ -87,6 +87,21 @@ const RoundGolf = () => {
                   <div className="helper-div">
                   <div className="about-left">
                         <div className="about-left1">
+                            <div className="left-icon">
+                             <GrAppsRounded/>
+                            </div>
+
+                            <div className="left-content">
+                                <div className="left-content-heading">
+Golf
+                                </div>
+                                <div className="left-content-down">
+This is one of many famous event Catagory comes under Golf Catagory
+                                </div>
+
+                            </div>
+
+                        </div>
                         <div className="about-left1">
                             <div className="left-icon">
                             <GrAppsRounded/>
@@ -117,21 +132,6 @@ Invigorating & uplifting experience
 
                                 </div>
 
-                            <div className="left-icon">
-                             <GrAppsRounded/>
-                            </div>
-
-                            <div className="left-content">
-                                <div className="left-content-heading">
-Golf
-                                </div>
-                                <div className="left-content-down">
-This is one of many famous event Catagory comes under Golf Catagory
-                                </div>
-
-                            </div>
-
-                        </div>
                             </div>
 
                         </div>
