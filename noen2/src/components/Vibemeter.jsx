@@ -8,7 +8,7 @@ const Vibe=()=>{
             <div className="right">
                 <div className="right-up">
                     <div className="emoji">
-                        <FaGrinHearts style={{color:"green",fontSize:"70px"}}/>
+                        <FaGrinHearts style={{color:"green",fontSize:"60px"}}/>
                     </div>
                     <div className="heading1">
                       Overwhelmed experience

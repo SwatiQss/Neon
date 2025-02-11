@@ -6,10 +6,15 @@ const Smal=({props})=>{
     return (
         <>
         <div className="small-cards">
+
             <div className="img">
+            <div className="remove">
+                Remove
+            </div>
                 <img src={props}></img>
 
             </div>
+            
             <div className="content">
                 <div className="heading">
                     <div className="left">

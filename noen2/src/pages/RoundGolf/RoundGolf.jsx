@@ -1,9 +1,17 @@
 import { FaStar } from "react-icons/fa6";
 import "../../styles/roundgolf.scss"
+import AddReview from "../../components/AddReview";
+import { GrAppsRounded } from "react-icons/gr";
+import Reserve from "../../components/Reserve";
+
 const RoundGolf = () => {
     return (
         <>
             <div className="roundGolf">
+                <div className="addReview">
+                    <AddReview />
+                </div>
+
                 <div className="round-heading">
                     <div className="main-heading">
                         Round of Golf
@@ -71,24 +79,70 @@ const RoundGolf = () => {
                 </div>
 
                 <div className="about-event">
+                    
+                    <div className="about-event-heading">
                     About the Event
-                    <div className="about-left">
+
+                    </div>
+                  <div className="helper-div">
+                  <div className="about-left">
                         <div className="about-left1">
+                        <div className="about-left1">
+                            <div className="left-icon">
+                            <GrAppsRounded/>
+                            </div>
+
+                            <div className="left-content">
+                                <div className="left-content-heading">
+Great Location 
+                                </div>
+                                <div className="left-content-down">
+Every guest has given 5 star location on this 
+                                </div>
+
+                            </div>
 
                         </div>
-                        <div className="about-left2">
+                        <div className="about-left1">
+                            <div className="left-icon">
+                            <GrAppsRounded/>
+                            </div>
+
+                            <div className="left-content">
+                                <div className="left-content-heading">
+Invigorating & uplifting experience
+
+                                </div>
+                                <div className="left-content-down">
+
+                                </div>
+
+                            <div className="left-icon">
+                             <GrAppsRounded/>
+                            </div>
+
+                            <div className="left-content">
+                                <div className="left-content-heading">
+Golf
+                                </div>
+                                <div className="left-content-down">
+This is one of many famous event Catagory comes under Golf Catagory
+                                </div>
+
+                            </div>
 
                         </div>
-                        <div className="about-left3">
-                            
+                            </div>
+
                         </div>
 
                     </div>
 
                     <div className="about-right">
-
+                          <Reserve/>
 
                     </div>
+                  </div>
 
                 </div>
 

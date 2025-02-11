@@ -1,0 +1,67 @@
+@import "./variables";
+@import "./mixins";
+@font-face {
+  font-family: "CustomFont";
+  src: url("../../public/assets/fonts/BrownLight-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+.MapPopup {
+   
+    
+  width: 184px;
+  height: 85px;
+  display: flex;
+  gap: 8px;
+  border-radius: 8px;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #fff;
+  
+  .MapPopup-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../public/assets/img/golf.jpg");
+    background-size: cover;
+    background-position: top-right;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    width: 70px;
+    height: 90px;
+  }
+  .MapPopup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 10px;
+    .headingMap {
+      font-size: 12px;
+      letter-spacing: 0.35px;
+      color: #222222;
+      font-weight: 600;
+    }
+                    
+    .mapdata{
+        
+             font-size: 10px;
+             letter-spacing: 0px;
+color: #222222;
+opacity: 0.7
+    }
+
+    .maptime{
+       
+        letter-spacing: 0.57px;
+color: #222;
+font-size: 10px;
+    }
+    .mapreview{
+        margin-top: 6px;
+        font-size: 10px;
+        font-weight: 600;
+        opacity: 0.8;
+        .span{
+            margin-left: 4px;
+        }
+    }
+  }
+}

@@ -41,13 +41,14 @@ const Settings= () => {
     <div className="settings">
      <div className="settings-top">
      <h1>Good morning Charlie!</h1>
-     <p>You can change the settings for your personal data and other information.</p>
+     <div className="information">You can change the settings for your personal data and other information.</div>
      </div>
-
+     <div className="heighter">
+     </div>
       <div className="section">
-        <h2>Personal and Account Information</h2>
+        <div className="heading-section">Personal and Account Information</div>
         <div className="para-toggle">
-        <p>Would you like to share your personal information with us to know you better?</p>
+        <div className="para-section">Would you like to share your personal information with us to know you better?</div>
         <label className="toggle">
           <input
             type="checkbox"
@@ -60,11 +61,11 @@ const Settings= () => {
         </div>
        
       </div>
-
+      <hr className='divider'/>
       <div className="section">
-        <h2>Consent for sharing information with operators</h2>
+        <div className="heading-section">Consent for sharing information with operators</div>
         <div className="para-toggle">
-        <p>Would you like to share your personal information with the operator to serve you better?</p>
+        <div className="para-section">Would you like to share your personal information with the operator to serve you better?</div>
         <label className="toggle">
           <input
             type="checkbox"
@@ -76,12 +77,12 @@ const Settings= () => {
         </div>
         
       </div>
-
+      <hr className='divider'/>
       <div className="section">
-        <h2>Manage your data</h2>
+        <div className="heading-section">Manage your data</div>
         
         <div className="para-toggle">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod?</p>
+        <div className="para-section">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod?</div>
         <label className="toggle">
           <input
             type="checkbox"
@@ -92,12 +93,12 @@ const Settings= () => {
         </label>
         </div>
       </div>
-
+      <hr className='divider'/>
       <div className="section">
-        <h2>Password and Security</h2>
+        <div className="heading-section">Password and Security</div>
         
         <div className="para-toggle">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod?</p>
+        <div className="para-section">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod?</div>
         <label className="toggle">
           <input
             type="checkbox"
@@ -108,10 +109,10 @@ const Settings= () => {
         </label>
         </div>
       </div>
-
+      <hr className='divider'/>
       <div className="section">
-        <h2>Notifications</h2>
-        <p>Which type of notifications would you like to receive?</p>
+        <div className="heading-section">Notifications</div>
+        <div className="para-section">Which type of notifications would you like to receive?</div>
         <label className="toggle">
           <input
             type="checkbox"
@@ -140,10 +141,10 @@ const Settings= () => {
           Personalized notifications
         </label>
       </div>
-
+      <hr className='divider'/>
       <div className="section">
-        <h2>Language</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod?</p>
+        <div className="heading-section">Language</div>
+        <div className="para-section">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonumy eirmod?</div>
         <div className="radio-group">
           {["English", "French", "Arabic"].map((lang) => (
             <label key={lang} className="radio">

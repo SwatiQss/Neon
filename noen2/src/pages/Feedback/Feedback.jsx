@@ -13,12 +13,13 @@ const Feedback=()=>{
             <p className="feedback-heading"> Hi Charlie,</p>
             <p className="feedback-para">here are the glimpse of your feedback shared with us.</p>
             <CardVibe/>
+            <hr className='divider'/>
             <CardVibe/>
+            <hr className='divider'/>
             <CardVibe/>
+            <hr className='divider'/>
             <CardVibe/>
             </div>
-<Reserve/>
-<ReviewCard/>
 
         </div>
 

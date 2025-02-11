@@ -15,10 +15,23 @@
     
     .img{
         width: 220px;
-     
         
+     
+        .remove{
+            position: absolute;
+            z-index: 1000;
+            padding: 4px;
+            align-items: end;
+            background-color: #fff;
+            border-radius: 20px;
+            font-size: 12px;
+            width: 60px;
+            margin-top: 10px;
+            justify-content: center;
+            color: pink;
+        }
         img{
-            
+            position: relative;
             width: 220px;
             height: 300px;
             border-radius: 10px;

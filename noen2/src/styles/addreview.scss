@@ -1,0 +1,48 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.add-review{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 4px;
+    gap: 200px;
+    padding: 8px;
+    height: 120px;
+    width: 1140px;
+    .add-left{
+        width: 800px;
+        margin-left: 20px;
+        margin-top: 10px;
+        .add-left-up{
+            font-size: 26px;
+            
+        }
+        .add-left-down{
+            margin-top: 16px;
+        }
+        
+    }
+    .add-right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .add-btn{
+            background-color: #222;
+            height: 40px;
+            width: 120px;
+            color: #fff;
+            border-radius: 4px;
+            border: none;
+
+        }
+    }
+
+
+}

@@ -19,6 +19,7 @@
     flex-direction: column;
     gap: 6px;
     margin-left: 120px;
+    
     .round-heading{
         display: flex;
         flex-direction: column;
@@ -74,6 +75,38 @@
             background-image: url("../img//golf.jpg");
 
         }
+    }
+
+    .about-event{
+        margin-left: 40px;
+        font-size: 26px;
+        letter-spacing: 1.19px;
+color: #222222;
+margin-top: 40px;
+display: flex;
+flex-direction: column;
+gap: 50px;
+
+
+
+.helper-div{
+    display: flex;
+    gap: 100px;
+}
+
+.about-left{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .about-left1{
+        display: flex;
+        gap: 10px;
+        font-size: 14px;
+
+    }
+}
+
     }
 
 }

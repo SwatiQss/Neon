@@ -8,6 +8,7 @@ import RoundGolf from "./pages/RoundGolf/RoundGolf";
 import Navbar from "./components/Navbar/Navbar";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 import "./styles/global.scss";
 
@@ -28,9 +29,10 @@ const App = () => {
         <Route path="/event" element={<Events />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/setting" element={<Settings />} />
-        <Route path="/contact" element={<RoundGolf/>} />
+        <Route path="/roundgolf" element={<RoundGolf/>} />
         <Route path="/profile" element={<EditProfile/>} />
       </Routes>
+      <Footer/>
     </Router>
   )
 };

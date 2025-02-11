@@ -38,12 +38,14 @@ const CardVibe=({props})=>{
                         <BsEmojiSmileFill style={{color:"#DDDDDD"}}/>
                         <BsFillEmojiExpressionlessFill style={{color:"#DDDDDD"}} />
                         <BsFillEmojiFrownFill style={{color:"#DDDDDD"}}/>
-                        <HiEmojiSad style={{color:"#DDDDDD"}}/>
+                        <BsFillEmojiFrownFill style={{color:"#DDDDDD"}}/>
+                        <BsFillEmojiFrownFill style={{color:"#DDDDDD"}}/>
                         
 
 
                     </div>
             </div>
+           
 
         </div>
         </>

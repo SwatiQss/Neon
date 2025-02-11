@@ -1,15 +1,20 @@
 .footer{
-    background-color: black;
+    font-weight: 400 !important;
+    background-color: #222222;
     height: 50px;
-    color: #fff;
     font-size: 14px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    letter-spacing: 0.31px;
+    gap: 800px;
+color: #FFFFFF;
+font-size: 10px;
     .policy{
         
         display: flex;
         gap: 10px;
+        
     }
 
 }

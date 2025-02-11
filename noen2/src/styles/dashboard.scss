@@ -49,6 +49,12 @@
         margin-top: 10px;
         display: flex;
         flex-direction: column;
+        .Link-card {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit text color */
+            display: block; /* Make it behave like a div */
+          }
+          
        
         position: relative;
         .card-section{

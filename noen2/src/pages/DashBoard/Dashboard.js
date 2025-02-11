@@ -5,15 +5,14 @@ import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
-import { MdOutlineArrowCircleRight } from "react-icons/md";
-import { MdOutlineArrowCircleLeft } from "react-icons/md";
+import MapComponent from "../../components/MapComponent";
 import Understand from "../../components/RatingCards/Understand";
 import Smal from "../../components/Small";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { PiArrowCircleRightThin } from "react-icons/pi";
 import { useRef } from "react";
-import { FaGrinHearts } from "react-icons/fa";
-import { PiSmileyFill } from "react-icons/pi";
+import MapPopup from "../../components/MapPopUp";
+import { Link } from "react-router-dom";
 const imgarr = [img1, img2, img3];
 const imgarr2=[img1,img2,img3,img4,img5]
 
@@ -52,11 +51,13 @@ const Dashboard = () => {
       <p className="para0">We wish you to enjoy the activity and the weather.</p>
 
       <div className="Card-container">
-      <div className="card-section" ref={cardContainerRef}>
+     <Link to="/roundgolf" className="Link-card">
+     <div className="card-section" ref={cardContainerRef} >
         {imgarr.map((img, index) => (
           <Golf key={index} props={img} />
         ))}
       </div>
+     </Link>
      <div className="arrow">
      <PiArrowCircleLeftThin style={{color:"grey",fontSize:"48px"}}  onClick={scrollLeft} />
      <PiArrowCircleRightThin style={{color:"black",fontSize:"48px"}}  onClick={scrollRight} />
@@ -109,6 +110,7 @@ const Dashboard = () => {
      
      <div className="map">
      <p className="heading">Find events on map</p>
+     <MapComponent/>
      </div>
     </div>
   );
