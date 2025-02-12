@@ -1,16 +1,22 @@
 @import './variables';
 @import './mixins';
 @font-face {
-    font-family: 'CustomFont';
+    font-family: 'CustomFont2';
     src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CustomFont3';
+    src: url('../../public/assets/fonts/BrownMedium-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 .reviewcard{
     font-family: 'CustomFont',sans-serif;
     background-color: &Background-color;
-    width: 260px;
-    height: 200px;
+    width: 280px;
+    height: 240px;
     border: 1px solid #222;
     border-radius: 8px;
     padding: 5px;
@@ -21,11 +27,11 @@
         justify-items: start;
         padding: 6px;
         gap: 8px;
+        margin-left: 10px;
         .user{
             display: flex;
             gap: 8px;
-            font-size: 12px;
-            font-weight: 800;
+            font-size: 14px;
             padding: 8px;
             .user-img{
                 width: 36px;
@@ -34,11 +40,12 @@
                 border-radius: 100px;
             }
             .user-name{
+                font-family: 'CustomFont3',sans-serif;
                 padding: 6px;
             }
 
             .review-span{
-                font-size: 8px;
+                font-size: 10px;
                 color: #222;
                 opacity: 0.8;
             }
@@ -47,10 +54,14 @@
         }
 
         .reviewCard-para{
-            width: 220px;
-            line-height: 1rem;
-            font-size: 10px;
+            font-family: "CustomFont2",sans-serif;
+            width: 260px;
+            line-height: 20px;
+            font-size: 12px;
             color: #222222;
+            letter-spacing: 0.35px;
+color: #222222;
+opacity: 1;
             
         }  
 

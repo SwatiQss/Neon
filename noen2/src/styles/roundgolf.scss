@@ -17,8 +17,11 @@
     font-family: "CustomFont",sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 12px;
     margin-left: 120px;
+    .addReview{
+        margin-top: 20px;
+    }
     
     .round-heading{
         display: flex;
@@ -66,6 +69,10 @@
                     width: 300px;
                     background-image: url("../img//golf.jpg");
                     height: 250px;
+                    background-size: cover;
+                    background-position: top-right;
+                    background-repeat: no-repeat;
+                    border-radius: 8px  0px 8px 0px ;
                 }
              }
         }
@@ -85,22 +92,85 @@ color: #222222;
 margin-top: 40px;
 display: flex;
 flex-direction: column;
-gap: 50px;
+gap: 20px;
 
+.para-div{
+    font-family: "CustomFont2",sans-serif;
+    width: 650px;
+    font-size: 12px;
 
+  
+opacity: 1;
+    .para-div-2{
+        margin-top: 8px;
+        letter-spacing: 0.35px;
+color: #222222;
+opacity: 0.8;
+line-height: 18px;
+    }
+    .para-div-1{
+        margin-top: 8px;
+        letter-spacing: 0.35px;
+color: #222222;
+opacity: 0.8;
+line-height: 18px;
+
+    }
+    
+}
+
+.river-home{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 24px;
+    .river-home-star{
+        display: flex;
+        .span{
+            font-size: 12px;
+            margin-left: 6px;
+        }
+    }
+    .river-home-para{
+        font-family: 'CustomFont2',sans-serif;
+        margin-top: 8px;
+        letter-spacing: 0.35px;
+color: #222222;
+opacity: 0.8;
+line-height: 18px;
+font-size: 12px;
+width: 650px;
+
+    }
+}
 
 .helper-div{
+    font-family: 'CustomFont2',sans-serif;
+    letter-spacing: 0.4px;
+color: #222222;
+opacity: 1;
     display: flex;
     gap: 100px;
     .about-left{
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 14px;
     
         .about-left1{
+           
             display: flex;
-            gap: 10px;
+            gap: 8px;
             font-size: 14px;
+            .left-content{
+                .left-content-heading{
+                    font-family: 'CustomFont3',sans-serif;
+                }
+                .left-content-down{
+                    font-size: 12px;
+                    margin-top: 6px;
+                    
+                }
+            }
     
         }
     }
@@ -108,6 +178,26 @@ gap: 50px;
 }
 
 
+    }
+    .review-cards{
+        margin-right:18px ;
+        margin-top: 60px;
+display: flex;
+gap: 14px;
+    }
+
+    .recommed-section{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .recommed-section-heading{
+            font-size: 26px;
+        }
+        .card-section{
+            display: flex;
+            gap: 10px;
+        }
     }
 
 }
