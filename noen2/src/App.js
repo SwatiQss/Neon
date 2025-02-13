@@ -9,8 +9,20 @@ import Navbar from "./components/Navbar/Navbar";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
+import Reschedule from "./components/Reschedule";
+import Reschedulesure from "./components/Reschedulesure";
 
 import "./styles/global.scss";
+// const Modal = ({ prop, onClose }) => {
+//   if (!isOpen) return null;
+
+//   return (
+//     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      
+//      <Reschedulesure/>
+//     </div>
+//   );
+// };
 
 
 
@@ -33,6 +45,7 @@ const App = () => {
         <Route path="/profile" element={<EditProfile/>} />
       </Routes>
       <Footer/>
+      <Reschedulesure/>
     </Router>
   )
 };

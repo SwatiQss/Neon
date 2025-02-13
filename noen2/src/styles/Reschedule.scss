@@ -1,0 +1,62 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../../public/assets/fonts/IvyMode-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.reschedule{
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #222222;
+    width: 316px;
+    height: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
+    .reschedule-heading{
+        margin-left: 14px;
+        color:#EEFF00;
+        font-size: 18px;
+        letter-spacing: 0.79px;
+        font-weight: 600;
+        margin-top: 10px;
+        
+    }
+    .reschedule-para{
+        margin-left: 14px;
+        color: #ffffff;
+        font-family: 'CustomFont2',sans-serif;
+        font-size: 14px;
+        letter-spacing: 0.4px;
+        opacity: 0.9;
+        line-height: 20px;
+    }
+    .reschedule-end{
+        margin-top: 16px;
+        margin-left: 14px;
+        display: flex;
+        gap: 24px;
+            .reschedule-btn1{
+                background-color: #fff;
+                border-radius: 8px;
+                width: 108px;
+                height: 34px;
+                border: none;
+                color: #222222;
+
+            }
+            .reschedule-cancel{
+                color: #fff;
+                font-size: 10px;
+                margin-top: 10px;
+                text-decoration: underline;
+
+            }
+    }
+   
+}

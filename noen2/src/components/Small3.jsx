@@ -1,22 +1,17 @@
-import "../styles/Small.scss"
+import "../styles/Small3.scss"
 import { VscSmiley } from "react-icons/vsc";
 import { MdEmojiEmotions } from "react-icons/md";
-import { FaHeart } from "react-icons/fa";
 
-const Smal=({props})=>{
+const Small3=({props})=>{
     return (
         <>
         <div className="small-cards">
 
             <div className="img">
-            <div className="remove1">
-                <FaHeart style={{ color: "#222222"}}/>
-            </div>
-            <div className="remove2">
-                1
+            <div className="remove">
+                Remove
             </div>
                 <img src={props}></img>
-               
 
             </div>
             
@@ -41,4 +36,4 @@ const Smal=({props})=>{
         </>
     )
 }
-export default Smal;
+export default Small3;

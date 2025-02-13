@@ -17,39 +17,21 @@
         width: 220px;
         
      
-        .remove1{
+        .remove{
             position: absolute;
             z-index: 1000;
             padding: 4px;
             align-items: end;
-            margin-left: 160px;
+            margin-left: 140px;
+            background-color: #fff;
             border-radius: 20px;
-            font-size: 18px;
+            font-size: 12px;
             width: 60px;
             margin-top: 10px;
             justify-content: center;
+            color: #FF385C;
             display: flex;
             justify-content: center;
-           
-        }
-        .remove2{
-            position: absolute;
-            z-index: 1000;
-            padding: 4px;
-            align-items: end;
-            margin-left: 160px;
-            border-radius: 20px;
-            font-size: 60px;
-            width: 60px;
-            margin-top: 220px;
-            color: white;
-            font-weight: 1000;
-            justify-content: center;
-            display: flex;
-            justify-content: center;
-            font-stretch: expanded;
-            opacity: 0.8;
-           
         }
         img{
             position: relative;

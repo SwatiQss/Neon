@@ -1,9 +1,9 @@
-import "../styles/Small.scss"
+import "../styles/Small5.scss"
 import { VscSmiley } from "react-icons/vsc";
 import { MdEmojiEmotions } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 
-const Smal=({props})=>{
+const Small5=({props})=>{
     return (
         <>
         <div className="small-cards">
@@ -41,4 +41,4 @@ const Smal=({props})=>{
         </>
     )
 }
-export default Smal;
+export default Small5;

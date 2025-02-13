@@ -12,10 +12,13 @@ import Button1 from "../../components/Button1";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { PiArrowCircleRightThin } from "react-icons/pi";
 import Button2 from "../../components/Button2";
+import Small3 from "../../components/Small3";
+import Small5 from "../../components/Small5";
 const imgarr2=[img1,img2,img3,img4,img5]
 const heading="Explore the deep Sea";
 const date="from Nov 10 to 29, 2022";
 const para="10:30 AM -7:40 PM";
+
 
 const Favourite=()=>{
     return (
@@ -26,14 +29,14 @@ const Favourite=()=>{
         <div className="card-section">
   {
     imgarr2.map((img,index)=>(
-    <Smal key={index} props={img}/>
+    <Small3 key={index} props={img}/>
     ))
   }
      </div>
      <div className="card-section">
   {
     imgarr2.map((img,index)=>(
-    <Smal key={index} props={img} />
+    <Small3 key={index} props={img} />
     ))
   }
      </div>
@@ -57,7 +60,7 @@ const Favourite=()=>{
           <div className="card-section">
   {
     imgarr2.map((img,index)=>(
-    <Smal key={index} props={img}/>
+    <Small5 key={index} props={img}/>
     ))
   }
      </div>

@@ -9,7 +9,7 @@ import { IoMdStar } from "react-icons/io";
 import ReviewCard from "../../components/ReviewCard";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { PiArrowCircleRightThin } from "react-icons/pi";
-import Smal from "../../components/Small";
+import Small3 from "../../components/Small3";
 import img1 from "../../img/golf.jpg";
 import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
@@ -227,14 +227,14 @@ const RoundGolf = () => {
                         <div className="card-section">
                             {
                                 imgarr2.map((img, index) => (
-                                    <Smal key={index} props={img} />
+                                    <Small3 key={index} props={img} />
                                 ))
                             }
                         </div>
                         <div className="card-section">
                             {
                                 imgarr2.map((img, index) => (
-                                    <Smal key={index} props={img} />
+                                    <Small3  key={index} props={img} />
                                 ))
                             }
                         </div>
