@@ -1,0 +1,14 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('../../public/assets/fonts/BrownLight-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.img-section{
+    width: 1108px;
+    height: 413px;
+    background-color: white;
+}

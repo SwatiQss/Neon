@@ -12,6 +12,8 @@ import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { PiArrowCircleRightThin } from "react-icons/pi";
 import { useRef } from "react";
 import MapPopup from "../../components/MapPopUp";
+import Reschedulesure from "../../components/Reschedulesure";
+import Modal from "../../components/Modal";
 import { Link } from "react-router-dom";
 const imgarr = [img1, img2, img3];
 const imgarr2=[img1,img2,img3,img4,img5]
@@ -46,6 +48,8 @@ const Dashboard = () => {
   }
   return (
     <div className="dashboard">
+      <Modal/>
+      
       <p className="heading">Good morning Charlie!</p>
       <p className="para0">Below listed are your itineraries, have a look at timing and location.</p>
       <p className="para0">We wish you to enjoy the activity and the weather.</p>
@@ -81,7 +85,7 @@ const Dashboard = () => {
 
      </div>
       </div>
-     
+    
       <div className="Card-container">
 
       <p className="heading">Todays recommedations for you, charlie!</p>

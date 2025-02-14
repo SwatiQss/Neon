@@ -9,45 +9,32 @@ import Navbar from "./components/Navbar/Navbar";
 import EditProfile from "./pages/EditProfile/EditProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import Reschedule from "./components/Reschedule";
 import Reschedulesure from "./components/Reschedulesure";
-
-import "./styles/global.scss";
-// const Modal = ({ prop, onClose }) => {
-//   if (!isOpen) return null;
-
-//   return (
-//     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      
-//      <Reschedulesure/>
-//     </div>
-//   );
-// };
-
-
-
-//<Understand props={img2}/>
-
-
+import { Provider } from "react-redux";
+import ModalRescheduleNext from "./pages/ModalRescheduleNext";
+import { store } from "./redux/store";  // Make sure the path is correct
 
 const App = () => {
   return (
-    <Router>
-      <Navbar/>
-      <hr className='divider'/>
-      <Routes>
-        <Route path="/" element={<Dashboard/>} />
-        <Route path="/favourite" element={<Favourite />} />
-        <Route path="/event" element={<Events />} />
-        <Route path="/feedback" element={<Feedback />} />
-        <Route path="/setting" element={<Settings />} />
-        <Route path="/roundgolf" element={<RoundGolf/>} />
-        <Route path="/profile" element={<EditProfile/>} />
-      </Routes>
-      <Footer/>
-      <Reschedulesure/>
-    </Router>
-  )
+    <Provider store={store}> {/* Wrap everything inside Provider */}
+      <Router>
+        <Navbar />
+        <hr className="divider" />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/favourite" element={<Favourite />} />
+          <Route path="/event" element={<Events />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/setting" element={<Settings />} />
+          <Route path="/roundgolf" element={<RoundGolf />} />
+          <Route path="/profile" element={<EditProfile />} />
+          <Route path="/modalNext" element={<ModalRescheduleNext />} />
+        </Routes>
+        <Footer />
+        <Reschedulesure />
+      </Router>
+    </Provider>
+  );
 };
 
 export default App;
