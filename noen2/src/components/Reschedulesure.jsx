@@ -1,5 +1,6 @@
 import "../styles/Reschedulesure.scss"
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 
 import {closeModal} from "../redux/modalSlice";
@@ -23,9 +24,12 @@ Are you sure you want to reschedule this event
             </div>
 
 <div className="sure-end">
+    <NavLink to="/modalNext">
     <button className="sure-btn" >
         Yes, I'm sure
     </button>
+
+    </NavLink>
 <div className="thanks" onClick={()=>dispatch(closeModal())}>
     No thanks
 </div>

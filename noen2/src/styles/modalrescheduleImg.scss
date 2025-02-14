@@ -8,7 +8,66 @@
 }
 
 .img-section{
-    width: 1108px;
+
+    background-image:  url('../../public/assets/img/golf.jpg');
+            background-size: cover;
+            background-repeat:no-repeat ;
+            background: linear-gradient(circle, rgba(44, 39, 39, 0.8), rgba(0, 0, 0, 0));
+    width: 1160px;
     height: 413px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    .section-content-1{
+             font-family: 'CustomFont',sans-serif;
+             font-size: 34px;
+             margin-bottom: 5px;
+             font-weight: 600;
+             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+
+    }
+    .section-content-2{
+        font-size: 18px;
+        font-family: 'CustomFont2',sans-serif;
+        letter-spacing: 0.53px;
+color: #FFFFFF;
+opacity: 1;
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+    .section-content-3{
+        font-family: 'CustomFont2',sans-serif;
+        font-size: 18px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        .content3-one{
+
+            display: flex;
+            justify-content: center;
+        }
+        .content3-two{
+
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+    }
+
+    .section-content-4{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .section-4-btn{
+            background-color: #fff;
+            width: 118px;
+            height: 42px;
+            border: none;
+            border-radius: 10px;
+            color: #222222;
+        }
+    }
 }
