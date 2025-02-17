@@ -30,7 +30,7 @@ const Understand =({props,props2})=>{
                <div className="accept">
 
                 <button className="btn">
-                    Yes, I accept
+                    Yes, I would share
                 </button>
 
                 <p className="no">

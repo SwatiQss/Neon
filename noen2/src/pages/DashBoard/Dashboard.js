@@ -15,8 +15,13 @@ import MapPopup from "../../components/MapPopUp";
 import Reschedulesure from "../../components/Reschedulesure";
 import Modal from "../../components/Modal";
 import { Link } from "react-router-dom";
+import Events from "../../dummy/event"
+import ReviewModal from "../../components/ReviewModal";
+import ViboModal from "../../components/VibometerModel";
 const imgarr = [img1, img2, img3];
 const imgarr2=[img1,img2,img3,img4,img5]
+console.log(Events)
+
 
 
 const Dashboard = () => {
@@ -57,8 +62,8 @@ const Dashboard = () => {
       <div className="Card-container">
      <Link to="/roundgolf" className="Link-card">
      <div className="card-section" ref={cardContainerRef} >
-        {imgarr.map((img, index) => (
-          <Golf key={index} props={img} />
+        {Events.Events.map((event, index) => (
+          <Golf key={index} event={event} />
         ))}
       </div>
      </Link>
@@ -116,6 +121,8 @@ const Dashboard = () => {
      <p className="heading">Find events on map</p>
      <MapComponent/>
      </div>
+
+     <ViboModal/>
     </div>
   );
 };

@@ -1,74 +1,66 @@
-import "../../styles/Golf.scss"
+import "../../styles/Golf.scss";
 import { IoIosStar } from "react-icons/io";
 import { CiCalendar } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineAppstore } from "react-icons/ai";
-import { VscSmiley } from "react-icons/vsc";
 import { FaGrinHearts } from "react-icons/fa";
-const Golf = ({ props }) => {
+
+const Golf = ({ event }) => {
     return (
         <>
-            <div className="card" style={{backgroundImage:`url(${props})`}}>
+            <div className="card" style={{ backgroundImage: `url(${event.images[0].url})` }}>
                 <div className="sun-logo">
-                    <img className="img" src="/assets/img/Group 1151.svg"/>
-
+                    <img className="img" src="/assets/img/Group 1151.svg" alt="Logo" />
                 </div>
                 <div className="card-content">
                     <div className="head">
-                        <h3 className="heading">
-                            Round of Golf
-                        </h3>
+                        <h3 className="heading">{event.title}</h3>
                         <div className="rating">
                             <div className="star">
-                                <IoIosStar style={{ color: "#FF385C",fontSize:"13px" }} />
-                                <IoIosStar style={{ color: "#FF385C",fontSize:"13px" }} />
-                                <IoIosStar style={{ color: "#FF385C",fontSize:"13px" }} />
-                                <IoIosStar style={{ color: "#FF385C",fontSize:"13px" }} />
-                                <IoIosStar style={{ color: "#FF385C",fontSize:"13px" }} />
-                              
+                                {/* Display 5 stars */}
+                                {[...Array(5)].map((_, index) => (
+                                    <IoIosStar key={index} style={{ color: "#FF385C", fontSize: "13px" }} />
+                                ))}
                             </div>
-                            
-
                         </div>
-
                     </div>
                     <div className="para">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sequi alias architecto perferendis velit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam sequi alias architecto perferendis velit?</p>
-
+                        <p>{event.dis}</p>
                     </div>
 
                     <div className="address">
-
                         <div className="content">
-
-                            <span className="span"><CiCalendar style={{ color: "#FF385C" ,fontSize:"12px"}} /></span>Nov,24 9:30 AM-Nov,29 10:30 PM
+                            <span className="span">
+                                <CiCalendar style={{ color: "#FF385C", fontSize: "12px" }} />
+                            </span>
+                            {event.from} - {event.to}
                         </div>
                         <div className="content">
-
-                            <span className="span"><CiLocationOn style={{ color: "#FF385C",fontSize:"14px" }} /></span>Sandalh City
+                            <span className="span">
+                                <CiLocationOn style={{ color: "#FF385C", fontSize: "14px" }} />
+                            </span>
+                            {event.location}
                         </div>
                         <div className="content">
-
-                            <span className="span"><AiOutlineAppstore style={{ color: "#FF385C",fontSize:"14px" }} /></span>Golf
+                            <span className="span">
+                                <AiOutlineAppstore style={{ color: "#FF385C", fontSize: "14px" }} />
+                            </span>
+                            Golf
                         </div>
-
                     </div>
                     <div className="outer">
                         <div className="quote">
-                            <span className="span"><FaGrinHearts style={{ color: "#55BF3B",fontSize:"14px" }} /></span>Overhelemed vibes are coming here
-
+                            <span className="span">
+                                <FaGrinHearts style={{ color: "#55BF3B", fontSize: "14px" }} />
+                            </span>
+                            Overwhelmed vibes are coming here
                         </div>
-                        <div className="schedule">
-                            Scheduled
-
-                        </div>
-
+                        <div className="schedule">Scheduled</div>
                     </div>
                 </div>
-
             </div>
         </>
-    )
+    );
 }
 
 export default Golf;
