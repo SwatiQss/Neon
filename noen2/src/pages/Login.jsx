@@ -10,7 +10,7 @@ const Login = () => {
         email: '',
         contact: '',
         dob: new Date('1989-12-13').toISOString(),
-        password: '',
+        password: 'jhjkhjhjk',
         avatar_public_id: "wegwvqgve23727831",
         avatar_url: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80",
         created_at: "2025-02-18T10:19:28.790Z",
