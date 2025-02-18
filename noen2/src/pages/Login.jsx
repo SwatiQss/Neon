@@ -28,6 +28,7 @@ const Login = () => {
     const handleSubmit = () => {
      
         console.log(userData);
+        localStorage.setItem('user',userData);
         // Make the POST request to your backend API
         fetch('http://localhost:5000/api/profile', {
           method: 'POST',

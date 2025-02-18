@@ -16,6 +16,10 @@ import { store } from "./redux/store";  // Make sure the path is correct
 import Login from "./pages/Login";
 
 const App = () => {
+  const savedData=localStorage.getItem(user);
+  if(savedData){
+    const user=JSON.parse(savedData);
+  }
   return (
     <Provider store={store}> {/* Wrap everything inside Provider */}
       <Router>
