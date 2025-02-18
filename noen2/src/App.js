@@ -13,6 +13,7 @@ import Reschedulesure from "./components/Reschedulesure";
 import { Provider } from "react-redux";
 import ModalRescheduleNext from "./pages/ModalRescheduleNext";
 import { store } from "./redux/store";  // Make sure the path is correct
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -21,7 +22,7 @@ const App = () => {
         <Navbar />
         <hr className="divider" />
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Login />} />
           <Route path="/favourite" element={<Favourite />} />
           <Route path="/event" element={<Events />} />
           <Route path="/feedback" element={<Feedback />} />

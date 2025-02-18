@@ -1,9 +1,11 @@
 import "../../styles/Understand.scss"
 import { FaGrinHearts } from "react-icons/fa";
 import { PiSmileyFill } from "react-icons/pi";
-
+import { useDispatch } from "react-redux";
+import { openModal } from "../../redux/modalSlice";
 
 const Understand =({props,props2})=>{
+    const dispatch=useDispatch();
     return (
         <>
         <div className="cards">
@@ -29,7 +31,7 @@ const Understand =({props,props2})=>{
 
                <div className="accept">
 
-                <button className="btn">
+                <button className="btn" onClick={()=>dispatch(openModal())}>
                     Yes, I would share
                 </button>
 

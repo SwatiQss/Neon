@@ -16,6 +16,7 @@ import Reschedulesure from "../../components/Reschedulesure";
 import Modal from "../../components/Modal";
 import { Link } from "react-router-dom";
 import Events from "../../dummy/event"
+import ModalVibe from "../../components/ModalReview";
 import ReviewModal from "../../components/ReviewModal";
 import ViboModal from "../../components/VibometerModel";
 const imgarr = [img1, img2, img3];
@@ -80,7 +81,7 @@ const Dashboard = () => {
     {imgarr.map((img, index) => (
           <Understand key={index} props={img} />
         ))}
-   
+   <ViboModal/>
 
     </div>
     <div className="arrow">
@@ -122,7 +123,7 @@ const Dashboard = () => {
      <MapComponent/>
      </div>
 
-     <ViboModal/>
+     <ModalVibe/>
     </div>
   );
 };

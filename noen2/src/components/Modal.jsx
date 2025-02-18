@@ -3,9 +3,9 @@ import { closeModal } from "../redux/modalSlice";
 import Reschedulesure from "./Reschedulesure";
 import "../styles/modal.scss"
 const Modal = () => {
-  const dispatch = useDispatch();
+ 
   const isOpen = useSelector((state) => state.modal.isOpen);
-
+  
   if (!isOpen) return null; // Don't render if modal is closed
 
   return (
