@@ -16,17 +16,22 @@ import { store } from "./redux/store";  // Make sure the path is correct
 import Login from "./pages/Login";
 
 const App = () => {
-  const savedData=localStorage.getItem(user);
-  if(savedData){
-    const user=JSON.parse(savedData);
-  }
+  const savedData = sessionStorage.getItem('user');  // Check if user data exists in localStorage
+  console.log(savedData,"jjjjjjjjjjjjjjjjjjjj");  // Debugging purpose
+
   return (
     <Provider store={store}> {/* Wrap everything inside Provider */}
       <Router>
-        <Navbar />
+        {savedData &&(<Navbar/>)}
         <hr className="divider" />
         <Routes>
-          <Route path="/" element={<Login />} />
+          {savedData ? (
+            // If savedData exists (user is logged in), show the Dashboard route
+            <Route path="/" element={<Dashboard />} />
+          ) : (
+            // If savedData doesn't exist (user is not logged in), show the Login route
+            <Route path="/" element={<Login />} />
+          )}
           <Route path="/favourite" element={<Favourite />} />
           <Route path="/event" element={<Events />} />
           <Route path="/feedback" element={<Feedback />} />

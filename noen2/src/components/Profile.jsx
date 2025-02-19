@@ -6,6 +6,7 @@ import img3 from "../img/holiday_0.png";
 import img4 from "../img/island.jpg"
 import img5 from "../img/yoga.jpg"
 import MyCard from "./MyCard";
+import { useState,useEffect } from "react";
 const text1="Golf"
 const text2="Music"
 const text3="Rooms"
@@ -17,7 +18,18 @@ const imgarr1=[img1, img2, img3, img4, img5,img2];
 const imgarr2 = [img1, img2, img3,img4,img5]
 
 const Profile = ({ props }) => {
+    const [data,setData]=useState([]);
+    useEffect(()=>{
+        const saveData=sessionStorage.getItem('user');
+
+        if(saveData){
+            const user=JSON.parse(saveData);
+            setData(user);
+        }
+    },[])
     return (
+
+       
         <>
             <div className="profile">
                 <p className="heading"> Edit Charlie's Profile</p>
@@ -31,28 +43,28 @@ const Profile = ({ props }) => {
                             <p className="para">
                                 What should we call you?
                             </p>
-                            <input className="input" value="Charlie"></input>
+                            <input className="input" value={data.name}></input>
 
                         </div>
                         <div className="input-section">
                             <p className="para">
                                 What's your email address?
                             </p>
-                            <input className="input" style={{ backgroundColor: "#F5F5F5" }} value="charlie@gmail.com"></input>
+                            <input className="input" style={{ backgroundColor: "#F5F5F5" }} value={data.email}></input>
 
                         </div>
                         <div className="input-section">
                             <p className="para">
                                 On which number can we contact you?
                             </p>
-                            <input className="input" value="9231243434"></input>
+                            <input className="input" value={data.contact}></input>
 
                         </div>
                         <div className="input-section">
                             <p className="para">
                                 When can we wish a happy birthday?
                             </p>
-                            <input className="input" value="09 / 01 / 1979"></input>
+                            <input className="input" value={data.dob}></input>
 
                         </div>
                         <div className="card-section">
