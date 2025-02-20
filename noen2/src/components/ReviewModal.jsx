@@ -33,6 +33,10 @@ const Rating=({props})=>{
     )
 }
 const ReviewModal = () => {
+    const handleSubmit=()=>{
+        
+        
+    }
     const [value, setValue] = useState("");  // Initialize state to store the input value
     console.log("input", value);
 

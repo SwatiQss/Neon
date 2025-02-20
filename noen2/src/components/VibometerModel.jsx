@@ -2,6 +2,7 @@ import "../styles/vibemterModel.scss"
 
 
 const ViboModal=()=>{
+    
 
     return(
         <>

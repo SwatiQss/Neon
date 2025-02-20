@@ -4,7 +4,7 @@ import { PiSmileyFill } from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/modalSlice";
 
-const Understand =({props,props2})=>{
+const Understand =({props,desc,title})=>{
     const dispatch=useDispatch();
     return (
         <>
@@ -19,12 +19,12 @@ const Understand =({props,props2})=>{
             </div>
             <div className="content">
                <p className="heading">
-                Indulge in the Finest Epicurean Cuisines
+                {title}
                </p><span className="span">on Nov 17, 2022</span>
 
                <div className="para">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis totam at, culpa, mollitia praesentium cum sed debitis corporis illo neque ullam amet odio porro nihil ea. Quidem explicabo adipisci et.
+                   {desc}
                 </p>
 
                </div>
