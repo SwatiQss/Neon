@@ -1,87 +1,152 @@
 import "../styles/reviewModal.scss"
 import { CiStar } from "react-icons/ci";
 import { useState,useEffect } from "react";
+import { redirect, useNavigate } from "react-router-dom";
 
 
-const Rating=({props})=>{
-    const [number,setNumber]=useState(0);
-    
-    console.log(props,number);
+
+const Rating = ({ label, fieldName, setReviewData }) => {
+    const [number, setNumber] = useState(0);
+
+    // Function to handle the star color based on the rating
     const getStarColor = (starValue) => {
         return starValue <= number ? "#FFD700" : "#222222";  // Gold if star is part of rating, else dark
     };
 
-    
-    
-    return (
-        <>
-    <div className="rating-compo">
-        <div className="rating-name">
-            {props}
-        </div>
-       <div className="rating-star">
-      <CiStar style={{ color: getStarColor(1), fontSize: "24px" }} onClick={()=>{setNumber(1)}}/>
-      <CiStar style={{color:getStarColor(2),fontSize:"24px"}} onClick={()=>{setNumber(2)}}/>
-      <CiStar style={{color:getStarColor(3),fontSize:"24px"}} onClick={()=>{setNumber(3)}}/>
-      <CiStar style={{color:getStarColor(4),fontSize:"24px"}} onClick={()=>{setNumber(4)}}/>
-      <CiStar style={{color:getStarColor(5),fontSize:"24px"}} onClick={()=>{setNumber(5)}}/>
-
-       </div>
-
-    </div>
-    </>
-    )
-}
-const ReviewModal = () => {
-    const handleSubmit=()=>{
-        
-        
-    }
-    const [value, setValue] = useState("");  // Initialize state to store the input value
-    console.log("input", value);
+    const handleStarClick = (ratingValue) => {
+        setNumber(ratingValue); // Update local state for the star rating
+        setReviewData((prevData) => ({
+            ...prevData,
+            [fieldName]: ratingValue,  // Dynamically update the field in the reviewData state
+        }));
+    };
 
     return (
-        <>
-            <div className="reviewModal">
-                <div className="review-heading">
-                    Add a review
-                </div>
-
-                <div className="review-para">
-                    Hi Charlie, if you're on this page, we bet you enjoy this event fully. Would you like to share your feedback with us?
-                </div>
-
-                <div className="review-star1">
-                    <Rating props="Quality of Event" />
-                    <Rating props="Services at Event" />
-                </div>
-                <div className="review-star2">
-                    <Rating props="Operator of Event" />
-                    <Rating props="Facilities of Events" />
-                </div>
-                <div className="review-star3">
-                    <Rating props="Staff Politeness" />
-                </div>
-
-                <div className="comment-section">
-                    <input
-                        type="text"
-                        className="review-input"
-                        value={value}  // Make sure the value is correctly bound to state
-                        onChange={(e) => {
-                            e.preventDefault();
-                            setValue(e.target.value);  // Use e.target.value to get the input value
-                        }}
-                    />
-                </div>
-
-                <button className="review-btn">
-                    Submit
-                </button>
+        <div className="rating-compo">
+            <div className="rating-name">
+                {label}
             </div>
-        </>
+            <div className="rating-star">
+                {[1, 2, 3, 4, 5].map((starValue) => (
+                    <CiStar
+                        key={starValue}
+                        style={{ color: getStarColor(starValue), fontSize: "24px" }}
+                        onClick={() => handleStarClick(starValue)}
+                    />
+                ))}
+            </div>
+        </div>
     );
 };
 
+const ReviewModal = () => {
+    // Initialize idUse as 0
+    const [idUse, setIduse] = useState();
+  
+    // Set idUse when savedData is available, use useEffect to avoid infinite re-renders
+    useEffect(() => {
+      const savedData = sessionStorage.getItem('user');
+      console.log(savedData, "jjjjjjjjjjjjjj");
+      if (savedData) {
+        const user = JSON.parse(savedData);
+        setIduse(user.id);
+        console.log(user.id,"userrrrrrrrrrrrrrr")
+      }
+    }, []); 
+    
+    // Initialize reviewData with default values
+    const [reviewData, setReviewData] = useState({
+        id:1 ,
+        user_id: idUse, // Example value, replace with actual user ID
+        event_id: 1, // Example value, replace with actual event ID
+        quality_of_event: 0,
+        services_at_event: 0,
+        operator_of_event: 0,
+        facilities_of_events: 0,
+        staff_politeness: 0,
+        comment: "",
+        created_at: new Date(),
+        updated_at: new Date(),
+    });
+    useEffect(() => {
+        if (idUse !== 0) {
+          setReviewData((prevData) => ({
+            ...prevData,
+            user_id: idUse, // Update user_id with the new idUse value
+          }));
+        }
+      }, [idUse]);
+
+    // Handling the input change for the comment
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setReviewData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
+    const navigate =useNavigate();
+
+    // Submit the review data
+    const handleSubmit = () => {
+        console.log(reviewData);
+        fetch("http://localhost:5000/reviews/review", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(reviewData),
+        })
+            .then((response) => response.json())
+            
+            .then((data) => {
+                console.log(data);
+                navigate('/ViboModal')
+            })
+            .catch((error) => {
+                console.log("Error:", error);
+            });
+    };
+
+    return (
+        <div className="reviewModal">
+            <div className="review-heading">Add a review</div>
+
+            <div className="review-para">
+                Hi Charlie, if you're on this page, we bet you enjoy this event fully.
+                Would you like to share your feedback with us?
+            </div>
+
+            <div className="review-star1">
+                <Rating label="Quality of Event" fieldName="quality_of_event" setReviewData={setReviewData} />
+                <Rating label="Services at Event" fieldName="services_at_event" setReviewData={setReviewData} />
+            </div>
+            <div className="review-star2">
+                <Rating label="Operator of Event" fieldName="operator_of_event" setReviewData={setReviewData} />
+                <Rating label="Facilities of Event" fieldName="facilities_of_event" setReviewData={setReviewData} />
+            </div>
+            <div className="review-star3">
+                <Rating label="Staff Politeness" fieldName="staff_politeness" setReviewData={setReviewData} />
+            </div>
+
+            <div className="comment-section">
+                <input
+                    type="text"
+                    className="review-input"
+                    name="comment"
+                    value={reviewData.comment}
+                    onChange={handleInputChange}
+                    placeholder="Add your comment here"
+                />
+            </div>
+
+            <button className="review-btn" onClick={handleSubmit}>
+                Submit
+            </button>
+        </div>
+    );
+};
 
 export default ReviewModal;
+
+

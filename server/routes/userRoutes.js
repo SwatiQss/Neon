@@ -8,7 +8,7 @@ const userController = require('../controllers/userController');
 // Route to create a new user (POST)
 console.log("routess")
 //router.get('/users', userController.getUser);
-router.post('api/profile', userController.createUser);
+router.post('/profile', userController.createUser);
 
 
 

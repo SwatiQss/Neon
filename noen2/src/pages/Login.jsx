@@ -5,7 +5,7 @@ import { useState } from "react";
 const Login = () => {
     // Initializing state with default values
     const [userData, setUserData] = useState({
-        id: 90,
+        id: 22,
         name: '',
         email: '',
         contact: '',
@@ -30,7 +30,7 @@ const Login = () => {
         console.log(userData);
         sessionStorage.setItem('user',JSON.stringify(userData));
         // Make the POST request to your backend API
-        fetch('http://localhost:5000/api/profile', {
+        fetch('http://localhost:5000/profile', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

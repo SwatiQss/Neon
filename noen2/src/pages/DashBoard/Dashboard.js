@@ -50,23 +50,6 @@ const Dashboard = () => {
     }
   }
   const [events2, setEvents2] = useState([]);
-  const [userId,setuserId]=useState(0);
-  const [review, setReview] = useState(
-    {
-            id:1,
-            user_id:'',
-            event_id:'',
-            quality_of_event:'',
-            services_at_event:'',
-            operator_of_event:'',
-            facilities_of_events:'',
-            staff_politeness:'',
-            comment:' ',
-            created_at: "2025-02-18T10:19:28.790Z",
-        updated_at: "2025-02-18T10:19:28.790Z",
-
-    }
-  );
 
 
   useEffect(() => {

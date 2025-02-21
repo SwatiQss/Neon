@@ -12,7 +12,8 @@ import Footer from "./components/Footer";
 import Reschedulesure from "./components/Reschedulesure";
 import { Provider } from "react-redux";
 import ModalRescheduleNext from "./pages/ModalRescheduleNext";
-import { store } from "./redux/store";  // Make sure the path is correct
+import { store } from "./redux/store";  
+import ViboModal  from "./components/VibometerModel";// Make sure the path is correct
 import Login from "./pages/Login";
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/setting" element={<Settings />} />
           <Route path="/roundgolf" element={<RoundGolf />} />
           <Route path="/profile" element={<EditProfile />} />
+          <Route path="/viboModal" element={<ViboModal />} />
           <Route path="/modalNext" element={<ModalRescheduleNext />} />
         </Routes>
         <Footer />
