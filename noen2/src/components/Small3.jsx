@@ -2,7 +2,7 @@ import "../styles/Small3.scss"
 import { VscSmiley } from "react-icons/vsc";
 import { MdEmojiEmotions } from "react-icons/md";
 
-const Small3=({props})=>{
+const Small3=({props,title,catName,index,category_id,saved_status})=>{
     return (
         <>
         <div className="small-cards">

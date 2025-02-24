@@ -14,6 +14,7 @@ import { PiArrowCircleRightThin } from "react-icons/pi";
 import Button2 from "../../components/Button2";
 import Small3 from "../../components/Small3";
 import Small5 from "../../components/Small5";
+import { useEffect, useState } from "react";
 const imgarr2=[img1,img2,img3,img4,img5]
 const heading="Explore the deep Sea";
 const date="from Nov 10 to 29, 2022";
@@ -21,6 +22,14 @@ const para="10:30 AM -7:40 PM";
 
 
 const Favourite=()=>{
+  const[favourite,setFavourite]=useState([]);
+  useEffect(()=>{
+    fetch('http://localhost:5000/categories/favourite')
+    .then(response=>response.json())
+    .then(data=>setFavourite(data))
+    .catch(error=>console.error('Error',error));
+  },[]);
+    console.log(favourite,"favvvvvvvvvvvv");
     return (
         <>
         <div className="favourite">
@@ -28,8 +37,8 @@ const Favourite=()=>{
         <p className="para">You have shortlisted 8 events to join later.</p>
         <div className="card-section">
   {
-    imgarr2.map((img,index)=>(
-    <Small3 key={index} props={img}/>
+    favourite.map((arr,index)=>(
+    <Small3 key={index} props={arr.img} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status} />
     ))
   }
      </div>
