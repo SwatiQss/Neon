@@ -45,6 +45,38 @@ function () {
         }
       }, null, null, [[1, 8]]);
     }
+  }, {
+    key: "updateStatus",
+    value: function updateStatus(category_id, newStatus) {
+      var sql, values, result;
+      return regeneratorRuntime.async(function updateStatus$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              sql = 'UPDATE category SET saved_status=$1 WHERE category_id=$2 RETURNING *';
+              values = [newStatus, category_id];
+              _context2.prev = 2;
+              console.log("UPDATE IN MODEL");
+              _context2.next = 6;
+              return regeneratorRuntime.awrap(pool.query(sql, values));
+
+            case 6:
+              result = _context2.sent;
+              return _context2.abrupt("return", result.rows[0]);
+
+            case 10:
+              _context2.prev = 10;
+              _context2.t0 = _context2["catch"](2);
+              console.error('Error updating category status', _context2.t0);
+              throw new Error('failed to update category status');
+
+            case 14:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, null, null, [[2, 10]]);
+    }
   }]);
 
   return Category;

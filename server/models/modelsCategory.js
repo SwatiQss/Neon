@@ -13,7 +13,21 @@ class Category{
             throw new Error(`Error fetching Catagories:${err.message}`)
         }
     }
-
+    
+    static async updateStatus(category_id, newStatus) {
+        const sql = 'UPDATE category SET saved_status=$1 WHERE category_id=$2 RETURNING *';
+        const values = [newStatus, category_id];
+    
+        try {
+            console.log("UPDATE IN MODEL");
+            const result = await pool.query(sql, values);
+            return result.rows[0];
+        } catch (err) {
+            console.error('Error updating category status', err);
+            throw new Error('failed to update category status');
+        }
+    }
+    
 }
 
 module.exports=Category;

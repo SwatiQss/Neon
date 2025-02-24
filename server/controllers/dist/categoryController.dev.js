@@ -31,3 +31,53 @@ exports.getCategory = function _callee(req, res) {
     }
   }, null, null, [[0, 7]]);
 };
+
+exports.updateStatus = function _callee2(req, res) {
+  var category_id, active, updatedCategory;
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          category_id = req.params.id; //category id from the url
+
+          active = req.body.active;
+          _context2.prev = 2;
+          _context2.next = 5;
+          return regeneratorRuntime.awrap(Category.updateStatus(category_id, active));
+
+        case 5:
+          updatedCategory = _context2.sent;
+
+          if (!updatedCategory) {
+            _context2.next = 10;
+            break;
+          }
+
+          return _context2.abrupt("return", res.json({
+            updateStatus: updatedCategory.saved_status
+          }));
+
+        case 10:
+          return _context2.abrupt("return", res.status(404).json({
+            error: 'category not found'
+          }));
+
+        case 11:
+          _context2.next = 17;
+          break;
+
+        case 13:
+          _context2.prev = 13;
+          _context2.t0 = _context2["catch"](2);
+          console.error('Errror updatign category', _context2.t0);
+          res.status(500).json({
+            error: 'failed to update category status'
+          });
+
+        case 17:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, null, null, [[2, 13]]);
+};

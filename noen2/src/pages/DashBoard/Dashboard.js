@@ -123,7 +123,9 @@ console.log(category,"categoryyyyyyyyyyyyyyyy")
         <div className="card-section">
           {
            category.map((arr, index) => (
-            <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name} />
+            
+          
+            <Smal key={index} index={index+1} props={arr.img} title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status} />
           ))
           }
         </div>
@@ -136,7 +138,7 @@ console.log(category,"categoryyyyyyyyyyyyyyyy")
         <div className="card-section">
           {
             category.map((arr, index) => (
-              <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name} />
+              <Smal key={index} props={arr.img} index={index+1} title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status}/>
             ))
           }
         </div>
