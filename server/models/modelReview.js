@@ -1,23 +1,23 @@
-const pool=require('../db');
+const pool = require('../db');
 
-class Review{
-    static async getReview(){
-        const sql='SELECT * FROM reviews';
-        try{
-            const result=await pool.query(sql);
+class Review {
+    // Method to get reviews from the database
+    static async getReview() {
+        const sql = 'SELECT * FROM reviews';
+        try {
+            const result = await pool.query(sql);
             return result.rows;
-        }
-        catch(err){
-            console.error('Error fetching reviews:',err);
-            throw new Error('Error fetching reviews:', err.message);
-
-
+        } catch (err) {
+            console.error('Error fetching reviews:', err);
+            throw new Error(`Error fetching reviews: ${err.message}`);
         }
     }
+
+    // Method to create a review
     static async createReview(
         id,
-        user_id, // Example value, replace with actual user ID
-        event_id, // Example value, replace with actual event ID
+        user_id,
+        event_id,
         quality_of_event,
         services_at_event,
         operator_of_event,
@@ -26,28 +26,30 @@ class Review{
         comment,
         created_at,
         updated_at
+    ) {
+        // Validate the required fields
+        if (!id || !user_id || !event_id || !quality_of_event || !services_at_event || !operator_of_event || !facilities_of_events || !staff_politeness || !comment || !created_at || !updated_at) {
+            throw new Error("Missing required fields to create a review");
+        }
 
-    ){
-        const sql=`
-        INSERT INTO reviews (id,user_id,event_id,quality_of_event,services_at_event,operator_of_event,facilities_of_events,staff_politeness,comment,created_at,updated_at)
-        VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)
-        
+        // SQL query to insert a new review
+        const sql = `
+        INSERT INTO reviews (id, user_id, event_id, quality_of_event, services_at_event, operator_of_event, facilities_of_events, staff_politeness, comment, created_at, updated_at)
+        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+        RETURNING *  -- This will return the inserted row
         `;
 
-        const values=[id,user_id,event_id,quality_of_event,services_at_event,operator_of_event,facilities_of_events,staff_politeness,comment,created_at,updated_at]
-        try{
-             const result=await pool.query(sql,values);
+        const values = [id, user_id, event_id, quality_of_event, services_at_event, operator_of_event, facilities_of_events, staff_politeness, comment, created_at, updated_at];
 
-             return result.rows[0].id
-        }
-        catch(err){
-            console.error('Error inserting user:',err);
-            throw new Error('Error creating reviews',err);
-
+        try {
+            const result = await pool.query(sql, values);
+            // Returning the inserted review data
+            return result.rows[0];  // This will contain the newly created review data
+        } catch (err) {
+            console.error('Error inserting review:', err);
+            throw new Error(`Error creating review: ${err.message}`);
         }
     }
-
-    
 }
 
-module.exports= Review;
+module.exports = Review;

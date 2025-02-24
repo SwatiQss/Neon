@@ -59,6 +59,17 @@ const Dashboard = () => {
       .catch(error => console.error('Error:', error));
   }, []);
 
+  
+  const[category,setCategory]=useState([]);
+  useEffect(()=>{
+    fetch('http://localhost:5000/categories/category')
+    .then(response=>response.json())
+    .then(data=>setCategory(data))
+
+    .catch(error=>console.error('Error:',error))
+    
+},[])
+console.log(category,"categoryyyyyyyyyyyyyyyy")
 
 
   return (
@@ -91,7 +102,7 @@ const Dashboard = () => {
 
           {
             events2.map((arr, index) => (
-              <Understand key={index} props={arr.img} title={arr.title} desc={arr.description} />
+              <Understand key={index} id={arr.id} props={arr.img} title={arr.title} desc={arr.description} />
 
             ))
           }
@@ -111,9 +122,9 @@ const Dashboard = () => {
         <p className="heading">Todays recommedations for you, charlie!</p>
         <div className="card-section">
           {
-            imgarr2.map((img, index) => (
-              <Smal key={index} props={img} />
-            ))
+           category.map((arr, index) => (
+            <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name} />
+          ))
           }
         </div>
       </div>
@@ -124,8 +135,8 @@ const Dashboard = () => {
         <p className="heading">Charlie, here is your master journey with us so far</p>
         <div className="card-section">
           {
-            imgarr2.map((img, index) => (
-              <Smal key={index} props={img} />
+            category.map((arr, index) => (
+              <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name} />
             ))
           }
         </div>

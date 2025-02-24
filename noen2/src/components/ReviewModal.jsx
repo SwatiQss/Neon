@@ -42,15 +42,22 @@ const Rating = ({ label, fieldName, setReviewData }) => {
 const ReviewModal = () => {
     // Initialize idUse as 0
     const [idUse, setIduse] = useState();
+    const[eventId,setEventId]=useState(0);
   
     // Set idUse when savedData is available, use useEffect to avoid infinite re-renders
     useEffect(() => {
       const savedData = sessionStorage.getItem('user');
+      const savedId=sessionStorage.getItem('eventId');
       console.log(savedData, "jjjjjjjjjjjjjj");
       if (savedData) {
         const user = JSON.parse(savedData);
         setIduse(user.id);
         console.log(user.id,"userrrrrrrrrrrrrrr")
+      }
+      if(savedId){
+        console.log(savedId);
+        setEventId(parseInt(savedId));
+        console.log(eventId,"eventttttttttttttttttttt");
       }
     }, []); 
     
@@ -58,7 +65,7 @@ const ReviewModal = () => {
     const [reviewData, setReviewData] = useState({
         id:1 ,
         user_id: idUse, // Example value, replace with actual user ID
-        event_id: 1, // Example value, replace with actual event ID
+        event_id: eventId, // Example value, replace with actual event ID
         quality_of_event: 0,
         services_at_event: 0,
         operator_of_event: 0,
@@ -75,7 +82,13 @@ const ReviewModal = () => {
             user_id: idUse, // Update user_id with the new idUse value
           }));
         }
-      }, [idUse]);
+        if (eventId !== 0) {
+            setReviewData((prevData) => ({
+              ...prevData,
+              event_id: eventId, // Update user_id with the new idUse value
+            }));
+          }
+      }, [idUse,eventId]);
 
     // Handling the input change for the comment
     const handleInputChange = (e) => {

@@ -4,8 +4,13 @@ import { PiSmileyFill } from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/modalSlice";
 
-const Understand =({props,desc,title})=>{
+const Understand =({props,desc,title,id})=>{
+  
     const dispatch=useDispatch();
+    const handleClick=()=>{
+        dispatch(openModal())
+        sessionStorage.setItem('eventId',id);
+    }
     return (
         <>
         <div className="cards">
@@ -31,7 +36,7 @@ const Understand =({props,desc,title})=>{
 
                <div className="accept">
 
-                <button className="btn" onClick={()=>dispatch(openModal())}>
+                <button className="btn" onClick={handleClick}>
                     Yes, I would share
                 </button>
 

@@ -30,16 +30,16 @@ var eventRoutes = require('./routes/eventRoutes');
 
 var userRoutes = require('./routes/userRoutes');
 
+var catagoryRoutes = require('./routes/categoryRoutes');
+
 var reviewRoutes = require('./routes/reviewRoutes'); // Use routes with correct prefixes
 
 
 app.use('/', userRoutes); // Add '/api' for user routes
 
 app.use('/event', eventRoutes);
-app.use('/reviews', reviewRoutes); // Prefix for event routes
-// Uncomment this line if you want to enable review routes later
-// app.use('/review', reviewRoutes);
-// Starting the server
+app.use('/reviews', reviewRoutes);
+app.use('/categories', catagoryRoutes); // Starting the server
 
 var PORT = 5000;
 app.listen(PORT, function () {
