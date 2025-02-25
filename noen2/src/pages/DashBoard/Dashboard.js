@@ -58,6 +58,8 @@ const Dashboard = () => {
       .then(data => setEvents2(data))
       .catch(error => console.error('Error:', error));
   }, []);
+  sessionStorage.setItem('events',JSON.stringify(events2));
+  console.log(events2,"0000000000")
 
   
   const[category,setCategory]=useState([]);

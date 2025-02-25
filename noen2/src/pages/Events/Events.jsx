@@ -9,10 +9,27 @@ import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
 import Button3 from "../../components/Button3";
 import Button4 from "../../components/Button4";
+import { useEffect, useState } from "react";
 const imgarr2=[img1,img2,img3,img4,img5]
 
 
 const Events=()=>{
+    const [changeFilter,setChangeFilter]=useState(null);
+    const handleDataChild=(data)=>{
+        console.log(data,"urrrrr");
+        setChangeFilter(data);
+
+
+    }
+    const [filtered,setFiltered]=useState([
+        
+    ]);
+    useEffect(()=>{
+        const savedData=sessionStorage.getItem("filtered");
+        const event=JSON.parse(savedData);
+        setFiltered(event);
+    },[changeFilter])
+
     return (
         <>
 <div className="events">
@@ -27,7 +44,7 @@ const Events=()=>{
         </div>
         <div className="down">
             <div className="btn1">
-                <Button1/>
+                <Button1 sendDataParent={handleDataChild}/>
 
             </div>
             <div className="btn2">
@@ -122,25 +139,25 @@ const Events=()=>{
 </div>
 
 <div className="card-section">
-  {
-    imgarr2.map((img,index)=>(
-    <Smal key={index} props={img} />
+  {filtered &&
+    filtered.map((arr,index)=>(
+    <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name}  />
     ))
   }
      </div>
 
      <div className="card-section">
-  {
-    imgarr2.map((img,index)=>(
-    <Smal key={index} props={img} />
-    ))
+  {filtered&&
+     filtered.map((arr,index)=>(
+        <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name}  />
+        ))
   }
      </div>
      <div className="card-section">
-  {
-    imgarr2.map((img,index)=>(
-    <Smal key={index} props={img} />
-    ))
+  {filtered&&
+    filtered.map((arr,index)=>(
+        <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name}  />
+        ))
   }
      </div>
 
