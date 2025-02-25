@@ -1,4 +1,5 @@
 const Category=require('../models/modelsCategory')
+const Favourite=require('../models/modelFavourite')
 
 exports.getCategory=async(req,res)=>{
     try{
@@ -9,6 +10,20 @@ exports.getCategory=async(req,res)=>{
         throw new Error('Error fetching event',err.message)
     }
 
+}
+
+exports.getFavourite=async(req,res)=>{
+    try{
+        const favourite=await Favourite.getFavourite();
+        res.json(favourite);
+        console.log("getting favourite");
+
+    }
+    catch(err){
+        console.error('Error fetching category',err);
+        throw new Error('Error fetching event,arr.message')
+
+    }
 }
 exports.updateStatus=async(req,res)=>{
     const category_id=req.params.id;//category id from the url

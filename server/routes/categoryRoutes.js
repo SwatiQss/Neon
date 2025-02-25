@@ -7,5 +7,6 @@ console.log("category");
 router.get('/category',categoryController.getCategory);
 console.log("1");
 router.patch('/category/:id/toggle',categoryController.updateStatus)
+router.get('/favourite',categoryController.getFavourite);
 console.log("2");
 module.exports=router;
