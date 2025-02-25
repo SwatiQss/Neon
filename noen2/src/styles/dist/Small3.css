@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("../../public/assets/fonts/IvyMode-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+.small-cards {
+  font-family: "CustomFont", sans-serif;
+  width: 220px;
+  background-color: linear-gradient(0 0 0 #222222);
+}
+.small-cards .img {
+  width: 220px;
+}
+.small-cards .img .remove {
+  position: absolute;
+  z-index: 1000;
+  padding: 4px;
+  align-items: end;
+  margin-left: 140px;
+  background-color: #fff;
+  border-radius: 20px;
+  font-size: 12px;
+  width: 60px;
+  margin-top: 10px;
+  justify-content: center;
+  color: #FF385C;
+  display: flex;
+  justify-content: center;
+}
+.small-cards .img .remove:hover {
+  cursor: pointer;
+}
+.small-cards .img img {
+  position: relative;
+  width: 220px;
+  height: 300px;
+  border-radius: 10px;
+}
+.small-cards .content .heading {
+  display: flex;
+  font-size: 10px;
+  gap: 6px;
+  justify-content: space-around;
+}
+.small-cards .content .heading .left {
+  font-weight: 600;
+  letter-spacing: 0.31;
+  display: flex;
+  gap: 6px;
+  margin-right: 40px;
+}
+.small-cards .content .heading .right {
+  color: #222;
+}
+.small-cards .content .mid {
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.5rem;
+}
+.small-cards .content .last {
+  font-size: 10px;
+  font-weight: 500;
+  margin-left: 10px;
+  margin-block-start: 0.5rem;
+  margin-block-end: 0.5rem;
+}

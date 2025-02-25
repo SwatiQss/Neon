@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("../../public/assets/fonts/IvyMode-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.events {
+  position: relative;
+  padding-left: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: "CustomFont", sans-serif;
+}
+.events .heading {
+  margin-top: 20px;
+  font-size: 28px;
+}
+.events .para {
+  display: block;
+  margin-block-start: 0.2rem;
+  color: #222222;
+  letter-spacing: 0.79px;
+}
+.events .btns {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #222222;
+}
+.events .btns .upper {
+  display: flex;
+  gap: 20px;
+}
+.events .btns .upper .left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.events .btns .upper .left .up {
+  font-size: 12px;
+}
+.events .btns .upper .left .down {
+  display: flex;
+  gap: 6px;
+}
+.events .btns .upper .mid1 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.events .btns .upper .mid1 .up {
+  font-size: 12px;
+}
+.events .btns .upper .mid1 .down {
+  display: flex;
+  gap: 6px;
+}
+.events .btns .upper .mid2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.events .btns .upper .mid2 .down {
+  display: block;
+  margin-block-start: 2.5rem;
+}
+.events .btns .upper .right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.events .btns .upper .right .down {
+  display: block;
+  margin-block-start: 2.5rem;
+}
+.events .btns .down2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.events .btns .down2 .up {
+  font-size: 12px;
+}
+.events .btns .down2 .down {
+  display: flex;
+  gap: 6px;
+}
+.events .card-section {
+  margin-top: 40px;
+  display: flex;
+  gap: 10px;
+  padding: 6px;
+}
+.events .btn5 {
+  background-color: #222222;
+  border: none;
+  border-radius: 8px;
+  width: 100px;
+  height: 34px;
+  padding: 10px;
+  color: #F9F7F2;
+  font-size: 12px;
+  margin-left: 500px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.react-datepicker {
+  display: block;
+  margin-block-start: 0.4rem;
+  z-index: 1000;
+  position: absolute;
+}

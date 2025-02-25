@@ -32,6 +32,10 @@
             color: #FF385C;
             display: flex;
             justify-content: center;
+            &:hover{
+                cursor: pointer;
+                
+            }
         }
         img{
             position: relative;
