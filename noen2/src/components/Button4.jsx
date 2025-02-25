@@ -1,7 +1,8 @@
 import { FaBell } from "react-icons/fa";
 import "../styles/btn4.scss"
 import { CiCalendar } from "react-icons/ci";
-const Button4=({props})=>{
+const Button4=({props,handleFunction})=>{
+    
     return(
         <>
         <button className="btn" >

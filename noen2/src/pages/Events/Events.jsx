@@ -14,6 +14,7 @@ const imgarr2=[img1,img2,img3,img4,img5]
 
 
 const Events=()=>{
+    const[selecCategory,setSelectCategory] =useState(null);
     const [changeFilter,setChangeFilter]=useState(null);
     const handleDataChild=(data)=>{
         console.log(data,"urrrrr");
@@ -29,6 +30,8 @@ const Events=()=>{
         const event=JSON.parse(savedData);
         setFiltered(event);
     },[changeFilter])
+
+    
 
     return (
         <>
