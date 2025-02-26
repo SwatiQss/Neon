@@ -24,7 +24,7 @@ function () {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              sql = 'SELECT * FROM reviews';
+              sql = 'SELECT r.id, r.comment, r.experience, e.title FROM reviews r JOIN events e ON r.event_id=e.id';
               _context.prev = 1;
               _context.next = 4;
               return regeneratorRuntime.awrap(pool.query(sql));

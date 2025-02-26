@@ -5,16 +5,16 @@ import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { FaGrinHearts } from "react-icons/fa";
 
-const Golf = ({ event }) => {
+const Golf = ({ event,img,title,descrp,cat,location }) => {
     return (
         <>
-            <div className="card" style={{ backgroundImage: `url(${event.images[0].url})` }}>
+            <div className="card" style={{ backgroundImage: `url(${img}})` }}>
                 <div className="sun-logo">
                     <img className="img" src="/assets/img/Group 1151.svg" alt="Logo" />
                 </div>
                 <div className="card-content">
                     <div className="head">
-                        <h3 className="heading">{event.title}</h3>
+                        <h3 className="heading">{title}</h3>
                         <div className="rating">
                             <div className="star">
                                 {/* Display 5 stars */}
@@ -25,7 +25,7 @@ const Golf = ({ event }) => {
                         </div>
                     </div>
                     <div className="para">
-                        <p>{event.dis}</p>
+                        <p>{descrp}</p>
                     </div>
 
                     <div className="address">
@@ -33,19 +33,19 @@ const Golf = ({ event }) => {
                             <span className="span">
                                 <CiCalendar style={{ color: "#FF385C", fontSize: "12px" }} />
                             </span>
-                            {event.from} - {event.to}
+                            from- to
                         </div>
                         <div className="content">
                             <span className="span">
                                 <CiLocationOn style={{ color: "#FF385C", fontSize: "14px" }} />
                             </span>
-                            {event.location}
+                            {location}
                         </div>
                         <div className="content">
                             <span className="span">
                                 <AiOutlineAppstore style={{ color: "#FF385C", fontSize: "14px" }} />
                             </span>
-                            Golf
+                            {cat}
                         </div>
                     </div>
                     <div className="outer">

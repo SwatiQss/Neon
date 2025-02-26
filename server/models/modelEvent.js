@@ -5,7 +5,10 @@ class Event {
 
     //Method to get users
     static async getEvent(){
-        const sql=`SELECT * FROM events`
+        const sql=`SELECT e.*, c.category_name
+FROM events e
+JOIN category c ON e.id = c.event_id;
+`
 try{
     const result=await pool.query(sql)
     return result.rows;

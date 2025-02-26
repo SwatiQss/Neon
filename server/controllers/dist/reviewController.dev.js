@@ -90,3 +90,33 @@ exports.createReview = function _callee(req, res) {
     }
   }, null, null, [[12, 19]]);
 };
+
+exports.getReview = function _callee2(req, res) {
+  var review;
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          _context2.prev = 0;
+          _context2.next = 3;
+          return regeneratorRuntime.awrap(Review.getReview());
+
+        case 3:
+          review = _context2.sent;
+          res.json(review);
+          _context2.next = 11;
+          break;
+
+        case 7:
+          _context2.prev = 7;
+          _context2.t0 = _context2["catch"](0);
+          console.error('Error fetching reviews:', _context2.t0);
+          throw new Error('Error fetching reviews:' + _context2.t0.message);
+
+        case 11:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, null, null, [[0, 7]]);
+};

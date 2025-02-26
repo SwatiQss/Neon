@@ -58,3 +58,13 @@ exports.createReview = async (req, res) => {
         res.status(500).json({ message: 'Failed to create review', error: err.message });
     }
 };
+exports.getReview=async(req,res)=>{
+    try{
+        const review=await Review.getReview();
+        res.json(review)
+    }catch(err){
+        console.error('Error fetching reviews:',err);
+        throw new Error('Error fetching reviews:'+err.message);
+
+    }
+}

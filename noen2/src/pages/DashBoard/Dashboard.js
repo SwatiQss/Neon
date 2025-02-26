@@ -73,20 +73,29 @@ const Dashboard = () => {
 },[])
 console.log(category,"categoryyyyyyyyyyyyyyyy")
 
+const [name,setName]=useState("");
+useEffect(() => {
+  const savedData = sessionStorage.getItem('user');
+  if (savedData) {
+    const user = JSON.parse(savedData);
+  setName(user.name); // Set the first letter of user's name
+  }
+}, []);
+
 
   return (
     <div className="dashboard">
       <Modal />
 
-      <p className="heading">Good morning Charlie!</p>
+      <p className="heading">Good morning {name}!</p>
       <p className="para0">Below listed are your itineraries, have a look at timing and location.</p>
       <p className="para0">We wish you to enjoy the activity and the weather.</p>
 
       <div className="Card-container">
         <Link to="/roundgolf" className="Link-card">
           <div className="card-section" ref={cardContainerRef} >
-            {Events.Events.map((event, index) => (
-              <Golf key={index} event={event} />
+            {events2.map((arr, index) => (
+              <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category}/>
             ))}
           </div>
         </Link>
@@ -98,7 +107,7 @@ console.log(category,"categoryyyyyyyyyyyyyyyy")
         </div>
       </div>
       <div className="Card-container">
-        <p className="heading">Charlie, hope we understand you better</p>
+        <p className="heading">{name}, hope we understand you better</p>
         <div className="card-section" ref={cardContainerRef2}>
 
 
@@ -121,7 +130,7 @@ console.log(category,"categoryyyyyyyyyyyyyyyy")
 
       <div className="Card-container">
 
-        <p className="heading">Todays recommedations for you, charlie!</p>
+        <p className="heading">Todays recommedations for you, {name}!</p>
         <div className="card-section">
           {
            category.map((arr, index) => (
@@ -136,7 +145,7 @@ console.log(category,"categoryyyyyyyyyyyyyyyy")
 
 
       <div className="Card-container">
-        <p className="heading">Charlie, here is your master journey with us so far</p>
+        <p className="heading">{name}, here is your master journey with us so far</p>
         <div className="card-section">
           {
             category.map((arr, index) => (

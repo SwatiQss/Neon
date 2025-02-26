@@ -5,7 +5,7 @@ import { BsFillEmojiExpressionlessFill } from "react-icons/bs";
 import { BsFillEmojiFrownFill } from "react-icons/bs";
 import { HiEmojiSad } from "react-icons/hi";
 
-const CardVibe=({props})=>{
+const CardVibe=({props,title,comment,})=>{
     return (
         <>
         <div className="Vibe-card">
@@ -23,12 +23,11 @@ const CardVibe=({props})=>{
                     </div>
                     <div className="cardvibe-content">
                         <div className="cardvibe-heading">
-                            Great eperience!
+                            {title}
 
                         </div>
                         <div className="cardvibe-para">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci temporibus at ad aut, quos impedit facilis commodi accusamus doloremque praesentium tempora autem mollitia fugiat debitis excepturi porro delectus ullam laudantium
-                           Adipisci temporibus at ad aut, quos impedit facilis commodi accusamus doloremque praesentium tempora autem mollitia fugiat debitis excepturi porro delectus ullam laudantium.
+                        {comment}
 
 
                         </div>
