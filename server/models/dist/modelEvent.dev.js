@@ -48,6 +48,37 @@ function () {
         }
       }, null, null, [[1, 8]]);
     }
+  }, {
+    key: "getMap",
+    value: function getMap() {
+      var sql, result;
+      return regeneratorRuntime.async(function getMap$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              sql = "Select l.latitude, l.longitude, e.title FROM loc l JOIN events e ON l.event_id=e.id";
+              _context2.prev = 1;
+              console.log("mapsss");
+              _context2.next = 5;
+              return regeneratorRuntime.awrap(pool.query(sql));
+
+            case 5:
+              result = _context2.sent;
+              return _context2.abrupt("return", result.rows);
+
+            case 9:
+              _context2.prev = 9;
+              _context2.t0 = _context2["catch"](1);
+              console.error('Error creating user:', _context2.t0);
+              throw new Error('Error creating user:' + _context2.t0.message);
+
+            case 13:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, null, null, [[1, 9]]);
+    }
   }]);
 
   return Event;

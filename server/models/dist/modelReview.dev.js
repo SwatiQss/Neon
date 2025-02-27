@@ -87,6 +87,37 @@ function () {
         }
       }, null, null, [[4, 11]]);
     }
+  }, {
+    key: "createVibe",
+    value: function createVibe(id, vibes, experience) {
+      var sql, values, result;
+      return regeneratorRuntime.async(function createVibe$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              sql = "INSERT INTO vibometer(id,vibes,experience)\n    VALUES($1, $2,$3)\n    RETURNING *";
+              values = [id, vibes, experience];
+              _context3.prev = 2;
+              _context3.next = 5;
+              return regeneratorRuntime.awrap(pool.query(sql, values));
+
+            case 5:
+              result = _context3.sent;
+              return _context3.abrupt("return", result.rows[0]);
+
+            case 9:
+              _context3.prev = 9;
+              _context3.t0 = _context3["catch"](2);
+              console.error('Error inserting review:', _context3.t0);
+              throw new Error("Error creating review: ".concat(_context3.t0.message));
+
+            case 13:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, null, null, [[2, 9]]);
+    }
   }]);
 
   return Review;

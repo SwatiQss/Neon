@@ -1,7 +1,7 @@
 import "../styles/MapPopup.scss"
 import { IoStarSharp } from "react-icons/io5";
 
-const MapPopup=()=>{
+const MapPopup=({title})=>{
          return(
             <>
             <div className="MapPopup">
@@ -9,7 +9,7 @@ const MapPopup=()=>{
 
                 </div>
                 <div className="MapPopup-content">
-                      <div className="headingMap">Golf Tournament</div>
+                      <div className="headingMap">{title}</div>
                       <div className="mapdate">
                         Nov 10-29
                       </div>

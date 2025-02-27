@@ -1,4 +1,4 @@
-import "../styles/reserve.scss"
+import "../styles/scheduled.scss"
 
 const Scheduled=()=>{
     return (

@@ -2,6 +2,9 @@
 
 var User = require('../models/modelUser');
 
+var _require = require('./reviewController'),
+    createVibe = _require.createVibe;
+
 exports.createUser = function _callee(req, res) {
   var _req$body, id, name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at, userId;
 

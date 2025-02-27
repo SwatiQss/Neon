@@ -68,3 +68,25 @@ exports.getReview=async(req,res)=>{
 
     }
 }
+
+exports.createVibe=async(req,res)=>{
+    const{
+        id,
+        vibes,
+        experience
+    }=req.body;
+
+    console.log("received data",req.body);
+    try{
+        const vibe=await Review.createVibe(
+            id,
+            vibes,
+            experience
+        );
+        res.status(201).json({message:'Vibes added succefully'})
+    }catch(err){
+        console.error('Error creating review:',err.message);
+        res.status(500).json({message:'failed to create review',error:err.message});
+        
+    }
+}

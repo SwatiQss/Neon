@@ -13,6 +13,8 @@ class Review {
         }
     }
 
+
+
     // Method to create a review
     static async createReview(
         id,
@@ -50,6 +52,30 @@ class Review {
             throw new Error(`Error creating review: ${err.message}`);
         }
     }
+
+    
+static async createVibe(
+    id,
+    vibes,
+    experience
+){
+    const sql=`INSERT INTO vibometer(id,vibes,experience)
+    VALUES($1, $2,$3)
+    RETURNING *`;
+
+    const values=[id,vibes,experience];
+
+    try{
+        const result=await pool.query(sql,values)
+        return result.rows[0];
+    }catch(err){
+        console.error('Error inserting review:',err);
+        throw new Error(`Error creating review: ${err.message}`);
+
+    }
+}
+
+    
 }
 
 module.exports = Review;

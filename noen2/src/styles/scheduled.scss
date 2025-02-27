@@ -1,0 +1,79 @@
+@import './variables';
+@import './mixins';
+@font-face {
+    font-family: 'CustomFont2';
+    src: url('../../public/assets/fonts/BrownMedium-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+.reserve-card{
+    font-family: 'CustomFont',sans-serif;
+    background-color: #fff;
+    width: 280px;
+    height: 180px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .reserve-main{
+        font-family: 'CustomFont3',sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+        gap: 10px;
+        .reserve-date{
+            padding: 4px;
+            font-size: 18px;
+        }
+        .reserve-mid{
+            
+            border: 1px solid rgb(182, 178, 178);
+            border-radius: 6px;
+            width: 220px;
+            color: #222222;
+            opacity: 0.8;
+            font-size: 12px;
+            .reserve-first{
+                font-family: 'CustomFont3',sans-serif;
+                border: 1px solid rgb(241, 237, 237); 
+                padding: 4px;
+                display: flex;
+                justify-content: space-around;
+                .span{
+                    font-size: 14px;
+                   
+                }
+
+                
+            }
+            .reserve-second{
+                margin-right: 12px;
+                padding: 4px;
+                justify-content: space-around;
+                .span{
+                    font-size: 14px;
+                    
+                }
+                margin-left: 25px;
+ 
+            }
+
+        }
+        .seats{
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .reserve-btn{
+            background-color: rgb(68, 68, 68);
+            color: #fff;
+            width: 220px;
+            padding: 6px;
+            border: none;
+            height: 40px;
+            border-radius: 8px;
+        }
+    }
+}

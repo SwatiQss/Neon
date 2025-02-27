@@ -92,7 +92,7 @@ useEffect(() => {
       <p className="para0">We wish you to enjoy the activity and the weather.</p>
 
       <div className="Card-container">
-        <Link to="/roundgolf" className="Link-card">
+        <Link to="/scheduled" className="Link-card">
           <div className="card-section" ref={cardContainerRef} >
             {events2.map((arr, index) => (
               <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category}/>

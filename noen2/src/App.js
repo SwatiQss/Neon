@@ -15,6 +15,7 @@ import ModalRescheduleNext from "./pages/ModalRescheduleNext";
 import { store } from "./redux/store";  
 import ViboModal  from "./components/VibometerModel";// Make sure the path is correct
 import Login from "./pages/Login";
+import ScheduledRoundGolf from "./pages/RoundGolf/SsheduledRound";
 
 const App = () => {
   const savedData = sessionStorage.getItem('user');  // Check if user data exists in localStorage
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/profile" element={<EditProfile />} />
           <Route path="/viboModal" element={<ViboModal />} />
           <Route path="/modalNext" element={<ModalRescheduleNext />} />
+          <Route path="/scheduled" element={<ScheduledRoundGolf/>}/>
         </Routes>
         <Footer />
         <Reschedulesure />

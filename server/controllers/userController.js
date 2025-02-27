@@ -1,4 +1,5 @@
 const User = require('../models/modelUser');
+const { createVibe } = require('./reviewController');
 
 exports.createUser = async (req, res) => {
     const { id, name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at } = req.body;
@@ -32,3 +33,5 @@ exports.createUser = async (req, res) => {
         res.status(500).json({ message: 'Failed to create user', error: err.message });
     }
 };
+
+

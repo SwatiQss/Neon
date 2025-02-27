@@ -13,3 +13,14 @@ exports.getEvent=async(req,res)=>{
 
     }
 }
+
+exports.getMap=async(req,res)=>{
+    try{
+        console.log("we reached here 2222")
+        const map=await Event.getMap();
+        res.json(map);
+    }catch(err){
+        console.error('Error fetching map: ',err);
+        throw new Error('Error fetching map:' +err.message)
+    }
+}

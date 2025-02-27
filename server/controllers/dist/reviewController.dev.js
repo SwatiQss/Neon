@@ -120,3 +120,41 @@ exports.getReview = function _callee2(req, res) {
     }
   }, null, null, [[0, 7]]);
 };
+
+exports.createVibe = function _callee3(req, res) {
+  var _req$body2, id, vibes, experience, vibe;
+
+  return regeneratorRuntime.async(function _callee3$(_context3) {
+    while (1) {
+      switch (_context3.prev = _context3.next) {
+        case 0:
+          _req$body2 = req.body, id = _req$body2.id, vibes = _req$body2.vibes, experience = _req$body2.experience;
+          console.log("received data", req.body);
+          _context3.prev = 2;
+          _context3.next = 5;
+          return regeneratorRuntime.awrap(Review.createVibe(id, vibes, experience));
+
+        case 5:
+          vibe = _context3.sent;
+          res.status(201).json({
+            message: 'Vibes added succefully'
+          });
+          _context3.next = 13;
+          break;
+
+        case 9:
+          _context3.prev = 9;
+          _context3.t0 = _context3["catch"](2);
+          console.error('Error creating review:', _context3.t0.message);
+          res.status(500).json({
+            message: 'failed to create review',
+            error: _context3.t0.message
+          });
+
+        case 13:
+        case "end":
+          return _context3.stop();
+      }
+    }
+  }, null, null, [[2, 9]]);
+};
