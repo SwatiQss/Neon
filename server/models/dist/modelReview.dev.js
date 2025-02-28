@@ -89,14 +89,14 @@ function () {
     }
   }, {
     key: "createVibe",
-    value: function createVibe(id, vibes, experience) {
+    value: function createVibe(user_id, event_id, vibes, experience) {
       var sql, values, result;
       return regeneratorRuntime.async(function createVibe$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              sql = "INSERT INTO vibometer(id,vibes,experience)\n    VALUES($1, $2,$3)\n    RETURNING *";
-              values = [id, vibes, experience];
+              sql = "INSERT INTO vibes(user_id,event_id,vibes,experience)\n    VALUES($1, $2, $3, $4)\n    RETURNING *";
+              values = [user_id, event_id, vibes, experience];
               _context3.prev = 2;
               _context3.next = 5;
               return regeneratorRuntime.awrap(pool.query(sql, values));

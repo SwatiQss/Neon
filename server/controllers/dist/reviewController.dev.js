@@ -122,17 +122,17 @@ exports.getReview = function _callee2(req, res) {
 };
 
 exports.createVibe = function _callee3(req, res) {
-  var _req$body2, id, vibes, experience, vibe;
+  var _req$body2, user_id, event_id, vibes, experience, vibe;
 
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
-          _req$body2 = req.body, id = _req$body2.id, vibes = _req$body2.vibes, experience = _req$body2.experience;
+          _req$body2 = req.body, user_id = _req$body2.user_id, event_id = _req$body2.event_id, vibes = _req$body2.vibes, experience = _req$body2.experience;
           console.log("received data", req.body);
           _context3.prev = 2;
           _context3.next = 5;
-          return regeneratorRuntime.awrap(Review.createVibe(id, vibes, experience));
+          return regeneratorRuntime.awrap(Review.createVibe(user_id, event_id, vibes, experience));
 
         case 5:
           vibe = _context3.sent;

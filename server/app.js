@@ -30,12 +30,16 @@ const eventRoutes = require('./routes/eventRoutes');
 const userRoutes = require('./routes/userRoutes');
 const catagoryRoutes=require('./routes/categoryRoutes')
 const reviewRoutes = require('./routes/reviewRoutes');
+const mapRoutes=require("./routes/mapRoutes");
+
+
 
 // Use routes with correct prefixes
 app.use('/', userRoutes);  // Add '/api' for user routes
 app.use('/event', eventRoutes);
 app.use('/reviews',reviewRoutes) ; 
 app.use('/categories',catagoryRoutes);
+app.use('/maps',mapRoutes);
 
 // Starting the server
 const PORT = 5000;

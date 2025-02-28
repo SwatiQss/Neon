@@ -71,7 +71,8 @@ exports.getReview=async(req,res)=>{
 
 exports.createVibe=async(req,res)=>{
     const{
-        id,
+        user_id,
+        event_id,
         vibes,
         experience
     }=req.body;
@@ -79,7 +80,8 @@ exports.createVibe=async(req,res)=>{
     console.log("received data",req.body);
     try{
         const vibe=await Review.createVibe(
-            id,
+            user_id,
+            event_id,
             vibes,
             experience
         );

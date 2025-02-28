@@ -17,6 +17,7 @@ import Events from "../../dummy/event"
 import ModalVibe from "../../components/ModalReview";
 import ViboModal from "../../components/VibometerModel";
 import { useEffect, useState } from "react";
+import Speedometer from "../../components/Speedometer";
 const imgarr2 = [img1, img2, img3, img4, img5]
 console.log(Events)
 
@@ -160,7 +161,7 @@ useEffect(() => {
         <p className="heading">Find events on map</p>
         <MapComponent />
       </div>
-
+<Speedometer/>
       <ModalVibe />
     </div>
   );

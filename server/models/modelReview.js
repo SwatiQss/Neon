@@ -55,15 +55,16 @@ class Review {
 
     
 static async createVibe(
-    id,
+    user_id,
+    event_id,
     vibes,
     experience
 ){
-    const sql=`INSERT INTO vibometer(id,vibes,experience)
-    VALUES($1, $2,$3)
+    const sql=`INSERT INTO vibes(user_id,event_id,vibes,experience)
+    VALUES($1, $2, $3, $4)
     RETURNING *`;
 
-    const values=[id,vibes,experience];
+    const values=[user_id,event_id,vibes,experience];
 
     try{
         const result=await pool.query(sql,values)

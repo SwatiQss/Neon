@@ -25,7 +25,7 @@ const Login = () => {
     }));
   };
 
-  // Handling image file upload
+  //Handling image file upload
   const handleImageChange = (e) => {
     const file = e.target.files[0]; // Get the uploaded file
 
@@ -141,7 +141,7 @@ const Login = () => {
                 type="file"
                 className="input"
                 accept="image/*" // Only accept image files
-                onChange={handleImageChange} // Handle file change
+                 // Handle file change
               />
             </div>
 
