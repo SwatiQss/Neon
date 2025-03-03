@@ -22,6 +22,28 @@ const ModalRescheduleNext=()=>{
 
         setState(!state);
     },[])
+    const eventsData = [
+        {
+          id: 5,
+          title: "Surfing at Leisure",
+          location: "London",
+          adult_price: "1000.00",
+          child_price: "500.00",
+          total_seat: 400,
+          from_date: "2025-03-11T18:30:00.000Z",
+          to_date: "2025-05-11T18:30:00.000Z",
+          created_at: "2025-03-20T18:30:00.000Z",
+          status: "active",
+          category: "Jazz Music",
+          description: "Lorem ipsum Lorem ipsum",
+          img: "https://i.ibb.co/2whvnmf/golf.jpg"
+        }
+      ];
+      
+      // Sending the data to the backend
+     
+      
+
     return(
         <>
         <div className="modalreschedule">
@@ -31,7 +53,7 @@ const ModalRescheduleNext=()=>{
 <ModalRescheduleImg state={state} setState={setState}/>
 
             </div>
-           {state && <ReserveMySeat/>}
+           {state && <ReserveMySeat eventsData={eventsData}/>}
             <div className="similar-recommedations">
                 <div className="similar-heading">
                 Some similar recommendation for you, Charlie.

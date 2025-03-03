@@ -63,7 +63,15 @@ const Dashboard = () => {
   }, []);
   sessionStorage.setItem('events',JSON.stringify(events2));
   console.log(events2,"0000000000")
-
+const [events3,setEvents3]=useState([]);
+  useEffect(() => {
+    fetch('http://localhost:5000/event/itenary')
+      .then(response => response.json())
+      .then(data => setEvents3(data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+  sessionStorage.setItem('events3',JSON.stringify(events3));
+  console.log(events3,"events333333")
   
   const[category,setCategory]=useState([]);
   useEffect(()=>{
@@ -97,7 +105,7 @@ useEffect(() => {
       <div className="Card-container">
         <Link to="/scheduled" className="Link-card">
           <div className="card-section" ref={cardContainerRef} >
-            {events2.map((arr, index) => (
+            {events3.map((arr, index) => (
               <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category}/>
             ))}
           </div>

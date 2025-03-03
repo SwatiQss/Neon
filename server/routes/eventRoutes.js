@@ -8,9 +8,10 @@ const eventController = require('../controllers/eventController');
 // Route to create a new user (POST)
 console.log("routess")
 router.get('/events', eventController.getEvent);
+router.get('/itenary',eventController.getItenary);
 console.log("we reached here");
 router.get('/map',eventController.getMap);
-//router.post('/profile', userController.createUser);
+router.post('/reschedule', eventController.createEvent);
 
 
 

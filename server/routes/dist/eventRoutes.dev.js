@@ -11,7 +11,8 @@ var eventController = require('../controllers/eventController'); // Route to dis
 
 console.log("routess");
 router.get('/events', eventController.getEvent);
+router.get('/itenary', eventController.getItenary);
 console.log("we reached here");
-router.get('/map', eventController.getMap); //router.post('/profile', userController.createUser);
-
+router.get('/map', eventController.getMap);
+router.post('/reschedule', eventController.createEvent);
 module.exports = router;

@@ -1,7 +1,19 @@
 import { useState } from "react"
 import "../styles/reserveseat.scss"
 
-const ReserveMySeat = (props, day, time, state, setState) => {
+const ReserveMySeat = ({eventsData}) => {
+    const handleClick=()=>{
+        fetch("http://localhost:5000/event/reschedudle", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(eventsData)
+          })
+            .then(response => response.json())
+            .then(data => console.log("Success:", data))
+            .catch(error => console.error("Error:", error));
+    }
 
 
 
@@ -52,7 +64,7 @@ const ReserveMySeat = (props, day, time, state, setState) => {
                 </div>
                 <div className="reserveMain5">
                     <div className="reserveButton">
-                        <button className="btnreserve">
+                        <button className="btnreserve" onClick={handleClick}>
                             Reserve my seats
                         </button>
 
