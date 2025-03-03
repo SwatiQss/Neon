@@ -1,0 +1,73 @@
+.modalreschedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+  gap: 24px;
+  position: relative;
+}
+.modalreschedule .reserveMain {
+  z-index: 999;
+  position: absolute;
+  margin-bottom: 1400px;
+  backdrop-filter: blur(1px);
+}
+.modalreschedule .img-section {
+  border-radius: 8px;
+}
+.modalreschedule .similar-recommedations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1140px;
+}
+.modalreschedule .similar-recommedations .similar-heading {
+  font-size: 24px;
+}
+.modalreschedule .similar-recommedations .similar-buttons {
+  display: flex;
+  gap: 10px;
+}
+.modalreschedule .similar-recommedations .similar-buttons .mid1 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.modalreschedule .similar-recommedations .similar-buttons .mid1 .up {
+  font-size: 12px;
+}
+.modalreschedule .similar-recommedations .similar-buttons .mid1 .down {
+  display: flex;
+  gap: 6px;
+}
+.modalreschedule .similar-recommedations .similar-buttons .mid2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.modalreschedule .similar-recommedations .similar-buttons .mid2 .down {
+  display: block;
+  margin-block-start: 2.5rem;
+}
+.modalreschedule .similar-recommedations .similar-buttons .right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.modalreschedule .similar-recommedations .similar-buttons .right .down {
+  display: block;
+  margin-block-start: 2.8rem;
+}
+.modalreschedule .modal-reschedule-drop-section .card-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 50px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.modalreschedule .modal-reschedule-drop-section .card-section::-webkit-scrollbar {
+  display: none;
+}

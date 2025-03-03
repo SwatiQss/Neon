@@ -1,6 +1,6 @@
 import "../styles/modalrescheduleImg.scss"
 
-const ModalRescheduleImg = () => {
+const ModalRescheduleImg = ({state,setState}) => {
     return (
         <>
             <div className="img-section">
@@ -22,7 +22,7 @@ const ModalRescheduleImg = () => {
                   
                 </div>
                 <div className="section-content-4">
-                    <button className="section-4-btn">
+                    <button className="section-4-btn" onClick={()=>{setState(!state)}}>
 Reschedule
                     </button>
                 </div>

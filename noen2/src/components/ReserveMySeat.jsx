@@ -1,6 +1,9 @@
+import { useState } from "react"
 import "../styles/reserveseat.scss"
 
-const ReserveMySeat = (props, day, time) => {
+const ReserveMySeat = (props, day, time, state, setState) => {
+
+
 
     return (
         <>
@@ -57,7 +60,7 @@ const ReserveMySeat = (props, day, time) => {
                     <div className="reserveCancel">
 
                         <p className="pCancel">Cancel
-                            </p>
+                        </p>
 
                     </div>
 

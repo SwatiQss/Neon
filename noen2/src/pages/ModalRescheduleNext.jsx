@@ -11,20 +11,27 @@ import img3 from "../img/holiday_0.png";
 import img4 from "../img/island.jpg"
 import img5 from "../img/yoga.jpg"
 import ReserveMySeat from "../components/ReserveMySeat";
+import { useEffect, useState } from "react";
 const imgarr2=[img1,img2,img3,img4,img5]
 
 
 
 const ModalRescheduleNext=()=>{
+    const [state,setState]=useState(false);
+    useEffect(()=>{
+
+        setState(!state);
+    },[])
     return(
         <>
         <div className="modalreschedule">
         <AddReview2/>
             <div className="img-section">
 
-<ModalRescheduleImg/>
+<ModalRescheduleImg state={state} setState={setState}/>
 
             </div>
+           {state && <ReserveMySeat/>}
             <div className="similar-recommedations">
                 <div className="similar-heading">
                 Some similar recommendation for you, Charlie.

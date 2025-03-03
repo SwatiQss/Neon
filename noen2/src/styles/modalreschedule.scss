@@ -6,6 +6,13 @@
     align-items: center;
     margin-top: 18px;
     gap: 24px;
+    position: relative;
+    .reserveMain{
+        z-index: 999;
+        position: absolute;
+        margin-bottom: 1400px;
+        backdrop-filter: blur(1px);
+    }
     
     .img-section{
         border-radius: 8px;
@@ -86,3 +93,4 @@ font-size: 24px;
     }
 
 }
+
