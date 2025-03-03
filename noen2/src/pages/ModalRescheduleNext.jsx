@@ -10,6 +10,7 @@ import img2 from "../img/surfing.jpg";
 import img3 from "../img/holiday_0.png";
 import img4 from "../img/island.jpg"
 import img5 from "../img/yoga.jpg"
+import ReserveMySeat from "../components/ReserveMySeat";
 const imgarr2=[img1,img2,img3,img4,img5]
 
 
@@ -22,6 +23,7 @@ const ModalRescheduleNext=()=>{
             <div className="img-section">
 
 <ModalRescheduleImg/>
+
             </div>
             <div className="similar-recommedations">
                 <div className="similar-heading">

@@ -21,6 +21,15 @@ const para="10:30 AM -7:40 PM";
 
 
 const Favourite=()=>{
+
+  const[name,setName]=useState("");
+  useEffect(()=>{
+    const savedData=sessionStorage.getItem('user');
+    if(savedData){
+      const user=JSON.parse(savedData);
+      setName(user.name);
+    }
+  },[]);
  
   const[favourite,setFavourite]=useState([]);
   const[buttonClicked,setButtonClicked]=useState(true);
@@ -39,23 +48,19 @@ const Favourite=()=>{
     return (
         <>
         <div className="favourite">
-        <p className="heading">Good morning Charlie!</p>
+        <p className="heading">Good morning {name}!</p>
         <p className="para">You have shortlisted 8 events to join later.</p>
         <div className="card-section">
+  <div className="card-section2">
   {
     favourite.map((arr,index)=>(
     <Small3 key={index} props={arr.img} catName={arr.category_name} category_id={arr.category_id} title={arr.title} saved_status={arr.saved_status} sendDatatoParent={handleDataFromChild}/>
     ))
   }
+  </div>
      </div>
-     <div className="card-section">
-  {
-   favourite.map((arr,index)=>(
-    <Small3 key={index} props={arr.img} catName={arr.category_name} category_id={arr.category_id} title={arr.title} saved_status={arr.saved_status} buttonClicked={buttonClicked}/>
-    ))
-  }
-     </div>
-     <p className="heading">Charlie, we have founds some recomedation for You</p>
+  
+     <p className="heading">{name}, we have founds some recomedation for You</p>
      <div className="cards">
       <div className="recommend">
       <Recomedation props={img1}  prop2={heading} prop3={date} prop4={para}/>

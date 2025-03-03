@@ -1,0 +1,15 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #F9F7F2;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Apply this to the body and html */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd9d991;
+  margin: 2px 0;
+  width: 100%;
+}

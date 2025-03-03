@@ -4,7 +4,11 @@
 body {
   font-family: $font-stack;
   background-color: $Background-colour;
+  overflow-x: hidden;
+  width: 100%;
 }
+
+/* Apply this to the body and html */
 
 
 .divider {

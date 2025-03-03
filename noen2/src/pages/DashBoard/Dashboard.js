@@ -18,6 +18,8 @@ import ModalVibe from "../../components/ModalReview";
 import ViboModal from "../../components/VibometerModel";
 import { useEffect, useState } from "react";
 import Speedometer from "../../components/Speedometer";
+import Small6 from "../../components/small6";
+import ReserveMySeat from "../../components/ReserveMySeat";
 const imgarr2 = [img1, img2, img3, img4, img5]
 console.log(Events)
 
@@ -133,13 +135,15 @@ useEffect(() => {
 
         <p className="heading">Todays recommedations for you, {name}!</p>
         <div className="card-section">
-          {
+        <div className="card-section2">
+        {
            category.map((arr, index) => (
             
           
             <Smal key={index} index={index+1} props={arr.img} title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status} />
           ))
           }
+        </div>
         </div>
       </div>
 
@@ -148,11 +152,13 @@ useEffect(() => {
       <div className="Card-container">
         <p className="heading">{name}, here is your master journey with us so far</p>
         <div className="card-section">
+          <div className="card-section2">
           {
             category.map((arr, index) => (
-              <Smal key={index} props={arr.img} index={index+1} title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status}/>
+              <Small6 key={index} props={arr.img}  title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status}/>
             ))
           }
+          </div>
         </div>
       </div>
 
@@ -161,8 +167,8 @@ useEffect(() => {
         <p className="heading">Find events on map</p>
         <MapComponent />
       </div>
-<Speedometer/>
       <ModalVibe />
+      <ReserveMySeat/>
     </div>
   );
 };

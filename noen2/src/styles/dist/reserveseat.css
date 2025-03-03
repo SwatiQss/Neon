@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "CustomFont2";
+  src: url("../../public/assets/fonts/BrownMedium-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.reserveMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 460px;
+  height: 366px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 6px;
+}
+.reserveMain .reserveMain1 {
+  letter-spacing: 1.19px;
+  color: #222222;
+  opacity: 1;
+  font-family: "CustomFont", sans-serif;
+  font-size: 26px;
+}
+.reserveMain .reserveMain2 {
+  letter-spacing: 0.79px;
+  color: #222222;
+  opacity: 1;
+  font-family: "CustomFont", sans-serif;
+  font-size: 18px;
+}
+.reserveMain .reserveMain3 {
+  display: flex;
+  gap: 4rem;
+}
+.reserveMain .reserveMain3 .day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.reserveMain .reserveMain3 .day .para {
+  letter-spacing: 0.4px;
+  color: #222222;
+  opacity: 1;
+  font-family: "CustomFont2", sans-serif;
+  font-size: 12px;
+  height: 10px;
+}
+.reserveMain .reserveMain3 .day .reserveSelect {
+  width: 193px;
+  height: 33px;
+  border-radius: 6px;
+  border: #DDDDDD solid 1px;
+}
+.reserveMain .reserveMain3 .timeSlot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.reserveMain .reserveMain3 .timeSlot .para {
+  letter-spacing: 0.4px;
+  color: #222222;
+  opacity: 1;
+  font-family: "CustomFont2", sans-serif;
+  font-size: 12px;
+  height: 10px;
+}
+.reserveMain .reserveMain3 .timeSlot .reserveSelect {
+  width: 193px;
+  height: 33px;
+  border-radius: 6px;
+  border: #DDDDDD solid 1px;
+}
+.reserveMain .reserveMain4 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.reserveMain .reserveMain4 .para {
+  letter-spacing: 0.4px;
+  color: #222222;
+  opacity: 1;
+  font-family: "CustomFont2", sans-serif;
+  font-size: 12px;
+  height: 10px;
+}
+.reserveMain .reserveMain4 .reserveSelect {
+  width: 193px;
+  height: 33px;
+  border-radius: 6px;
+  border: #DDDDDD solid 1px;
+}
+.reserveMain .reserveMain5 {
+  display: flex;
+  gap: 1rem;
+}
+.reserveMain .reserveMain5 .reserveButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.reserveMain .reserveMain5 .reserveButton .btnreserve {
+  width: 140px;
+  height: 33px;
+  background-color: #222222;
+  color: #fff;
+  font-size: 10px;
+  border: none;
+  border-radius: 4px;
+}
+.reserveMain .reserveMain5 .reserveButton .reserveCancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.reserveMain .reserveMain5 .reserveButton .reserveCancel .pCancel {
+  font-size: 10px;
+  color: grey;
+  height: 33px;
+}

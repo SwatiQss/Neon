@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("../../public/assets/fonts/IvyMode-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+.favourite {
+  padding-left: 60px;
+  font-family: "CustomFont", sans-serif;
+}
+.favourite .heading {
+  font-size: 30px;
+}
+.favourite .para {
+  font-size: 16px;
+  text-align: left;
+  letter-spacing: 0.4px;
+  color: #222222;
+  opacity: 1;
+}
+.favourite .card-section {
+  display: flex;
+  gap: 10px;
+  padding: 6px;
+}
+.favourite .card-section .card-section2 {
+  display: flex;
+  flex-wrap: wrap;
+  /* Ensures new row after 5 items */
+  gap: 20px;
+  margin-top: 50px;
+}
+.favourite .card-section .card-section2 .small3-card {
+  /* Target only Smal component */
+  flex: 1 1 calc(20% - 20px);
+  /* 5 cards per row */
+  max-width: calc(20% - 20px);
+}
+.favourite .cards {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+}
+.favourite .arrow {
+  display: flex;
+  gap: 10px;
+  font-size: 40px;
+  font-weight: 400;
+}
