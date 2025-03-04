@@ -3,12 +3,12 @@ import "../styles/reserveseat.scss"
 
 const ReserveMySeat = ({eventsData}) => {
     const handleClick=()=>{
-        fetch("http://localhost:5000/event/reschedudle", {
+        fetch("http://localhost:5000/event/reschedule", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(eventsData)
+            body: JSON.stringify(eventsData[0])
           })
             .then(response => response.json())
             .then(data => console.log("Success:", data))

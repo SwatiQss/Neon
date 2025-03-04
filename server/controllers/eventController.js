@@ -36,7 +36,7 @@ exports.getMap=async(req,res)=>{
 }
 
 exports.createEvent=async(req,res)=>{
-   const { id,
+   const { 
     title,
     location,
     adult_price,
@@ -56,7 +56,7 @@ exports.createEvent=async(req,res)=>{
 
    try{
     const eventId=await Event.createEvent(
-        id,   
+        
         title,
         location,
         adult_price,
@@ -76,7 +76,7 @@ exports.createEvent=async(req,res)=>{
    }
    catch(err){
     console.error('Error creating user',err.message);
-    res.status(500).json({message:'Failed to create user',error:error.message});
+    res.status(500).json({message:'Failed to create user',err});
     
    }
 }

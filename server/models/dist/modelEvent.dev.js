@@ -112,34 +112,35 @@ function () {
     }
   }, {
     key: "createEvent",
-    value: function createEvent(id, title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img) {
+    value: function createEvent(title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img) {
       var sql, values, result;
       return regeneratorRuntime.async(function createEvent$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              sql = "\n    INSERT INTO events (\n    id,\n    title,\n    location,\n    adult_price,\n    child_price,\n    total_seat,\n    from_date,\n    to_date,\n    created_at,\n    status,\n    category,\n    description,\n    img\n  )VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)\n  RETURNING *\n    ";
-              values = [id, title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img];
+              sql = "\n    INSERT INTO events (\n    \n    title,\n    location,\n    adult_price,\n    child_price,\n    total_seat,\n    from_date,\n    to_date,\n    created_at,\n    status,\n    category,\n    description,\n    img\n  )VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)\n  RETURNING *\n    ";
+              values = [title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img];
               _context4.prev = 2;
               _context4.next = 5;
               return regeneratorRuntime.awrap(pool.query(sql, values));
 
             case 5:
               result = _context4.sent;
+              console.log("reached to model events");
               return _context4.abrupt("return", result.rows[0]);
 
-            case 9:
-              _context4.prev = 9;
+            case 10:
+              _context4.prev = 10;
               _context4.t0 = _context4["catch"](2);
               console.error('Error inserting reviews', _context4.t0);
-              throw new Error('Error creating reviews', _context4.t0);
+              throw new Error('Error creating reviews');
 
-            case 13:
+            case 14:
             case "end":
               return _context4.stop();
           }
         }
-      }, null, null, [[2, 9]]);
+      }, null, null, [[2, 10]]);
     }
   }]);
 

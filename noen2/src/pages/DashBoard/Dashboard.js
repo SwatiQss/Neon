@@ -142,7 +142,8 @@ useEffect(() => {
       <div className="Card-container">
 
         <p className="heading">Todays recommedations for you, {name}!</p>
-        <div className="card-section">
+       <Link to="/roundgolf" className="Link-card">
+       <div className="card-section">
         <div className="card-section2">
         {
            category.map((arr, index) => (
@@ -153,6 +154,7 @@ useEffect(() => {
           }
         </div>
         </div>
+       </Link>
       </div>
 
 

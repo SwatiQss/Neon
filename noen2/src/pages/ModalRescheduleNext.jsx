@@ -24,7 +24,7 @@ const ModalRescheduleNext=()=>{
     },[])
     const eventsData = [
         {
-          id: 5,
+        
           title: "Surfing at Leisure",
           location: "London",
           adult_price: "1000.00",

@@ -95,17 +95,17 @@ exports.getMap = function _callee3(req, res) {
 };
 
 exports.createEvent = function _callee4(req, res) {
-  var _req$body, id, title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img, eventId;
+  var _req$body, title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img, eventId;
 
   return regeneratorRuntime.async(function _callee4$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
-          _req$body = req.body, id = _req$body.id, title = _req$body.title, location = _req$body.location, adult_price = _req$body.adult_price, child_price = _req$body.child_price, total_seat = _req$body.total_seat, from_date = _req$body.from_date, to_date = _req$body.to_date, created_at = _req$body.created_at, status = _req$body.status, category = _req$body.category, description = _req$body.description, img = _req$body.img;
+          _req$body = req.body, title = _req$body.title, location = _req$body.location, adult_price = _req$body.adult_price, child_price = _req$body.child_price, total_seat = _req$body.total_seat, from_date = _req$body.from_date, to_date = _req$body.to_date, created_at = _req$body.created_at, status = _req$body.status, category = _req$body.category, description = _req$body.description, img = _req$body.img;
           console.log("Received dadta:", req.body);
           _context4.prev = 2;
           _context4.next = 5;
-          return regeneratorRuntime.awrap(Event.createEvent(id, title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img));
+          return regeneratorRuntime.awrap(Event.createEvent(title, location, adult_price, child_price, total_seat, from_date, to_date, created_at, status, category, description, img));
 
         case 5:
           eventId = _context4.sent;
@@ -122,7 +122,7 @@ exports.createEvent = function _callee4(req, res) {
           console.error('Error creating user', _context4.t0.message);
           res.status(500).json({
             message: 'Failed to create user',
-            error: error.message
+            err: _context4.t0
           });
 
         case 13:

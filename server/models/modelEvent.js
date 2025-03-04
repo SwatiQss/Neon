@@ -49,7 +49,7 @@ try{
 
 
   static async createEvent(
-    id,
+    
     title,
     location,
     adult_price,
@@ -65,7 +65,7 @@ try{
   ){
     const sql=`
     INSERT INTO events (
-    id,
+    
     title,
     location,
     adult_price,
@@ -78,11 +78,11 @@ try{
     category,
     description,
     img
-  )VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+  )VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
   RETURNING *
     `;
 
-    const values=[ id,
+    const values=[
         title,
         location,
         adult_price,
@@ -98,11 +98,12 @@ try{
 
         try{
             const result=await pool.query(sql,values);
+            console.log("reached to model events")
 
             return result.rows[0];
         }catch(err){
             console.error('Error inserting reviews',err);
-            throw new Error('Error creating reviews',err)
+            throw new Error('Error creating reviews')
           }
           
   }

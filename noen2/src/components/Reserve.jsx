@@ -3,7 +3,7 @@ import "../styles/reserve.scss"
 const Reserve=()=>{
     return (
         <>
-        <div className="reserve-card">
+        <div className="reserve-card1">
             <div className="reserve-main">
                 <div className="reserve-date">
                     10:30 AM- 7:30 PM
