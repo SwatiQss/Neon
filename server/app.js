@@ -31,6 +31,7 @@ const userRoutes = require('./routes/userRoutes');
 const catagoryRoutes=require('./routes/categoryRoutes')
 const reviewRoutes = require('./routes/reviewRoutes');
 const mapRoutes=require("./routes/mapRoutes");
+const paymentRoutes=require("./routes/paymentRoutes");
 
 
 
@@ -40,7 +41,7 @@ app.use('/event', eventRoutes);
 app.use('/reviews',reviewRoutes) ; 
 app.use('/categories',catagoryRoutes);
 app.use('/maps',mapRoutes);
-
+app.use('/stripe',paymentRoutes)
 // Starting the server
 const PORT = 5000;
 app.listen(PORT, () => {

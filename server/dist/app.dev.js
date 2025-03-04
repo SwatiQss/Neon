@@ -34,7 +34,9 @@ var catagoryRoutes = require('./routes/categoryRoutes');
 
 var reviewRoutes = require('./routes/reviewRoutes');
 
-var mapRoutes = require("./routes/mapRoutes"); // Use routes with correct prefixes
+var mapRoutes = require("./routes/mapRoutes");
+
+var paymentRoutes = require("./routes/paymentRoutes"); // Use routes with correct prefixes
 
 
 app.use('/', userRoutes); // Add '/api' for user routes
@@ -42,7 +44,8 @@ app.use('/', userRoutes); // Add '/api' for user routes
 app.use('/event', eventRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/categories', catagoryRoutes);
-app.use('/maps', mapRoutes); // Starting the server
+app.use('/maps', mapRoutes);
+app.use('/stripe', paymentRoutes); // Starting the server
 
 var PORT = 5000;
 app.listen(PORT, function () {

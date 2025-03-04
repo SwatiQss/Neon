@@ -84,6 +84,7 @@ const [events3,setEvents3]=useState([]);
 },[])
 console.log(category,"categoryyyyyyyyyyyyyyyy")
 
+
 const [name,setName]=useState("");
 useEffect(() => {
   const savedData = sessionStorage.getItem('user');
@@ -92,6 +93,7 @@ useEffect(() => {
   setName(user.name); // Set the first letter of user's name
   }
 }, []);
+
 
 
   return (
@@ -142,14 +144,17 @@ useEffect(() => {
       <div className="Card-container">
 
         <p className="heading">Todays recommedations for you, {name}!</p>
-       <Link to="/roundgolf" className="Link-card">
-       <div className="card-section">
+       <Link to="/roundgolf" className="Link-card" >
+       <div className="card-section" >
         <div className="card-section2">
         {
-           category.map((arr, index) => (
+           events2.map((arr, index) => (
+            
             
           
-            <Smal key={index} index={index+1} props={arr.img} title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status} />
+            <Smal key={index} index={index+1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status} onClick={() => {
+              sessionStorage.setItem('reserved',JSON.stringify(arr.id));
+              console.log("Reserve ID:", arr.id)}}  />
           ))
           }
         </div>
@@ -164,8 +169,8 @@ useEffect(() => {
         <div className="card-section">
           <div className="card-section2">
           {
-            category.map((arr, index) => (
-              <Small6 key={index} props={arr.img}  title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status}/>
+            events2.map((arr, index) => (
+              <Small6 key={index} props={arr.img}  title={arr.title} catName={arr.category_name}  category_id={arr.category_id} saved_status={arr.saved_status}/>
             ))
           }
           </div>
