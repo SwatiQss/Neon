@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 
-import {closeModal} from "../redux/modalSlice";
+import {closeModal2} from "../redux/modalSlice2";
 
 const Reschedulesure=()=>{
     const dispatch=useDispatch();
-    const isOpen=useSelector((state)=>state.modal.isOpen);
+    const isOpen2=useSelector((state)=>state.modal2.isOpen2);
 
-    if(!isOpen) return null;
+    if(!isOpen2) return null;
     return (
         <>
         <div className="reschedulesure">
@@ -30,7 +30,7 @@ Are you sure you want to reschedule this event
     </button>
 
     </NavLink>
-<div className="thanks" onClick={()=>dispatch(closeModal())}>
+<div className="thanks" onClick={()=>dispatch(closeModal2())}>
     No thanks
 </div>
 </div>

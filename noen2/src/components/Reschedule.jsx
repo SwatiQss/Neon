@@ -2,7 +2,7 @@ import "../styles/Reschedule.scss"
 import { BiSolidBellRing } from "react-icons/bi";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { openModal } from "../redux/modalSlice";
+import { openModal2 } from "../redux/modalSlice2";
 
 
 const Reschedule=()=>{
@@ -22,7 +22,7 @@ Hey Charlie<BiSolidBellRing style={{color:"#EEFF00",marginLeft:"8px"}}/>
             </div>
             <div className="reschedule-end">
                
-                     <button className="reschedule-btn1" onClick={()=>dispatch(openModal())}>Reschedule</button>
+                     <button className="reschedule-btn1" onClick={()=>dispatch(openModal2())}>Reschedule</button>
               
 
                <div className="reschedule-cancel">

@@ -5,7 +5,18 @@ import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { FaGrinHearts } from "react-icons/fa";
 
-const Golf = ({ event,img,title,descrp,cat,location }) => {
+const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
+    const dateFrom=new Date(from);
+    const fromFormated=dateFrom.toLocaleDateString("en-us",{
+        day:"numeric",
+        month:"long"
+    })
+
+    const dateTo=new Date(to);
+    const toFormated=dateTo.toLocaleDateString("en-us",{
+        day:"numeric",
+        month:"long"
+    })
     return (
         <>
             <div className="card" style={{ backgroundImage: `url(${img}})` }}>
@@ -33,7 +44,7 @@ const Golf = ({ event,img,title,descrp,cat,location }) => {
                             <span className="span">
                                 <CiCalendar style={{ color: "#FF385C", fontSize: "12px" }} />
                             </span>
-                            from- to
+                            {fromFormated}- {toFormated}
                         </div>
                         <div className="content">
                             <span className="span">

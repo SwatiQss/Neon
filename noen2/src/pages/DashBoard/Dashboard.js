@@ -61,38 +61,38 @@ const Dashboard = () => {
       .then(data => setEvents2(data))
       .catch(error => console.error('Error:', error));
   }, []);
-  sessionStorage.setItem('events',JSON.stringify(events2));
-  console.log(events2,"0000000000")
-const [events3,setEvents3]=useState([]);
+  sessionStorage.setItem('events', JSON.stringify(events2));
+  console.log(events2, "0000000000")
+  const [events3, setEvents3] = useState([]);
   useEffect(() => {
     fetch('http://localhost:5000/event/itenary')
       .then(response => response.json())
       .then(data => setEvents3(data))
       .catch(error => console.error('Error:', error));
   }, []);
-  sessionStorage.setItem('events3',JSON.stringify(events3));
-  console.log(events3,"events333333")
-  
-  const[category,setCategory]=useState([]);
-  useEffect(()=>{
+  sessionStorage.setItem('events3', JSON.stringify(events3));
+  console.log(events3, "events333333")
+
+  const [category, setCategory] = useState([]);
+  useEffect(() => {
     fetch('http://localhost:5000/categories/category')
-    .then(response=>response.json())
-    .then(data=>setCategory(data))
+      .then(response => response.json())
+      .then(data => setCategory(data))
 
-    .catch(error=>console.error('Error:',error))
-    
-},[])
-console.log(category,"categoryyyyyyyyyyyyyyyy")
+      .catch(error => console.error('Error:', error))
+
+  }, [])
+  console.log(category, "categoryyyyyyyyyyyyyyyy")
 
 
-const [name,setName]=useState("");
-useEffect(() => {
-  const savedData = sessionStorage.getItem('user');
-  if (savedData) {
-    const user = JSON.parse(savedData);
-  setName(user.name); // Set the first letter of user's name
-  }
-}, []);
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const savedData = sessionStorage.getItem('user');
+    if (savedData) {
+      const user = JSON.parse(savedData);
+      setName(user.name); // Set the first letter of user's name
+    }
+  }, []);
 
 
 
@@ -108,7 +108,7 @@ useEffect(() => {
         <Link to="/scheduled" className="Link-card">
           <div className="card-section" ref={cardContainerRef} >
             {events3.map((arr, index) => (
-              <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category}/>
+              <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date}/>
             ))}
           </div>
         </Link>
@@ -144,22 +144,23 @@ useEffect(() => {
       <div className="Card-container">
 
         <p className="heading">Todays recommedations for you, {name}!</p>
-       <Link to="/roundgolf" className="Link-card" >
-       <div className="card-section" >
-        <div className="card-section2">
-        {
-           events2.map((arr, index) => (
-            
-            
-          
-            <Smal key={index} index={index+1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status} onClick={() => {
-              sessionStorage.setItem('reserved',JSON.stringify(arr.id));
-              console.log("Reserve ID:", arr.id)}}  />
-          ))
-          }
-        </div>
-        </div>
-       </Link>
+        <Link to="/roundgolf" className="Link-card" >
+          <div className="card-section" >
+            <div className="card-section2">
+              {
+                events2.map((arr, index) => (
+
+
+
+                  <Smal key={index} index={index + 1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status} onClick={() => {
+                    sessionStorage.setItem('reserved', JSON.stringify(arr.id));
+                    console.log("Reserve ID:", arr.id)
+                  }} />
+                ))
+              }
+            </div>
+          </div>
+        </Link>
       </div>
 
 
@@ -168,11 +169,11 @@ useEffect(() => {
         <p className="heading">{name}, here is your master journey with us so far</p>
         <div className="card-section">
           <div className="card-section2">
-          {
-            events2.map((arr, index) => (
-              <Small6 key={index} props={arr.img}  title={arr.title} catName={arr.category_name}  category_id={arr.category_id} saved_status={arr.saved_status}/>
-            ))
-          }
+            {
+              events2.map((arr, index) => (
+                <Small6 key={index} props={arr.img} title={arr.title} catName={arr.category_name} category_id={arr.category_id} saved_status={arr.saved_status} />
+              ))
+            }
           </div>
         </div>
       </div>
@@ -183,7 +184,6 @@ useEffect(() => {
         <MapComponent />
       </div>
       <ModalVibe />
-      <ReserveMySeat/>
     </div>
   );
 };
