@@ -42,7 +42,7 @@ const Reserve=()=>{
  
     const total=1000;
     const makePayment=async ()=>{
-        const stripe=await loadStripe("pk_test_51QyrPKRuorJ9xbcisAf8hKAsa5gKcvnv08YrPQmbUCxhwznyrS7vFdyQLqC8OkrtmuGTQtD8vTLYTOn2LhuPHO0500P8o66vaQ")
+        const stripe=await loadStripe("pk_test_51QyrP8RwSMiXBxKwxu29te0wGJmfTNigifugMlMA3ua6C2T9A5VPXKt11lSZPQQL3LRv1ifMbuMKqYK8HbJ3MmQk00bEnZkEQH")
         //stripe publishable key
 
         const headers={

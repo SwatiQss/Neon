@@ -80,6 +80,38 @@ function () {
         }
       }, null, null, [[2, 9]]);
     }
+  }, {
+    key: "updateInterest",
+    value: function updateInterest(user_id, interest) {
+      var sql, values, result;
+      return regeneratorRuntime.async(function updateInterest$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              sql = ' UPDATE interests SET interest=$1 WHERE user_id=$2 RETURNING *';
+              values = [interest, user_id];
+              _context3.prev = 2;
+              console.log('UPDATE IN INTREST');
+              _context3.next = 6;
+              return regeneratorRuntime.awrap(pool.query(sql, values));
+
+            case 6:
+              result = _context3.sent;
+              return _context3.abrupt("return", result.rows[0]);
+
+            case 10:
+              _context3.prev = 10;
+              _context3.t0 = _context3["catch"](2);
+              console.error('Eror updating from model', _context3.t0);
+              throw new Error('failed from model');
+
+            case 14:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, null, null, [[2, 10]]);
+    }
   }]);
 
   return User;

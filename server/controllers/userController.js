@@ -34,4 +34,18 @@ exports.createUser = async (req, res) => {
     }
 };
 
+exports.updateInterest=async(req,res)=>{
+    const user_id=req.params.id;
+    const {interest}=req.body;
 
+    try{
+        const updatedInterest=await User.updateInterest(user_id,interest);
+        if(updatedInterest){
+            return res.json({updatedInterest:updatedInterest.interest});
+        }
+    }catch(err){
+        console.error("error updating intrest",err);
+        res.status(500).json({error:'failed to update category status'})
+    }
+
+}

@@ -32,6 +32,21 @@ class User {
             throw new Error('Error saving user data: ' + err.message); // Pass the error to the controller
         }
     }
+
+    static async updateInterest(user_id,interest){
+        const sql=' UPDATE interests SET interest=$1 WHERE user_id=$2 RETURNING *';
+        const values=[interest,user_id];
+
+        try{
+            console.log('UPDATE IN INTREST');
+            const result=await pool.query(sql,values);
+            return result.rows[0];
+        }
+        catch (err){
+            console.error('Eror updating from model',err)
+            throw new Error('failed from model');
+        }
+    }
 }
 
 module.exports = User;

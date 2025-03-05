@@ -8,5 +8,18 @@
             width: 64px !important;
             height: 90px !important;
             border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items:end ;
+            position: relative;
+            .heart{
+position: absolute;
+margin-bottom: 40px;
+            }
+            .text{
+                color: #fff;
+                font-size: 10px;
+                text-shadow: #413f3f;
+            }
 
 }

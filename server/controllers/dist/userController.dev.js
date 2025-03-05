@@ -57,3 +57,47 @@ exports.createUser = function _callee(req, res) {
     }
   }, null, null, [[4, 11]]);
 };
+
+exports.updateInterest = function _callee2(req, res) {
+  var user_id, interest, updatedInterest;
+  return regeneratorRuntime.async(function _callee2$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          user_id = req.params.id;
+          interest = req.body.interest;
+          _context2.prev = 2;
+          _context2.next = 5;
+          return regeneratorRuntime.awrap(User.updateInterest(user_id, interest));
+
+        case 5:
+          updatedInterest = _context2.sent;
+
+          if (!updatedInterest) {
+            _context2.next = 8;
+            break;
+          }
+
+          return _context2.abrupt("return", res.json({
+            updatedInterest: updatedInterest.interest
+          }));
+
+        case 8:
+          _context2.next = 14;
+          break;
+
+        case 10:
+          _context2.prev = 10;
+          _context2.t0 = _context2["catch"](2);
+          console.error("error updating intrest", _context2.t0);
+          res.status(500).json({
+            error: 'failed to update category status'
+          });
+
+        case 14:
+        case "end":
+          return _context2.stop();
+      }
+    }
+  }, null, null, [[2, 10]]);
+};
