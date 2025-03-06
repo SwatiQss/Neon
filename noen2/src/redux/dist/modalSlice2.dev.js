@@ -7,8 +7,6 @@ exports["default"] = exports.closeModal2 = exports.openModal2 = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
-var _store = require("./store");
-
 var modalSlice2 = (0, _toolkit.createSlice)({
   name: "modal2",
   initialState: {

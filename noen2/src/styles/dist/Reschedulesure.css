@@ -4,7 +4,22 @@
   font-weight: normal;
   font-style: normal;
 }
-.reschedulesure {
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(1px);
+  /* Blurred effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  /* Highest z-index to stay on top */
+}
+.modal-overlay .reschedulesure {
+  background: white;
   top: 50%;
   position: absolute;
   z-index: 10000;
@@ -18,7 +33,7 @@
   width: 460px;
   height: 184px;
 }
-.reschedulesure .sure-heading {
+.modal-overlay .reschedulesure .sure-heading {
   letter-spacing: 1.19px;
   color: #000000;
   opacity: 1;
@@ -26,18 +41,18 @@
   margin-top: 10px;
   margin-left: 8px;
 }
-.reschedulesure .sure-para {
+.modal-overlay .reschedulesure .sure-para {
   margin-left: 8px;
   font-weight: 500;
   font-size: 18px;
 }
-.reschedulesure .sure-end {
+.modal-overlay .reschedulesure .sure-end {
   display: flex;
   gap: 16px;
   margin-top: 20px;
   margin-left: 8px;
 }
-.reschedulesure .sure-end .sure-btn {
+.modal-overlay .reschedulesure .sure-end .sure-btn {
   background-color: #222222;
   border-radius: 8px;
   width: 108px;
@@ -45,11 +60,11 @@
   border: none;
   color: #fff;
 }
-.reschedulesure .sure-end .thanks {
+.modal-overlay .reschedulesure .sure-end .thanks {
   font-size: 10px;
   margin-top: 10px;
   text-decoration: underline;
 }
-.reschedulesure .sure-end .thanks:hover {
+.modal-overlay .reschedulesure .sure-end .thanks:hover {
   cursor: pointer;
 }

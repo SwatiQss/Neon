@@ -53,7 +53,7 @@ const ModalRescheduleNext=()=>{
 <ModalRescheduleImg state={state} setState={setState}/>
 
             </div>
-           {state && <ReserveMySeat eventsData={eventsData}/>}
+           {state && <ReserveMySeat eventsData={eventsData} state={state}/>}
             <div className="similar-recommedations">
                 <div className="similar-heading">
                 Some similar recommendation for you, Charlie.

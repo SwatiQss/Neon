@@ -4,10 +4,12 @@ import { MdEmojiEmotions } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 const Smal = ({ props, catName, title, index, category_id, saved_status,id ,onClick}) => {
 
     const [isActive, setIsactive] = useState(saved_status)
     const handleClick = async () => {
+        
     try {
         // Toggle the state first
         const newStatus = !isActive; // Toggle the status
@@ -37,6 +39,7 @@ const Smal = ({ props, catName, title, index, category_id, saved_status,id ,onCl
                 <div className="img">
                     <div className="remove1" onClick={handleClick}>
                         <FaHeart
+                           
                             style={{ color: isActive ? 'red' : 'gray', fontSize: '24px' }}
                         />
 
@@ -45,7 +48,10 @@ const Smal = ({ props, catName, title, index, category_id, saved_status,id ,onCl
                     <div className="remove2">
                         {index}
                     </div>
+                    <Link to="/roundgolf" className="Link-card" >
                     <img src={props}></img>
+                    </Link>
+                    
 
 
                 </div>

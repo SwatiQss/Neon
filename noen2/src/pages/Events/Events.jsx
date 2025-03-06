@@ -27,7 +27,8 @@ const Events = () => {
 
   const handleDataChild2 = (data) => {
     setClickedButton("btn4");  // Track Button4 click
-    setMessageChild(data);  // For Button4
+    setMessageChild(data); 
+    console.log("cate clicked") // For Button4
   };
 
   useEffect(() => {

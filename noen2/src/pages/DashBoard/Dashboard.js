@@ -130,7 +130,7 @@ const Dashboard = () => {
 
             ))
           }
-          <ViboModal />
+         
 
         </div>
         <div className="arrow">
@@ -144,7 +144,7 @@ const Dashboard = () => {
       <div className="Card-container">
 
         <p className="heading">Todays recommedations for you, {name}!</p>
-        <Link to="/roundgolf" className="Link-card" >
+       
           <div className="card-section" >
             <div className="card-section2">
               {
@@ -154,13 +154,13 @@ const Dashboard = () => {
 
                   <Smal key={index} index={index + 1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status} onClick={() => {
                     sessionStorage.setItem('reserved', JSON.stringify(arr.id));
-                    console.log("Reserve ID:", arr.id)
+                    console.log("Reserve ID:", arr.category_id)
                   }} />
                 ))
               }
             </div>
           </div>
-        </Link>
+       
       </div>
 
 

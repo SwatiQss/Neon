@@ -11,7 +11,7 @@ const Reschedulesure=()=>{
 
     if(!isOpen2) return null;
     return (
-        <>
+        <div className="modal-overlay">
         <div className="reschedulesure">
           
             
@@ -25,7 +25,7 @@ Are you sure you want to reschedule this event
 
 <div className="sure-end">
     <NavLink to="/modalNext">
-    <button className="sure-btn" >
+    <button className="sure-btn" onClick={()=>dispatch(closeModal2())} >
         Yes, I'm sure
     </button>
 
@@ -36,7 +36,7 @@ Are you sure you want to reschedule this event
 </div>
         </div>
         
-        </>
+        </div>
     )
 }
 export default Reschedulesure;

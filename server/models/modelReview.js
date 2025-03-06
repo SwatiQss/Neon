@@ -3,7 +3,7 @@ const pool = require('../db');
 class Review {
     // Method to get reviews from the database
     static async getReview() {
-        const sql = 'SELECT r.id, r.comment, r.experience, e.title FROM reviews r JOIN events e ON r.event_id=e.id';
+        const sql = 'SELECT r.id, r.comment, r.user_id, r.experience, e.title, v.vibes FROM reviews r JOIN events e ON r.event_id=e.id JOIN vibes v ON r.user_id=v.user_id';
         try {
             const result = await pool.query(sql);
             return result.rows;

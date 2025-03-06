@@ -1,11 +1,12 @@
 import "../styles/cardvibe.scss"
 import { FaGrinHearts } from "react-icons/fa";
-import { BsEmojiSmileFill } from "react-icons/bs";
+import { BsEmojiAngryFill, BsEmojiExpressionless, BsEmojiFrownFill, BsEmojiSmileFill } from "react-icons/bs";
 import { BsFillEmojiExpressionlessFill } from "react-icons/bs";
 import { BsFillEmojiFrownFill } from "react-icons/bs";
 import { HiEmojiSad } from "react-icons/hi";
 
-const CardVibe=({props,title,comment,})=>{
+const CardVibe=({props,title,comment,vibes})=>{
+    console.log(vibes,"vibes")
     return (
         <>
         <div className="Vibe-card">
@@ -33,12 +34,13 @@ const CardVibe=({props,title,comment,})=>{
                         </div>
                     </div>
                     <div className="cardvibe-emoji">
-                        <FaGrinHearts style={{color:"green"}}/>
-                        <BsEmojiSmileFill style={{color:"#DDDDDD"}}/>
-                        <BsFillEmojiExpressionlessFill style={{color:"#DDDDDD"}} />
-                        <BsFillEmojiFrownFill style={{color:"#DDDDDD"}}/>
-                        <BsFillEmojiFrownFill style={{color:"#DDDDDD"}}/>
-                        <BsFillEmojiFrownFill style={{color:"#DDDDDD"}}/>
+                        {vibes==='overwhelmed'?( <FaGrinHearts style={{color:"green"}}/>): ( <FaGrinHearts style={{color:"DDDDDD"}}/>)}
+                        {vibes==='good'?( <BsEmojiSmileFill style={{color:"green"}}/>): (  <BsEmojiSmileFill style={{color:"#DDDDDD"}}/>)}
+                        {vibes==='okay'?( <BsEmojiExpressionless style={{color:"green"}}/>): (  <BsEmojiExpressionless style={{color:"#DDDDDD"}}/>)}
+                        {vibes==='horrible'?( <BsEmojiFrownFill style={{color:"green"}}/>): (  <BsEmojiFrownFill style={{color:"#DDDDDD"}}/>)}
+                        {vibes==='cried'?( <BsEmojiAngryFill style={{color:"green"}}/>): (  <BsEmojiAngryFill style={{color:"#DDDDDD"}}/>)}
+
+          
                         
 
 

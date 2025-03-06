@@ -7,12 +7,6 @@ const[cat,setCat]=useState(null);
 const handleFunction=(data)=>{
     setCat(data);
     sendDataParent(cat);
-}
-const [catFiltered,setCatFiltered]=useState([]);
-const savedEvent=sessionStorage.getItem("events");
-
-useEffect(()=>{
-  if(cat){
     if(savedEvent){
         const events=JSON.parse(savedEvent);
     
@@ -25,9 +19,14 @@ useEffect(()=>{
     
         sessionStorage.setItem("catFiltered",JSON.stringify(filtered));
     
-    }
+    
   }
-},[cat])
+    console.log("handleFunction");
+}
+const [catFiltered,setCatFiltered]=useState([]);
+const savedEvent=sessionStorage.getItem("events");
+
+
 
     return(
         <>

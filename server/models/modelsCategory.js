@@ -15,6 +15,9 @@ class Category{
     }
     
     static async updateStatus(category_id, newStatus) {
+        if (!category_id || isNaN(category_id)) {
+            throw new Error("category_id must be a valid integer.");
+        }
         const sql = 'UPDATE category SET saved_status=$1 WHERE category_id=$2 RETURNING *';
         const values = [newStatus, category_id];
     

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "../styles/reserveseat.scss"
 
-const ReserveMySeat = ({eventsData}) => {
+const ReserveMySeat = ({eventsData,state}) => {
     const handleClick=()=>{
         fetch("http://localhost:5000/event/reschedule", {
             method: "POST",
@@ -14,8 +14,13 @@ const ReserveMySeat = ({eventsData}) => {
             .then(data => console.log("Success:", data))
             .catch(error => console.error("Error:", error));
     }
+    const [state2,setState2]=useState(state);
 
+  const handleCancel=()=>{
+    setState2(!state);
+       
 
+  }
 
     return (
         <>
@@ -69,7 +74,7 @@ const ReserveMySeat = ({eventsData}) => {
                         </button>
 
                     </div>
-                    <div className="reserveCancel">
+                    <div className="reserveCancel" onClick={handleCancel}>
 
                         <p className="pCancel">Cancel
                         </p>

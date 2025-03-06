@@ -2,6 +2,8 @@ import "../styles/reviewModal.scss"
 import { CiStar } from "react-icons/ci";
 import { useState,useEffect } from "react";
 import { redirect, useNavigate } from "react-router-dom";
+import { closeModal } from "../redux/modalSlice";
+import { useDispatch } from "react-redux";
 
 
 
@@ -120,6 +122,11 @@ const ReviewModal = () => {
                 console.log("Error:", error);
             });
     };
+ 
+const dispatch=useDispatch();
+const handleClick=()=>{
+    dispatch(closeModal())
+}
 
     return (
         <div className="reviewModal">
@@ -152,10 +159,15 @@ const ReviewModal = () => {
                     placeholder="Add your comment here"
                 />
             </div>
-
-            <button className="review-btn" onClick={handleSubmit}>
+<div className="btn0" style={{display:"flex",justifyContent:"space-around"}}>
+    
+<button className="review-btn" onClick={handleSubmit}>
                 Submit
             </button>
+
+            <button className="review-btn" onClick={handleClick}>cancel</button>
+
+</div>
         </div>
     );
 };
