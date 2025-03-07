@@ -2,7 +2,7 @@
     position: relative;
     overflow: hidden;
     width: 1160px;
-    height: 413px;
+    height: 430px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,6 +71,24 @@
             color: #222222;
             cursor: pointer;
             margin-top: 120px;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                
+                color: white;
+            }
+        }
+        .section-8-btn {
+            background-color: #fff;
+            width: 20px;
+            height: 10px;
+            border: none;
+            border-radius: 10px;
+            color: #c38383;
+            font-size: 8px;
+            cursor: pointer;
+         margin-bottom: 400px;
+         margin-left: 1000px;
             transition: all 0.3s ease-in-out;
 
             &:hover {

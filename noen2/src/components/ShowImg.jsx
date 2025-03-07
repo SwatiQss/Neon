@@ -1,5 +1,6 @@
 import "../styles/modalrescheduleImg.scss"
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import golf from "../img/golf.jpg";
@@ -13,7 +14,7 @@ import { Link } from "react-router-dom";
 
 
 
-const ShowImg = ({state,setState}) => {
+const ShowImg = ({parentPass}) => {
     const images=[
         golf,island
     ]
@@ -43,6 +44,12 @@ const cards=[
         console.log(img)
     ))
      
+    const [message,setMessage]=useState(true);
+
+    const handleSubmit=()=>{
+      setMessage(false);
+      parentPass(message);
+    }
    
     return (
         <>
@@ -62,18 +69,18 @@ const cards=[
                 cards.map((card,index)=>(
                   <SwiperSlide key={index}>
                     <div className="slide">
+                     
                     <img src={`${card.img}`} className="img"></img>
                     <div className="overlay-content">
              
 
                
-                <div className="section-content-4">
+                <div className="section-content-4" onClick={handleSubmit}>
+                <button className="section-8-btn"  >
+                        X
+                      </button>
                     
-                    {/* <button className="section-4-btn" onClick={()=>{setState(!state)
-                   
-                  }}>
-Reschedule
-                  </button> */}
+                  
                     
                   
                 </div>

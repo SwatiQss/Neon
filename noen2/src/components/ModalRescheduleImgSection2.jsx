@@ -4,6 +4,9 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import golf from "../img/golf.jpg";
 import island from "../img/island.jpg";
+import music from "../img/music.jpg"
+import music2 from "../img/music.png"
+import music3 from "../img/music3.jpg"
 import swim from "../img/swim.jpg"
 import { Navigation } from "swiper/modules"; // Import Navigation module
 
@@ -16,21 +19,21 @@ const ModalRescheduleImg2 = () => {
     ]
 const cards=[
   {
-  img:golf,
-  title:"Round of Golf",
+  img:music3,
+  title:"Jazz Concert",
   location:"Sindalh city",
   date:"Jan 01, 2025",
   time:"07:00 AM|12:00 AM|05:00 AM"
 },
 {
-  img:island,
-  title:"Island Surfing",
+  img:music,
+  title:"Jazz Concert",
   location:"Sindalh City",
   date:"Jan 02, 2025",
   time:"07:00 AM|12:00 AM|05:00 AM"
 },{
-  img:swim,
-  title:"Swimming",
+  img:music2,
+  title:"Rock Concert",
   location:"Sindalh City",
   date:"Jan 03, 2025",
   time:"07:00 AM|12:00 AM|05:00 AM"

@@ -44,6 +44,7 @@ const App = () => {
           <Route path="/modalNext" element={<ModalRescheduleNext />} />
           <Route path="/scheduled" element={<ScheduledRoundGolf/>}/>
           <Route path="/choices" element={<RescheduleChoices/>}/>
+          <Route path="/success" element={<RescheduleChoices/>}/>
         </Routes>
         <Footer />
         <Reschedulesure />

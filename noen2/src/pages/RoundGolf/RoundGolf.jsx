@@ -45,6 +45,9 @@ const RoundGolf = () => {
  console.log(eventData,"eeeeeeeeeee0000000")
 
  const[state,setState]=useState(false);
+ const handleChild=(data)=>{
+    setState(data);
+ }
 const handleClick2=()=>{
     setState(!state);
     console.log("clicked");
@@ -99,7 +102,7 @@ const handleClick2=()=>{
              </div>
              {state && (
                 <div className="modal-overlay" style={{backdropFilter:blur}}>
-                    <div className="showimg"> <ShowImg /></div>
+                    <div className="showimg"> <ShowImg parentPass={handleChild}/></div>
                     </div>
              )}
              <div className="carasoul">
