@@ -48,7 +48,13 @@
             }
         }
     }
-
+.modal-overlay{
+    background: #dcd7d790;
+    .showimg{
+        border-radius: 8px;
+        background: #fff;
+    }
+}
     .carasoul{
         width: 1200px;
         height: 500px;
@@ -67,7 +73,7 @@
                 gap: 10px;
                 .photo1,.photo2{
                     width: 300px;
-                    background-image: url("../img//golf.jpg");
+                   // background-image: url("../img//golf.jpg");
                     height: 250px;
                     background-size: cover;
                     background-position: top-right;
@@ -78,8 +84,23 @@
         }
         .carasoul-right{
             width: 600px;
-            height: 500px;
-            background-image: url("../img//golf.jpg");
+            height: 510px;
+            background-size: cover;
+            background-position: top-right;
+            background-repeat: no-repeat;
+            border-radius: 8px  8px 8px 8px ;
+            .right-btn{
+                margin-top: 80%;
+                margin-left: 80%;
+                .btn-show{
+                    background-color: #fff;
+                    width: 80px;
+                    border: none;
+                    border-radius: 8px;
+                    height: 30px;
+                }
+            }
+          
 
         }
     }

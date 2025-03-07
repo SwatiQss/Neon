@@ -12,6 +12,7 @@ router.get('/itenary',eventController.getItenary);
 console.log("we reached here");
 router.get('/map',eventController.getMap);
 router.post('/reschedule', eventController.createEvent);
+router.get('/round',eventController.getRound);
 
 
 

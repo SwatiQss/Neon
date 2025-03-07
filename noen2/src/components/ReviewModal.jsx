@@ -4,6 +4,7 @@ import { useState,useEffect } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import { closeModal } from "../redux/modalSlice";
 import { useDispatch } from "react-redux";
+import ViboModal from "./VibometerModel";
 
 
 
@@ -45,7 +46,7 @@ const ReviewModal = () => {
     // Initialize idUse as 0
     const [idUse, setIduse] = useState();
     const[eventId,setEventId]=useState(0);
-  
+   const [vibe,setVibe]=useState(true);
     // Set idUse when savedData is available, use useEffect to avoid infinite re-renders
     useEffect(() => {
       const savedData = sessionStorage.getItem('user');
@@ -116,7 +117,7 @@ const ReviewModal = () => {
             
             .then((data) => {
                 console.log(data);
-                navigate('/ViboModal')
+                setVibe(!vibe);
             })
             .catch((error) => {
                 console.log("Error:", error);
@@ -129,46 +130,54 @@ const handleClick=()=>{
 }
 
     return (
-        <div className="reviewModal">
-            <div className="review-heading">Add a review</div>
+       <>
+       {vibe && (
+         <div className="reviewModal">
+         <div className="review-heading">Add a review</div>
 
-            <div className="review-para">
-                Hi Charlie, if you're on this page, we bet you enjoy this event fully.
-                Would you like to share your feedback with us?
-            </div>
+         <div className="review-para">
+             Hi Charlie, if you're on this page, we bet you enjoy this event fully.
+             Would you like to share your feedback with us?
+         </div>
 
-            <div className="review-star1">
-                <Rating label="Quality of Event" fieldName="quality_of_event" setReviewData={setReviewData} />
-                <Rating label="Services at Event" fieldName="services_at_event" setReviewData={setReviewData} />
-            </div>
-            <div className="review-star2">
-                <Rating label="Operator of Event" fieldName="operator_of_event" setReviewData={setReviewData} />
-                <Rating label="Facilities of Event" fieldName="facilities_of_event" setReviewData={setReviewData} />
-            </div>
-            <div className="review-star3">
-                <Rating label="Staff Politeness" fieldName="staff_politeness" setReviewData={setReviewData} />
-            </div>
+         <div className="review-star1">
+             <Rating label="Quality of Event" fieldName="quality_of_event" setReviewData={setReviewData} />
+             <Rating label="Services at Event" fieldName="services_at_event" setReviewData={setReviewData} />
+         </div>
+         <div className="review-star2">
+             <Rating label="Operator of Event" fieldName="operator_of_event" setReviewData={setReviewData} />
+             <Rating label="Facilities of Event" fieldName="facilities_of_event" setReviewData={setReviewData} />
+         </div>
+         <div className="review-star3">
+             <Rating label="Staff Politeness" fieldName="staff_politeness" setReviewData={setReviewData} />
+         </div>
 
-            <div className="comment-section">
-                <input
-                    type="text"
-                    className="review-input"
-                    name="comment"
-                    value={reviewData.comment}
-                    onChange={handleInputChange}
-                    placeholder="Add your comment here"
-                />
-            </div>
+         <div className="comment-section">
+             <input
+                 type="text"
+                 className="review-input"
+                 name="comment"
+                 value={reviewData.comment}
+                 onChange={handleInputChange}
+                 placeholder="Add your comment here"
+             />
+         </div>
 <div className="btn0" style={{display:"flex",justifyContent:"space-around"}}>
-    
+ 
 <button className="review-btn" onClick={handleSubmit}>
-                Submit
-            </button>
+             Submit
+         </button>
 
-            <button className="review-btn" onClick={handleClick}>cancel</button>
+         <button className="review-btn" onClick={handleClick}>cancel</button>
 
 </div>
-        </div>
+     </div>
+       )}
+       {!vibe && (
+        <ViboModal/>
+       )}
+       
+       </>
     );
 };
 

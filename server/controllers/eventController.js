@@ -80,3 +80,18 @@ exports.createEvent=async(req,res)=>{
     
    }
 }
+
+
+exports.getRound = async (req, res) => {
+    const { id } = req.query;
+    
+    try {
+        if (!id) return res.status(400).json({ message: "ID is required" });
+
+        const round = await Event.getRound(id);
+        res.json({ round }); // Corrected response format
+    } catch (err) {
+        console.error("round controller error", err);
+        res.status(500).json({ message: "Failed at controller", error: err.message });
+    }
+};

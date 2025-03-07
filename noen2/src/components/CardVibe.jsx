@@ -37,7 +37,7 @@ const CardVibe=({props,title,comment,vibes})=>{
                         {vibes==='overwhelmed'?( <FaGrinHearts style={{color:"green"}}/>): ( <FaGrinHearts style={{color:"DDDDDD"}}/>)}
                         {vibes==='good'?( <BsEmojiSmileFill style={{color:"green"}}/>): (  <BsEmojiSmileFill style={{color:"#DDDDDD"}}/>)}
                         {vibes==='okay'?( <BsEmojiExpressionless style={{color:"green"}}/>): (  <BsEmojiExpressionless style={{color:"#DDDDDD"}}/>)}
-                        {vibes==='horrible'?( <BsEmojiFrownFill style={{color:"green"}}/>): (  <BsEmojiFrownFill style={{color:"#DDDDDD"}}/>)}
+                        {vibes==='bad'?( <BsEmojiFrownFill style={{color:"green"}}/>): (  <BsEmojiFrownFill style={{color:"#DDDDDD"}}/>)}
                         {vibes==='cried'?( <BsEmojiAngryFill style={{color:"green"}}/>): (  <BsEmojiAngryFill style={{color:"#DDDDDD"}}/>)}
 
           

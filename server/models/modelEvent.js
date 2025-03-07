@@ -19,6 +19,20 @@ try{
     }
 
 
+    static async getRound(id) {
+        const sql = `SELECT * FROM events WHERE id=$1`;
+        try {
+            const result = await pool.query(sql, [id]); // PostgreSQL
+            console.log(id);
+            return result.rows; // PostgreSQL uses `.rows`
+         
+        } catch (err) {
+            console.log('Error fetching round:', err);
+            throw new Error('Error fetching round: ' + err.message);
+        }
+    }
+    
+
     static async getItenary(){
         const sql=`Select * FROM events where status='active'`
 

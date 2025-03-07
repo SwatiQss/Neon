@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "../styles/reserveseat.scss"
+import { Link } from "react-router-dom"
 
 const ReserveMySeat = ({eventsData,state}) => {
     const handleClick=()=>{
@@ -69,9 +70,12 @@ const ReserveMySeat = ({eventsData,state}) => {
                 </div>
                 <div className="reserveMain5">
                     <div className="reserveButton">
-                        <button className="btnreserve" onClick={handleClick}>
+                    <Link className="link" to="/choices">
+                    <button className="btnreserve" onClick={handleClick}>
                             Reserve my seats
                         </button>
+                    </Link>
+                       
 
                     </div>
                     <div className="reserveCancel" onClick={handleCancel}>

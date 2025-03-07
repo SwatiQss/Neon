@@ -1,9 +1,9 @@
-import AddReview from "../components/AddReview";
-import AddReview2 from "../components/AddReview2";
+import AddChoices from "../components/AddChoices";
 import ModalRescheduleImg from "../components/ModalRescheduleImgSection";
 import "../styles/modalreschedule.scss";
 import Button2 from "../components/Button2";
 import Button4 from "../components/Button4";
+import ModalRescheduleImg2 from "../components/ModalRescheduleImgSection2";
 import Smal from "../components/Small";
 import img1 from "../img/golf.jpg";
 import img2 from "../img/surfing.jpg";
@@ -12,12 +12,11 @@ import img4 from "../img/island.jpg"
 import img5 from "../img/yoga.jpg"
 import ReserveMySeat from "../components/ReserveMySeat";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 const imgarr2=[img1,img2,img3,img4,img5]
 
 
 
-const ModalRescheduleNext=()=>{
+const RescheduleChoices=()=>{
     const [state,setState]=useState(false);
     useEffect(()=>{
 
@@ -42,18 +41,18 @@ const ModalRescheduleNext=()=>{
       ];
       
       // Sending the data to the backend
- 
+     
+      
 
     return(
         <>
         <div className="modalreschedule">
-        <AddReview2/>
+        <AddChoices/>
             <div className="img-section">
 
-<ModalRescheduleImg state={state} setState={setState}/>
+<ModalRescheduleImg2/>
 
             </div>
-           {state && <ReserveMySeat eventsData={eventsData} state={state}/>}
             <div className="similar-recommedations">
                 <div className="similar-heading">
                 Some similar recommendation for you, Charlie.
@@ -130,4 +129,4 @@ const ModalRescheduleNext=()=>{
     )
 }
 
-export default ModalRescheduleNext;
+export default RescheduleChoices;

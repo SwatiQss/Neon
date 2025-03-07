@@ -5,26 +5,28 @@ import "swiper/css/effect-fade";
 import golf from "../img/golf.jpg";
 import island from "../img/island.jpg";
 import swim from "../img/swim.jpg"
+import swim1 from "../img/swim2.jpg"
+import swim2 from "../img/swim3.jpg"
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "swiper/modules"; // Import Navigation module
 import { Link } from "react-router-dom";
 
 
 
-const ModalRescheduleImg = ({state,setState}) => {
+const ShowImg = ({state,setState}) => {
     const images=[
         golf,island
     ]
 const cards=[
   {
-  img:golf,
+  img:swim1,
   title:"Round of Golf",
   location:"Sindalh city",
   date:"Jan 01, 2025",
   time:"07:00 AM|12:00 AM|05:00 AM"
 },
 {
-  img:island,
+  img:swim2,
   title:"Island Surfing",
   location:"Sindalh City",
   date:"Jan 02, 2025",
@@ -62,29 +64,16 @@ const cards=[
                     <div className="slide">
                     <img src={`${card.img}`} className="img"></img>
                     <div className="overlay-content">
-                <div className="section-content-1">
-                    {card.title}
-                </div>
+             
 
-                <div className="section-content-2">
-                  {card.location}
-                </div>
-                <div className="section-content-3">
-                    <div className="content3-one">
-                    {card.date}
-                    </div>
-                    <div className="content3-two">
-                   {card.time}
-                    </div>
-                  
-                </div>
+               
                 <div className="section-content-4">
                     
-                    <button className="section-4-btn" onClick={()=>{setState(!state)
+                    {/* <button className="section-4-btn" onClick={()=>{setState(!state)
                    
                   }}>
 Reschedule
-                  </button>
+                  </button> */}
                     
                   
                 </div>
@@ -106,4 +95,4 @@ Reschedule
         </>
     )
 }
-export default ModalRescheduleImg;
+export default ShowImg;

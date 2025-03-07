@@ -5,13 +5,12 @@ import "swiper/css/effect-fade";
 import golf from "../img/golf.jpg";
 import island from "../img/island.jpg";
 import swim from "../img/swim.jpg"
-import { useNavigate } from "react-router-dom";
 import { Navigation } from "swiper/modules"; // Import Navigation module
-import { Link } from "react-router-dom";
 
 
 
-const ModalRescheduleImg = ({state,setState}) => {
+
+const ModalRescheduleImg2 = () => {
     const images=[
         golf,island
     ]
@@ -40,8 +39,6 @@ const cards=[
     images.map((img)=>(
         console.log(img)
     ))
-     
-   
     return (
         <>
             <div className="img-section">
@@ -79,14 +76,9 @@ const cards=[
                   
                 </div>
                 <div className="section-content-4">
-                    
-                    <button className="section-4-btn" onClick={()=>{setState(!state)
-                   
-                  }}>
-Reschedule
-                  </button>
-                    
-                  
+                    <button className="section-4-btn">
+Yes I'm in
+                    </button>
                 </div>
 
                 </div>
@@ -106,4 +98,4 @@ Reschedule
         </>
     )
 }
-export default ModalRescheduleImg;
+export default ModalRescheduleImg2;
