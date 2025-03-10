@@ -16,10 +16,9 @@ body {
 .card {
     display: flex;
     width: 550px;
-    height: 250px;
-    background-image: url('../../public/assets/img/golf.jpg'); // Remove 'public' from path
+    height: 250px; // Remove 'public' from path
     background-size: cover;
-    background-position: top-right; // Aligns image to the top
+    background-position: top-left; // Aligns image to the top
     background-repeat: no-repeat;
     border: 1px solid rgb(77, 71, 71); // Fix border property
     border-radius: 10px;

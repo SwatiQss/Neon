@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { CiGlobe } from "react-icons/ci";
 import Reschedule from "../Reschedule";
 
+
 const Navbar = () => {
   const [letter, setLetter] = useState(""); // Initialize letter state
   const [showDropdown, setShowDropdown] = useState(false);
@@ -57,7 +58,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <img className="img" src="/assets/img/logo2.png" />
+       <Link to="/">
+       <img className="img" src="/assets/img/logo2.png" />
+       </Link>
       </div>
       <div className="navinner">
         <NavLink to="/" className="navLink" activeClassName="active">DashBoard</NavLink>

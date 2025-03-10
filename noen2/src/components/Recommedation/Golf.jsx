@@ -4,6 +4,7 @@ import { CiCalendar } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { FaGrinHearts } from "react-icons/fa";
+import { useState } from "react";
 
 const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
     const dateFrom=new Date(from);
@@ -17,9 +18,13 @@ const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
         day:"numeric",
         month:"long"
     })
+  
+      let maxLines=3;
+        const [isExpanded, setIsExpanded] = useState(false);
+    
     return (
         <>
-            <div className="card" style={{ backgroundImage: `url(${img}})` }}>
+            <div className="card" style={{ background: `url(${img})` }}>
                 <div className="sun-logo">
                     <img className="img" src="/assets/img/Group 1151.svg" alt="Logo" />
                 </div>
@@ -36,8 +41,33 @@ const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
                         </div>
                     </div>
                     <div className="para">
-                        <p>{descrp}</p>
-                    </div>
+    <p style={{
+        display: "-webkit-box",
+        WebkitLineClamp: isExpanded ? "unset" : maxLines,
+        WebkitBoxOrient: "vertical",
+        overflow: "hidden",
+        wordBreak: "break-word",
+    }}>
+        {descrp}
+    </p>
+    {descrp.split(" ").length > maxLines * 10 && (
+        <button 
+            onClick={() => setIsExpanded(!isExpanded)} 
+            style={{ 
+                color: "#FF385C", 
+                cursor: "pointer", 
+                fontSize: "10px", 
+                background: "none", 
+                border: "none", 
+                padding: "0",
+                display: "inline", // Keeps button inline
+              // Adds spacing between text and button
+            }}
+        >
+            {isExpanded ? " read less" : " read more"}
+        </button>
+    )}
+</div>
 
                     <div className="address">
                         <div className="content">

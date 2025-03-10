@@ -94,6 +94,20 @@ const Dashboard = () => {
     }
   }, []);
 
+  let size=events3.length
+  const[prev,setPrev]=useState("grey");
+  const[curr,setCurr]=useState("black");
+  useEffect(() => {
+    if (events3.length === 0) {
+      setCurr('grey');
+      setPrev('black');
+    } else {
+      setCurr('black');
+      setPrev('grey');
+    }
+  }, [events3]); // Runs whenever events3 changes
+  
+
 
 
   return (
@@ -107,14 +121,21 @@ const Dashboard = () => {
       <div className="Card-container">
         <Link to="/scheduled" className="Link-card">
           <div className="card-section" ref={cardContainerRef} >
-            {events3.map((arr, index) => (
-              <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date}/>
-            ))}
+          {events3.map((arr, index) => {
+  if (index === size) {
+    setCurr('grey');
+    setPrev('black');
+  }
+  return (
+    <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date}/>
+  );
+})}
+
           </div>
         </Link>
         <div className="arrow">
-          <PiArrowCircleLeftThin style={{ color: "grey", fontSize: "48px" }} onClick={scrollLeft} />
-          <PiArrowCircleRightThin style={{ color: "black", fontSize: "48px" }} onClick={scrollRight} />
+          <PiArrowCircleLeftThin style={{ color: curr, fontSize: "48px" }} onClick={scrollLeft} />
+          <PiArrowCircleRightThin style={{ color: prev, fontSize: "48px" }} onClick={scrollRight} />
 
 
         </div>

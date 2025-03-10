@@ -34,7 +34,7 @@ try{
     
 
     static async getItenary(){
-        const sql=`Select * FROM events where status='active'`
+        const sql=`SELECT * FROM events where status='active' ORDER BY from_date`
 
         try{
             const result=await pool.query(sql)
