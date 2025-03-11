@@ -23,11 +23,13 @@ body {
     border: 1px solid rgb(77, 71, 71); // Fix border property
     border-radius: 10px;
     .sun-logo{
+        position: sticky;
         width: 200px;
         display: flex;
         align-items: end;
         justify-content: end;
         padding: 2px;
+        margin-bottom: 10px;
         .img{
             width: 60px;
         }

@@ -43,18 +43,19 @@
                 display: flex;
                 justify-content: space-around;
                 .span{
-                    font-size: 14px;
+                    font-size: 12px;
                    
                 }
 
                 
             }
             .reserve-second{
-                margin-right: 12px;
-                padding: 4px;
-                justify-content: space-around;
+                width: 100%;
+              display: block;
+              margin-right: 6px;
                 .span{
-                    font-size: 14px;
+                    margin-left: 4px;
+                    font-size: 12px;
                     
                 }
                 margin-left: 25px;

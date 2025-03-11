@@ -1,6 +1,21 @@
 import "../styles/scheduled.scss"
 
-const Scheduled=()=>{
+const Scheduled=({guests,from,to})=>{
+
+    const dateFrom=new Date(from);
+
+    const fromFormated=dateFrom.toLocaleDateString("en-us",{
+        day:"numeric",
+        month:"long",
+        year:'numeric',
+    })
+
+    const dateTo=new Date(to);
+    const toFormated=dateFrom.toLocaleDateString("en-us",{
+        day:"numeric",
+        month:"long",
+        year:'numeric'
+    })
     return (
         <>
         <div className="reserve-card">
@@ -12,18 +27,18 @@ const Scheduled=()=>{
                 <div className="reserve-mid">
                     <div className="reserve-first">
                           <div className="from">
-                            From<br/><span className="span">Nov 10, 2022</span>
+                            From<br/><span className="span">{fromFormated}</span>
                             
 
                           </div>
 
                           <div className="to">
-                          To<br/><span className="span">Nov 29, 2022</span>
+                          To<br/><span className="span">{toFormated}</span>
                           </div>
                     </div>
 
                     <div className="reserve-second">
-                        Guests<br/><span className="span">1 adult</span>
+                        Guests<br/><span className="span">{guests}</span>
 
                     </div>
                    

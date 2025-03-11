@@ -5,17 +5,20 @@
 .cards{
     display: flex;
     width: 550px;
+    position: relative;
     flex-direction: column;
 
    
     .img{
         .card-icon{
             position: absolute;
-            margin-top: 20px;
+            margin-top: 10px;
             z-index: 10000;
             padding: 6px;
             font-size: 40px;
             color: green;
+           
+            
         }
        
         img{

@@ -1,0 +1,49 @@
+.temperature{
+    display: flex;
+    width: 80px;
+    height: auto;position: absolute;z-index: 1000;
+    .sun{
+        height: 50px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .imgsun{
+            width: 30px;
+            
+        }
+    }
+    .data{
+        display: flex;
+        flex-direction: column;
+        height: 50px;
+        .tempdata{
+            display: flex;
+          
+            .temp{
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                height: 10px;
+            }  
+        }
+
+        .max-min{
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            .mintemp{
+                color: white;
+                font-size: 8px;
+                text-shadow: 2px black;
+
+            }
+            .maxtemp{
+                color: white;
+                font-size: 8px;
+
+            }
+        }
+       
+    }
+}

@@ -32,25 +32,24 @@
             justify-content: center;
            
         }
-        .remove2{
+        .remove2 {
             position: absolute;
             z-index: 1000;
             padding: 4px;
-            align-items: end;
             margin-left: 160px;
             border-radius: 20px;
-            font-size: 60px;
+            font-size: 70px;
             width: 60px;
             margin-top: 220px;
-            color: white;
             font-weight: 1000;
-            justify-content: center;
             display: flex;
             justify-content: center;
             font-stretch: expanded;
-            opacity: 0.8;
-           
+            font-family: sans-serif;
+            color: rgba(142, 142, 142, 0.429) !important; 
+            -webkit-text-stroke: 2px rgb(255, 255, 255); /* Add only stroke */
         }
+        
         img{
             position: relative;
             width: 220px;

@@ -5,6 +5,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineAppstore } from "react-icons/ai";
 import { FaGrinHearts } from "react-icons/fa";
 import { useState } from "react";
+import Temperature from "../Temperature";
 
 const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
     const dateFrom=new Date(from);
@@ -26,7 +27,7 @@ const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
         <>
             <div className="card" style={{ background: `url(${img})` }}>
                 <div className="sun-logo">
-                    <img className="img" src="/assets/img/Group 1151.svg" alt="Logo" />
+                <Temperature className="img"/>
                 </div>
                 <div className="card-content">
                     <div className="head">
@@ -72,7 +73,7 @@ const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
                     <div className="address">
                         <div className="content">
                             <span className="span">
-                                <CiCalendar style={{ color: "#FF385C", fontSize: "12px" }} />
+                                <CiCalendar style={{ color: "#FF385C", fontSize: "14px" }} />
                             </span>
                             {fromFormated}- {toFormated}
                         </div>

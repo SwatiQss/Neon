@@ -119,20 +119,21 @@ const Dashboard = () => {
       <p className="para0">We wish you to enjoy the activity and the weather.</p>
 
       <div className="Card-container">
-        <Link to="/scheduled" className="Link-card">
+        
           <div className="card-section" ref={cardContainerRef} >
           {events3.map((arr, index) => {
   if (index === size) {
     setCurr('grey');
     setPrev('black');
   }
+  let id=arr.id;
   return (
-    <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date}/>
-  );
+    <Link to={`/scheduled/${id}`} className="Link-card"> <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date} temp={arr.temperature}/></Link>
+   );
 })}
 
           </div>
-        </Link>
+        
         <div className="arrow">
           <PiArrowCircleLeftThin style={{ color: curr, fontSize: "48px" }} onClick={scrollLeft} />
           <PiArrowCircleRightThin style={{ color: prev, fontSize: "48px" }} onClick={scrollRight} />
@@ -141,7 +142,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="Card-container">
-        <p className="heading">{name}, hope we understand you better</p>
+        <p className="heading8">{name}, hope we understand you better</p>
         <div className="card-section" ref={cardContainerRef2}>
 
 
@@ -164,7 +165,7 @@ const Dashboard = () => {
 
       <div className="Card-container">
 
-        <p className="heading">Todays recommedations for you, {name}!</p>
+        <p className="heading8">Todays recommedations for you, {name}!</p>
        
           <div className="card-section" >
             <div className="card-section2">
@@ -173,7 +174,7 @@ const Dashboard = () => {
 
 
 
-                  <Smal key={index} index={index + 1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status} onClick={() => {
+                  <Smal key={index} index={index + 1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status}  onClick={() => {
                     sessionStorage.setItem('reserved', JSON.stringify(arr.id));
                     console.log("Reserve ID:", arr.category_id)
                   }} />
@@ -187,7 +188,7 @@ const Dashboard = () => {
 
 
       <div className="Card-container">
-        <p className="heading">{name}, here is your master journey with us so far</p>
+        <p className="heading8">{name}, here is your master journey with us so far</p>
         <div className="card-section">
           <div className="card-section2">
             {
@@ -201,7 +202,7 @@ const Dashboard = () => {
 
 
       <div className="map">
-        <p className="heading">Find events on map</p>
+        <p className="heading8">Find events on map</p>
         <MapComponent />
       </div>
       <ModalVibe />

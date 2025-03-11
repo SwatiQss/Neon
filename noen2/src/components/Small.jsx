@@ -4,8 +4,9 @@ import { MdEmojiEmotions } from "react-icons/md";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from 'axios'
+import Temperature from "./Temperature";
 import { Link } from "react-router-dom";
-const Smal = ({ props, catName, title, index, category_id, saved_status,id ,onClick}) => {
+const Smal = ({ props, catName, title, index, category_id, saved_status,id ,temp,onClick}) => {
 
     const [isActive, setIsactive] = useState(saved_status)
     const handleClick = async () => {

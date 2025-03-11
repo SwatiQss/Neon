@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/profile" element={<EditProfile />} />
           <Route path="/viboModal" element={<ViboModal />} />
           <Route path="/modalNext" element={<ModalRescheduleNext />} />
-          <Route path="/scheduled" element={<ScheduledRoundGolf/>}/>
+          <Route path="/scheduled/:id" element={<ScheduledRoundGolf/>}/>
           <Route path="/choices" element={<RescheduleChoices/>}/>
           <Route path="/success" element={<RescheduleChoices/>}/>
         </Routes>
