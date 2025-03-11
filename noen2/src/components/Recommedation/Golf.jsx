@@ -7,7 +7,7 @@ import { FaGrinHearts } from "react-icons/fa";
 import { useState } from "react";
 import Temperature from "../Temperature";
 
-const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
+const Golf = ({ event,img,title,descrp,cat,location,from,to,rating }) => {
     const dateFrom=new Date(from);
     const fromFormated=dateFrom.toLocaleDateString("en-us",{
         day:"numeric",
@@ -23,6 +23,7 @@ const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
       let maxLines=3;
         const [isExpanded, setIsExpanded] = useState(false);
     
+    
     return (
         <>
             <div className="card" style={{ background: `url(${img})` }}>
@@ -35,7 +36,7 @@ const Golf = ({ event,img,title,descrp,cat,location,from,to }) => {
                         <div className="rating">
                             <div className="star">
                                 {/* Display 5 stars */}
-                                {[...Array(5)].map((_, index) => (
+                                {[...Array(rating)].map((_, index) => (
                                     <IoIosStar key={index} style={{ color: "#FF385C", fontSize: "13px" }} />
                                 ))}
                             </div>

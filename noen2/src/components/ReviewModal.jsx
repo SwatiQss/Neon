@@ -168,7 +168,7 @@ const handleClick=()=>{
              Submit
          </button>
 
-         <button className="review-btn" onClick={handleClick}>cancel</button>
+         <button className="review-btn" onClick={handleClick}>Cancel</button>
 
 </div>
      </div>

@@ -128,7 +128,7 @@ const Dashboard = () => {
   }
   let id=arr.id;
   return (
-    <Link to={`/scheduled/${id}`} className="Link-card"> <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date} temp={arr.temperature}/></Link>
+    <Link to={`/scheduled/${id}`} className="Link-card"> <Golf key={index} img={arr.img} title={arr.title} descrp={arr.description} location={arr.location} cat={arr.category} from={arr.from_date} to={arr.to_date} temp={arr.temperature} rating={arr.rating}/></Link>
    );
 })}
 
