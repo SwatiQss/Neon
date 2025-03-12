@@ -8,6 +8,7 @@ import ViboModal from "./VibometerModel";
 
 
 
+
 const Rating = ({ label, fieldName, setReviewData }) => {
     const [number, setNumber] = useState(0);
 

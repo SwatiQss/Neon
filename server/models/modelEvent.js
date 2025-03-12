@@ -20,7 +20,8 @@ try{
 
 
     static async getRound(id) {
-        const sql = `SELECT * FROM events WHERE id=$1`;
+        const sql = "SELECT e.*,COALESCE(r.occurrence_count, 0) AS occurrence_count FROM events e LEFT JOIN ( SELECT event_id, COUNT(*) AS occurrence_count FROM reviews GROUP BY event_id) r ON e.id = r.event_id where e.id=$1 ";
+
         try {
             const result = await pool.query(sql, [id]); // PostgreSQL
             console.log(id);
@@ -31,10 +32,23 @@ try{
             throw new Error('Error fetching round: ' + err.message);
         }
     }
+    static async getReview(id) {
+        const sql = `SELECT r.comment,ROUND(r.quality_of_event + r.services_at_event + r.operator_of_event + r.facilities_of_events + r.staff_politeness) / 5.0 AS average_rating,u.name AS user_name FROM reviews r JOIN profile u ON r.user_id = u.id WHERE r.event_id = $1`;
+
+        try {
+            const result = await pool.query(sql, [id]); // PostgreSQL
+            console.log(id);
+            return result.rows; // PostgreSQL uses `.rows`
+         
+        } catch (err) {
+            console.log('Error fetching review:', err);
+            throw new Error('Error fetching review: ' + err.message);
+        }
+    }
     
 
     static async getItenary(){
-        const sql=`SELECT * FROM events where status='active' ORDER BY from_date`
+       const sql = "SELECT e.*,COALESCE(r.occurrence_count, 0) AS occurrence_count FROM events e LEFT JOIN ( SELECT event_id, COUNT(*) AS occurrence_count FROM reviews GROUP BY event_id) r ON e.id = r.event_id where e.status='active' ";
 
         try{
             const result=await pool.query(sql)

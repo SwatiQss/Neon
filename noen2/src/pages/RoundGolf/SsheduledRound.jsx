@@ -50,6 +50,7 @@ const ScheduledRoundGolf = () => {
      const handleChild=(data)=>{
         setState(data);
      }
+     
     return (
         <>
            {eventData.map((arr,index)=>(
@@ -60,31 +61,18 @@ const ScheduledRoundGolf = () => {
                      {arr.title}
                  </div>
                  <div className="down">
+                   {parseInt(arr.occurrence_count)>0 && [...Array(arr.rating)].map((_, index) => (
+                                                          <div className="star">
+                                                          <FaStar />
+                                                      </div>
+                                                  ))}
+
+                  {console.log(arr.occurrence_count,eventData,"5555555")}
 
 
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <p className="paraa paraa2">5.0</p>
-                     <p className="paraa">.</p>
-                     <p className="paraa paraa2">23 reviews</p>
+                    {parseInt(arr.occurrence_count)>0 &&  <p className="paraa paraa2">{arr.rating}</p> }
+                    {parseInt(arr.occurrence_count)>0 &&  <p className="paraa">.</p> }
+                     <p className="paraa paraa2">{arr.occurrence_count} reviews</p>
                      <p className="paraa">.</p>
                      <p className="paraa">{arr.location}</p>
 

@@ -92,7 +92,7 @@ const handleClick2=()=>{
 
                      <p className="paraa paraa2">5.0</p>
                      <p className="paraa">.</p>
-                     <p className="paraa paraa2">23 reviews</p>
+                     <p className="paraa paraa2">{arr.occurrence_count} reviews</p>
                      <p className="paraa">.</p>
                      <p className="paraa">{arr.location}</p>
 

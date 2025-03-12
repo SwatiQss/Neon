@@ -1,7 +1,18 @@
+import { useParams } from "react-router-dom";
 import "../styles/ReviewCard.scss"
 import { FaStar } from "react-icons/fa6";
-
+import { useEffect,useState } from "react";
 const ReviewCard=()=>{
+    const id=2;
+
+    const [review,setReview]=useState([]);
+    useEffect(()=>{
+        fetch(`http://localhost:5000/event/review?id=${id}`)
+        .then(response=>response.json())
+        .then(data=>setReview(data.review))
+        .catch(error=>console.error('Error',error));
+    },[]);
+    console.log(review,"reviewwwww");
     return (
         <>
         <div className="reviewcard">

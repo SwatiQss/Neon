@@ -95,3 +95,17 @@ exports.getRound = async (req, res) => {
         res.status(500).json({ message: "Failed at controller", error: err.message });
     }
 };
+
+exports.getReview = async (req, res) => {
+    const { id } = req.query;
+    
+    try {
+        if (!id) return res.status(400).json({ message: "ID is required" });
+
+        const review = await Event.getReview(id);
+        res.json({ review }); // Corrected response format
+    } catch (err) {
+        console.error("review controller error", err);
+        res.status(500).json({ message: "Failed at controller", error: err.message });
+    }
+};
