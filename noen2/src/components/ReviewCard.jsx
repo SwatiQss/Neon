@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import "../styles/ReviewCard.scss"
 import { FaStar } from "react-icons/fa6";
 import { useEffect,useState } from "react";
-const ReviewCard=()=>{
+import { IoIosStar } from "react-icons/io";
+const ReviewCard=({cmmt,rating,user})=>{
     const id=2;
 
     const [review,setReview]=useState([]);
@@ -12,7 +13,6 @@ const ReviewCard=()=>{
         .then(data=>setReview(data.review))
         .catch(error=>console.error('Error',error));
     },[]);
-    console.log(review,"reviewwwww");
     return (
         <>
         <div className="reviewcard">
@@ -23,7 +23,7 @@ const ReviewCard=()=>{
                     </div>
 
                    <div className="user-name">
-                    Michelle<br/><span className="review-span">Sep 2022</span>
+                    {user}<br/><span className="review-span">Sep 2022</span>
 
                    </div>
 
@@ -31,16 +31,14 @@ const ReviewCard=()=>{
                 </div>
 
                 <div className="reviewCard-para">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, voluptatem quae beatae corrupti eaque consequuntur a culpa similique ad maiores. Deserunt a similique voluptates. Quas vero optio et quos quam?
+                  {cmmt}
                     
                 </div>
 
                 <div className="review-star">
-                    <FaStar style={{color:"#FF385C"}}/>
-                    <FaStar  style={{color:"#FF385C"}}/>
-                    <FaStar  style={{color:"#FF385C"}}/>
-                    <FaStar  style={{color:"#FF385C"}}/>
-                    <FaStar  style={{color:"#FF385C"}}/>
+                     {[...Array(rating)].map((_, index) => (
+                                                       <IoIosStar key={index} style={{ color: "#FF385C", fontSize: "13px" }} />
+                                                   ))}
                     
                 </div>
 

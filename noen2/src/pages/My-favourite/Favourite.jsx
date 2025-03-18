@@ -30,7 +30,8 @@ const Favourite=()=>{
       setName(user.name);
     }
   },[]);
- 
+  
+
   const[favourite,setFavourite]=useState([]);
   const[buttonClicked,setButtonClicked]=useState(true);
   //callback Function
@@ -45,11 +46,26 @@ const Favourite=()=>{
     .catch(error=>console.error('Error',error));
   },[buttonClicked]);
     console.log(favourite,"favvvvvvvvvvvv");
+    const [events2, setEvents2] = useState([]);
+
+
+  useEffect(() => {
+    fetch('http://localhost:5000/event/events')
+      .then(response => response.json())
+      .then(data => setEvents2(data))
+      .catch(error => console.error('Error:', error));
+  }, []);
+  sessionStorage.setItem('events', JSON.stringify(events2));
     return (
         <>
         <div className="favourite">
-        <p className="heading">Good morning {name}!</p>
-        <p className="para">You have shortlisted 8 events to join later.</p>
+       {/* When the favourite list is empty */}
+{favourite.length === 0 && <p className="para">You have shortlisted 0 events to join later.</p>}
+
+{/* When the favourite list has items */}
+{favourite.length > 0 && (
+  <p className="para">You have shortlisted {favourite.length} events to join later.</p>
+)}
         <div className="card-section">
   <div className="card-section2">
   {
@@ -77,13 +93,21 @@ const Favourite=()=>{
      
           </div>
           <p className="heading">Top 5 activities on the island today</p>
-          <div className="card-section">
-  {
-    imgarr2.map((img,index)=>(
-    <Small5 key={index} props={img}/>
-    ))
-  }
-     </div>
+          <div className="card-section" >
+            <div className="card-section2">
+              {
+                events2.map((arr, index) => (
+
+
+
+                  <Smal key={index} index={index + 1} props={arr.img} title={arr.title} catName={arr.category_name} id={arr.id} category_id={arr.category_id} saved_status={arr.saved_status}  onClick={() => {
+                    sessionStorage.setItem('reserved', JSON.stringify(arr.id));
+                    console.log("Reserve ID:", arr.category_id)
+                  }} />
+                ))
+              }
+            </div>
+          </div>
 
         </div>
         

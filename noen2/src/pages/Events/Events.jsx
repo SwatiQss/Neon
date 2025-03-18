@@ -17,6 +17,7 @@ const Events = () => {
   const [selecCategory, setSelectCategory] = useState(null);
   const [changeFilter, setChangeFilter] = useState(null);  // For Button1
   const [messageChild, setMessageChild] = useState(null);  // For Button4
+  const [messageChild3, setMessageChild3] = useState(null);  // For Button4
   const [filtered, setFiltered] = useState([]);
   const [clickedButton, setClickedButton] = useState(null); // State to track clicked button
   
@@ -30,6 +31,21 @@ const Events = () => {
     setMessageChild(data); 
     console.log("cate clicked") // For Button4
   };
+  const handleDataChild3 = (data) => {
+    setClickedButton("btn3");  // Track Button4 click
+    setMessageChild3(data); 
+    console.log("location clicked") // For Button4
+  };
+  
+
+  const locationOptions = [
+    "New York, USA",
+    "London, UK",
+    "Tokyo, Japan",
+    "Berlin, Germany",
+    "Paris, France",
+    "Sydney, Australia"
+];
 
   useEffect(() => {
     // First useEffect logic, triggered when Button1 is clicked (changeFilter changes)
@@ -65,7 +81,7 @@ const Events = () => {
                   <Button1 sendDataParent={handleDataChild} />
                 </div>
                 <div className="btn2">
-                  <Button3 />
+                  <Button3 locations={locationOptions} sendDataParent3={handleDataChild3} />
                 </div>
               </div>
             </div>

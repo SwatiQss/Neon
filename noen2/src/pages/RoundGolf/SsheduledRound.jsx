@@ -20,6 +20,7 @@ import { useState,useEffect } from "react";
 import { blur } from "d3";
 import ShowImg from "../../components/ShowImg";
 import { useParams } from "react-router-dom";
+import { IoIosStar } from "react-icons/io";
 const imgarr2 = [img1, img2, img3, img4, img5]
 
 
@@ -50,6 +51,38 @@ const ScheduledRoundGolf = () => {
      const handleChild=(data)=>{
         setState(data);
      }
+     const [review2,setReview2]=useState([]);
+     const ide=2;
+     useEffect(()=>{
+         fetch(`http://localhost:5000/event/review?id=${ide}`)
+         .then(response=>response.json())
+         .then(data=>setReview2(data.review))
+         .catch(error=>console.error('Error',error));
+     },[]);
+     console.log(review2,"reviewwwww0000");
+     const[name,setName]=useState("");
+     useEffect(()=>{
+       const savedData=sessionStorage.getItem('user');
+       if(savedData){
+         const user=JSON.parse(savedData);
+         setName(user.name);
+       }
+     },[]);
+    
+     const[favourite,setFavourite]=useState([]);
+     const[buttonClicked,setButtonClicked]=useState(true);
+     //callback Function
+     const handleDataFromChild = (data) => {
+       console.log("Received from child:", data);
+       setButtonClicked(data); // Update the state with the data received from the child
+     }
+     useEffect(()=>{
+        fetch('http://localhost:5000/categories/favourite')
+        .then(response=>response.json())
+        .then(data=>setFavourite(data))
+        .catch(error=>console.error('Error',error));
+      },[buttonClicked]);
+        console.log(favourite,"favvvvvvvvvvvv");
      
     return (
         <>
@@ -216,24 +249,14 @@ const ScheduledRoundGolf = () => {
                  </div>
              </div>
              <div className="review-cards">
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
+                 {review2.map((arr,index)=>(
+                    <div>
+                       <ReviewCard cmmt={arr.comment} rating={Math.floor(arr.average_rating)} user={arr.user_name} />
+
+                    </div>
+                 ))
+                }
+              
              </div>
              <div className="arrow">
                  <PiArrowCircleLeftThin style={{ color: "grey", fontSize: "48px" }} />
@@ -246,17 +269,11 @@ const ScheduledRoundGolf = () => {
                  <div className="recommed-section-heading">
                      See More Recommedation for you, Shane
                      </div>
+                  
                      <div className="card-section">
                          {
-                             imgarr2.map((img, index) => (
-                                 <Small3 key={index} props={img} />
-                             ))
-                         }
-                     </div>
-                     <div className="card-section">
-                         {
-                             imgarr2.map((img, index) => (
-                                 <Small3  key={index} props={img} />
+                             favourite.map((arr, index) => (
+                                <Small3 key={index} props={arr.img} catName={arr.category_name} category_id={arr.category_id} title={arr.title} saved_status={arr.saved_status} sendDatatoParent={handleDataFromChild}/>
                              ))
                          }
                      </div>

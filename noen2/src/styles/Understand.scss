@@ -6,6 +6,7 @@
     display: flex;
     width: 550px;
     position: relative;
+
     flex-direction: column;
 
    
@@ -30,13 +31,15 @@
         }
     }
     .content{
+        
+        padding: 4px;
         display: flex;
         flex-direction: column;
-        gap: 0.2rem;
+       //gap: 0.2rem;
         .heading{
            font-size: 14px;
            font-weight: 600;
-           height: 20px;
+           height: 4px;
         }
         .span{
             margin-top: 10px;
@@ -46,11 +49,15 @@
         }
 
         .para{
-            font-size: 14px;
-            color: #222
+            font-size: 12px;
+            letter-spacing: 0.4px;
+            line-height: 20px;
+            color: #424141 !important;
+            font-family:'CustomFont1',sans-serif ;
         }
         .accept{
             display: flex;
+            height: 40px;
             
             .btn{
                 background-color: #222222;
@@ -66,9 +73,11 @@
                 
             }
             .no{
-                padding: 20px;
+                height: 40px;
+                padding-left: 20px;
                 display: flex;
                 align-content: center;
+                text-align: center;
                 justify-content: start;
                 font-size: 12px;
                 text-decoration: underline;

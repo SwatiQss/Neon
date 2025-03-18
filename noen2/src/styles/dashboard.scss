@@ -25,23 +25,25 @@
     color: #222222;    
     .heading{
         font-size: 26px;
+        
     }
     .para{
         font-family: 'CustomFont2',sans-serif;
         font-size: 16px;
         text-align: left;
         letter-spacing: 0.4px;
-        color: #222222;
+        color: #222222 !important;
         opacity: 1;
     }
     .para0{
-        font-family: 'CustomFont2',sans-serif;
-        font-size: 14px;
+        font-family: 'CustomFont1',sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.8px;
+
         text-align: left;
-        letter-spacing: 0.4px;
-        color: #222222;
+        color: #424141;
         opacity: 1;
-        line-height: 2px;
+        line-height: 4px;
     }
     .Card-container{
         margin-top: 0px !important;
@@ -82,8 +84,8 @@
                 display: flex;
                 flex-wrap: wrap; /* Ensures new row after 5 items */
                 //justify-content: center;
-                gap: 20px;
-                margin-top: 50px;
+        gap: 20px;
+                //margin-top: 50px;
                 
                 .smal-card { /* Target only Smal component */
                     flex: 1 1 calc(20% - 20px); /* 5 cards per row */
@@ -95,7 +97,8 @@
     
         }
         .arrow{
-            margin-top: 20px;
+            margin-top: 10px;
+            //margin-bottom: 10px;
             display: flex;
             gap: 6px;
             font-size: 40px;

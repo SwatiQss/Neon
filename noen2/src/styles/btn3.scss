@@ -20,7 +20,37 @@
     font-size: 12px;
     color: rgb(51, 51, 51);
   
+    .btn3-container {
+      position: relative;
+      display: inline-block;
+      .drop{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow :0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 1000;
+        height: 200px !important;
+        overflow-y: auto;
+        .dropdown-item {
+          font-size: 8px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+    }
     
+   
+    
+    .dropdown-item:hover {
+        background: #f1f1f1;
+    }
+  }
+  
+  
+  
     
     
   }

@@ -11,9 +11,11 @@
 
 .favourite{
     padding-left: 60px;
+    position: relative;
     font-family: 'CustomFont',sans-serif;
     .heading{
-        font-size: 30px;
+        font-size: 28px;
+        height: 20px;
     }
     .para{
         font-size: 16px;
@@ -25,13 +27,13 @@
     .card-section{
         display: flex;
         gap: 10px;
-        padding: 6px;
+        padding-left: 6px;
         .card-section2{
             display: flex;
             flex-wrap: wrap; /* Ensures new row after 5 items */
             //justify-content: center;
             gap: 20px;
-            margin-top: 50px;
+            margin-top: 20px;
             
             .small3-card { /* Target only Smal component */
                 flex: 1 1 calc(20% - 20px); /* 5 cards per row */
