@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { CiLocationOn } from "react-icons/ci";
 import "../styles/btn3.scss";
-import { index } from "d3";
 
-const Button3 = ({ locations, sendDataParent3}) => {
+const Button3 = ({ locations, sendDataParent3 }) => {
     const [location, setLocation] = useState("Pick a Location");
-    const [isOpen, setIsOpen] = useState(false); // For dropdown toggle
-    const filtered = sessionStorage.getItem("events");
+    const [isOpen, setIsOpen] = useState(false);
+
     const handleSelectLocation = (selectedLocation) => {
         setLocation(selectedLocation);
-        sendDataParent3(filtered);
-        setIsOpen(false); // Close the dropdown after selection
+
+        // Retrieve and parse events from sessionStorage
+        const storedEvents = JSON.parse(sessionStorage.getItem("events")) || [];
+
+        // Filter events based on selected location
+        const filteredEvents = storedEvents.filter(event => event.location === selectedLocation);
+
+        // Send filtered events to parent component
+        sendDataParent3(filteredEvents);
+
+        setIsOpen(false); // Close dropdown
     };
 
     return (
@@ -23,9 +31,9 @@ const Button3 = ({ locations, sendDataParent3}) => {
             </button>
 
             {isOpen && (
-                <div className="drop" style={{backgroundColor:"white",  width:"15%",height:"200px",borderRadius:"5px",overflowY:"auto",boxShadow:"0px 4px 6px rgba(0, 0, 0, 0.1)",padding:"10px",position:"absolute",zIndex:"1200"}}>
+                <div className="drop" style={{ backgroundColor: "white", width: "15%", height: "200px", borderRadius: "5px", overflowY: "auto", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", padding: "10px", position: "absolute", zIndex: "1200" }}>
                     {locations.map((loc, index) => (
-                        <div key={index} className="dropdown-item" onClick={() => handleSelectLocation(loc)} style={{fontSize:"14px", padding:"10px"}}>
+                        <div key={index} className="dropdown-item" onClick={() => handleSelectLocation(loc)} style={{ fontSize: "12px", padding: "10px" }}>
                             {loc}
                         </div>
                     ))}

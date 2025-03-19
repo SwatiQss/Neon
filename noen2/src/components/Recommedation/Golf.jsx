@@ -55,14 +55,14 @@ const Golf = ({ event, img, title, descrp, cat, location, from, to, rating }) =>
                     {/* Paragraph with Read More / Read Less */}
                     <div className="para">
                         <p ref={paraRef} className={`text-content ${!isExpanded ? "fade-text" : ""}`}>
-                            {truncatedText}
+                            {truncatedText}<span className="readmore">readmore</span>
                         </p>
-                        <button 
+                        {/* <span
                             onClick={() => setIsExpanded(!isExpanded)} 
                             className="read-more-btn"
                         >
                             {isExpanded ? " read less" : " read more"}
-                        </button>
+                        </span> */}
                     </div>
 
                     <div className="address">

@@ -1,27 +1,49 @@
 import { useState } from "react"
 import "../styles/reserveseat.scss"
 import { Link } from "react-router-dom"
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ReserveMySeat = ({eventsData,state}) => {
-    const handleClick=()=>{
-        fetch("http://localhost:5000/event/reschedule", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(eventsData[0])
-          })
-            .then(response => response.json())
-            .then(data => console.log("Success:", data))
-            .catch(error => console.error("Error:", error));
-    }
+    // const handleClick=()=>{
+    //     fetch("http://localhost:5000/event/reschedule", {
+    //         method: "POST",
+    //         headers: {
+    //           "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify(eventsData[0])
+    //       })
+    //         .then(response => response.json())
+    //         .then(data => console.log("Success:", data))
+    //         .catch(error => console.error("Error:", error));
+    // }
+    const navigate=useNavigate();
     const [state2,setState2]=useState(state);
+    const id=3;
+    let  active='active'
+    const handleClick=async ()=>{
+        try{
+            const response =await axios.patch(`http://localhost:5000/event/reschedule/${id}/toggle`,{
+                schedule:active,
+            });
+            console.log("responseReschedule",response.data);
+            
+
+
+        }catch(error){
+            console.log("eroor in reschedule", error);
+
+        }
+        
+    }
+
 
   const handleCancel=()=>{
     setState2(!state);
        
 
   }
+
 
     return (
         <>

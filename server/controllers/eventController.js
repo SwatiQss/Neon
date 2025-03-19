@@ -109,3 +109,18 @@ exports.getReview = async (req, res) => {
         res.status(500).json({ message: "Failed at controller", error: err.message });
     }
 };
+
+exports.updateEvent=async(req,res)=>{
+    const event_id=req.params.id;
+    const {schedule}=req.body;
+    try{
+        const updatedEvent=await Event.updateEvent(event_id,schedule)
+        if(updatedEvent){
+            return res.json({updatedEvent:updatedEvent.schedule});
+        }
+      
+    }  catch(err){
+        console.error("error updating intrest",err);
+        res.status(500).json({error:'failed to reschedule event'})
+    }
+}

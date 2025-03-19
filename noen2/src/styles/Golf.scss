@@ -73,6 +73,10 @@ body {
             font-family: 'CustomFont1',sans-serif;
             position: relative;
             overflow: hidden;
+            .readmore{
+                color: #FF385C;
+                text-decoration: underline;
+            }
             .text-content {
                 display: -webkit-box;
                 -webkit-line-clamp: 3; 
@@ -96,7 +100,7 @@ body {
     padding: 0;
     text-decoration: underline;
     display: inline;
-    margin-left: 2px;
+    margin-left: 250px;
     
 }
             

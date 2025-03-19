@@ -1,4 +1,5 @@
 // models/userModel.js
+const { updateEvent } = require('../controllers/eventController');
 const pool = require('../db'); // Import PostgreSQL client (db.js)
 
 class Event {
@@ -135,6 +136,22 @@ try{
           }
           
   }
+  
+static async updateEvent(event_id,schedule){
+    const sql='UPDATE events SET status=$1 WHERE id=$2 RETURNING *';
+    const values=[schedule,event_id];
+
+    try{
+        console.log('UPDATE IN Events schedule')
+        const result=await pool.query(sql,values);
+        return result.rows[0];
+    }
+    catch (err){
+        console.error('Error updating from model',err)
+        throw new Error('failed from model');
+    }
 }
+}
+
 
 module.exports = Event;

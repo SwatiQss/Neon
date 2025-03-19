@@ -4,7 +4,7 @@ import { PiSmileyFill } from "react-icons/pi";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/modalSlice";
 
-const Understand =({props,desc,title,id})=>{
+const Understand =({props,desc,title,id,emoji})=>{
   
     const dispatch=useDispatch();
     const handleClick=()=>{
@@ -16,7 +16,7 @@ const Understand =({props,desc,title,id})=>{
         <div className="cards">
             <div className="img">
                <div className="card-icon">
-               <FaGrinHearts/>
+              {emoji}
                </div>
                 <img src={props}/>
 

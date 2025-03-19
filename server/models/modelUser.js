@@ -47,6 +47,17 @@ class User {
             throw new Error('failed from model');
         }
     }
+
+    static async getIntrest(){
+        const sql=`Select interest FROM interests where user_id=29`;
+        try{
+            const result=await pool.query(sql);
+            return result.rows;
+        }catch(err){
+            console.error('Error fetching intrest',err);
+            throw new Error ('Error fetching from intrets'+err.message);
+        }
+    }
 }
 
 module.exports = User;

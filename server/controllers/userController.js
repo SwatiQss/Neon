@@ -49,3 +49,14 @@ exports.updateInterest=async(req,res)=>{
     }
 
 }
+
+exports.getIntrest=async(req,res)=>{
+    try{
+        const intrest=await User.getIntrest();
+        res.json(intrest)
+    }catch(err){
+        console.error('Error fetching intrests',err);
+        throw new Error('Error fetching intrests:'+err.message);
+
+    }
+}

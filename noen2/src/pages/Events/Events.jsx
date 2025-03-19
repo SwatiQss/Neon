@@ -28,18 +28,22 @@ const Events = () => {
 
   const handleDataChild2 = (data) => {
     setClickedButton("btn4");  // Track Button4 click
-    setMessageChild(data); 
+    setFiltered(data); 
     console.log("cate clicked") // For Button4
   };
   const handleDataChild3 = (data) => {
     setClickedButton("btn3");  // Track Button4 click
-    setMessageChild3(data); 
-    console.log("location clicked") // For Button4
+    setFiltered(data); 
+    console.log(data,"location clicked") // For Button4
   };
   
+  const handleDataChild4=(data)=>{
+    setFiltered(data);
+    console.log("walkdata")
+  }
 
   const locationOptions = [
-    "New York, USA",
+    "Sindhu",
     "London, UK",
     "Tokyo, Japan",
     "Berlin, Germany",
@@ -90,13 +94,13 @@ const Events = () => {
                 <p>How far are you willing to travel?</p>
               </div>
               <div className="down">
-                <Button2 />
+                <Button2 sendDataParent4={handleDataChild4} />
               </div>
             </div>
             <div className="mid2">
               <div className="down">
                 <div className="btn1">
-                  <Button2 />
+                  <Button2 sendDataParent4={handleDataChild4}/>
                 </div>
               </div>
             </div>

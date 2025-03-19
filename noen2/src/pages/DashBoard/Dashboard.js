@@ -20,9 +20,17 @@ import { useEffect, useState } from "react";
 import Speedometer from "../../components/Speedometer";
 import Small6 from "../../components/small6";
 import ReserveMySeat from "../../components/ReserveMySeat";
+import { VscSmiley } from "react-icons/vsc";
+import { FaFaceGrinHearts } from "react-icons/fa6";
+import { IoSad } from "react-icons/io5";
+import { FaHeart, FaSadCry } from "react-icons/fa";
+import { FaFaceSadCry } from "react-icons/fa6";
+
 const imgarr2 = [img1, img2, img3, img4, img5]
 console.log(Events)
 
+const emotions = [<VscSmiley color="FFCF50"/> ,<FaFaceGrinHearts color="E07A5F"/>,<IoSad color="FFCF50"/>,<FaSadCry color="A4B465"/> ,<IoSad color="FFCF50"/>]  
+console.log(emotions);
 
 
 const Dashboard = () => {
@@ -147,8 +155,8 @@ const Dashboard = () => {
 
 
           {
-            events2.map((arr, index) => (
-              <Understand key={index} id={arr.id} props={arr.img} title={arr.title} desc={arr.description} />
+            events3.map((arr, index) => (
+              <Understand key={index} id={arr.id} props={arr.img} title={arr.title} desc={arr.description} emoji={emotions[arr.rating-1]} />
 
             ))
           }

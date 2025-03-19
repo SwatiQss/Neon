@@ -9,8 +9,6 @@ const userController = require('../controllers/userController');
 console.log("routess")
 //router.get('/users', userController.getUser);
 router.post('/profile', userController.createUser);
-router.patch('/update/:id/toggle',userController.updateInterest)
-
-
-
+router.get('/getintrest',userController.getIntrest);
+router.patch('/update/:id/toggle',userController.updateInterest);
 module.exports = router;
