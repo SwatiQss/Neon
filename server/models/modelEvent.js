@@ -33,6 +33,20 @@ try{
             throw new Error('Error fetching round: ' + err.message);
         }
     }
+
+    static async getSchedule(id) {
+const sql="SELECT * FROM events WHERE id=$1"
+
+        try {
+            const result = await pool.query(sql, [id]); // PostgreSQL
+            console.log(id);
+            return result.rows; // PostgreSQL uses `.rows`
+         
+        } catch (err) {
+            console.log('Error fetching schedule:', err);
+            throw new Error('Error fetching schedule: ' + err.message);
+        }
+    }
     static async getReview(id) {
         const sql = `SELECT r.comment,ROUND(r.quality_of_event + r.services_at_event + r.operator_of_event + r.facilities_of_events + r.staff_politeness) / 5.0 AS average_rating,u.name AS user_name FROM reviews r JOIN profile u ON r.user_id = u.id WHERE r.event_id = $1`;
 

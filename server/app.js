@@ -1,30 +1,17 @@
-// // server.js
-// const express = require('express');
-// const cors = require('cors');
-// const app = express();
-// app.use(express.json()); // For parsing JSON request bodies
-// app.use(cors());
-// const eventRoutes=require('./routes/eventRoutes')
-// const userRoutes = require('./routes/userRoutes');
-// const reviewRoutes=require('./routes/reviewRoutes')
-// app.use('/', userRoutes);
-// app.use('/event',eventRoutes)
-// //app.use('/review',reviewRoutes)
-// const PORT = 5000;
-// app.listen(PORT, () => {
-//     console.log(`Server is running on port ${PORT}`);
-// });
 
 
-
+const http =require("http");
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const WebSocket=require("ws");
+
+const server=http.createServer(app);
+const wss=new WebSocket.Server({server});
 
 // Middleware
 app.use(express.json());  // For parsing JSON request bodies
 app.use(cors());
-
 // Importing routes
 const eventRoutes = require('./routes/eventRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -32,7 +19,29 @@ const catagoryRoutes=require('./routes/categoryRoutes')
 const reviewRoutes = require('./routes/reviewRoutes');
 const mapRoutes=require("./routes/mapRoutes");
 const paymentRoutes=require("./routes/paymentRoutes");
+const { type } = require("os");
+// WebSocket Connection
+const PING_INTERVAL=30000;
+wss.on("connection", (ws) => {
+    console.log("New WebSocket connection");
+    ws.send(JSON.stringify({message:"We regret to inform you that the current weather conditions are not conducive for a golf session. Would you like to reschedule or cancel your golf session for today?"}));
+  
+    ws.on("message", (message) => {
+        console.log(`Received: ${message}`);
 
+        // Broadcast message to all connected clients
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(message);
+            }
+        });
+    });
+
+    ws.on("close", () => {
+        console.log("Client disconnected");
+        
+    });
+})
 
 
 // Use routes with correct prefixes
@@ -44,6 +53,6 @@ app.use('/maps',mapRoutes);
 app.use('/stripe',paymentRoutes)
 // Starting the server
 const PORT = 5000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

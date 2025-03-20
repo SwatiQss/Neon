@@ -1,10 +1,11 @@
 import "../styles/profile.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   // Initializing state with default values
   const [userData, setUserData] = useState({
-    id: 29,
+    id: 32,
     name: '',
     email: '',
     contact: '',
@@ -15,6 +16,7 @@ const Login = () => {
     created_at: "2025-02-18T10:19:28.790Z",
     updated_at: "2025-02-18T10:19:28.790Z"
   });
+  const navigate=useNavigate();
 
   // Handling the input change dynamically
   const handleInputChange = (e) => {
@@ -61,11 +63,13 @@ const Login = () => {
         console.log('User added:', data);
         // Optionally, show a success message or redirect the user
       })
+      
       .catch(error => {
         console.error('Error:', error);
         // Optionally, show an error message
       });
   };
+
 
   return (
     <>

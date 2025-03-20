@@ -78,12 +78,17 @@ const Profile = () => {
 useEffect(()=>{
     fetch(`http://localhost:5000/getintrest`)
     .then(response=>response.json())
-    .then(data=>setInterest(data))
+    .then((data)=>{setInterest(data)
+    })
     .catch(error=>console.error('Error:',error));
 },[]);
- // ✅ Check if interest is defined
-        //const interestArray = interest.interest.split(",").map(item => item.trim());
-        //console.log(interestArray, "interestttttt");
+const [present,setPresent]=useState([]);
+setTimeout(()=>{console.log(interest[0].interest.split(",").map(item => item.trim()));
+
+               setPresent(interest[0].interest.split(",").map(item=>item.trim()));
+},1000)
+
+        
     
 
 
@@ -122,7 +127,7 @@ useEffect(()=>{
                                     props={arr.img}
                                     text={arr.text}
                                     onClick={() => handleInterestToggle(arr.text)}
-                                    isSelected={selectedInterests.includes(arr.text)}
+                                    isSelected={selectedInterests.includes(arr.text) || present.includes(arr.text)}
                                 />
                             ))}
                         </div>
@@ -134,7 +139,7 @@ useEffect(()=>{
                                     props={arr.img}
                                     text={arr.text}
                                     onClick={() => handleInterestToggle(arr.text)}
-                                    isSelected={selectedInterests.includes(arr.text)}
+                                    isSelected={selectedInterests.includes(arr.text) || present.includes(arr.text)}
                                 />
                             ))}
                         </div>

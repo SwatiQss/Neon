@@ -59,46 +59,28 @@ const handleClick2=()=>{
         <>
            {eventData.map((arr,index)=>(
              <div className="roundGolf" key={index}>
-             <div className="addReview">
-                 <AddReview />
-             </div>
-
              <div className="round-heading">
                  <div className="main-heading">
-                     Round of Golf
+                     {arr.title}
                  </div>
+                
                  <div className="down">
+                   {parseInt(arr.occurrence_count)>0 && [...Array(arr.rating)].map((_, index) => (
+                                                          <div className="star">
+                                                          <FaStar />
+                                                      </div>
+                                                  ))}
+
+                  {console.log(arr.occurrence_count,eventData,"5555555")}
 
 
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <div className="star">
-                         <FaStar />
-                     </div>
-
-                     <p className="paraa paraa2">5.0</p>
-                     <p className="paraa">.</p>
+                    {parseInt(arr.occurrence_count)>0 &&  <p className="paraa paraa2">{arr.rating}</p> }
+                    {parseInt(arr.occurrence_count)>0 &&  <p className="paraa">.</p> }
                      <p className="paraa paraa2">{arr.occurrence_count} reviews</p>
                      <p className="paraa">.</p>
                      <p className="paraa">{arr.location}</p>
 
                  </div>
-
-
              </div>
              {state && (
                 <div className="modal-overlay" style={{backdropFilter:blur}}>

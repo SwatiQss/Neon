@@ -23,6 +23,7 @@ import ReserveMySeat from "../../components/ReserveMySeat";
 import { VscSmiley } from "react-icons/vsc";
 import { FaFaceGrinHearts } from "react-icons/fa6";
 import { IoSad } from "react-icons/io5";
+import NotificationSystem from "../admin/Admin";
 import { FaHeart, FaSadCry } from "react-icons/fa";
 import { FaFaceSadCry } from "react-icons/fa6";
 
@@ -121,7 +122,6 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <Modal />
-
       <p className="heading">Good morning {name}!</p>
       <p className="para0">Below listed are your itineraries, have a look at timing and location.</p>
       <p className="para0">We wish you to enjoy the activity and the weather.</p>

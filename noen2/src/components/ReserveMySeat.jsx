@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import "../styles/reserveseat.scss"
 import { Link } from "react-router-dom"
 import axios from "axios";
@@ -36,13 +36,21 @@ const ReserveMySeat = ({eventsData,state}) => {
         }
         
     }
-
-
   const handleCancel=()=>{
     setState2(!state);
        
 
   }
+  //fetching the given events data from backend
+        const [eventData,setEventData]=useState([]);
+              //fetching the event data and vibes whose event id=given id
+       useEffect(()=>{
+          fetch(`http://localhost:5000/event/schedule?id=${id}`)
+          .then(response=>response.json())
+          .then(data=>setEventData(data.schedule))
+          .catch(error=>console.error('Error:',error));
+       },[id]);
+       console.log(eventData,"eeeeeeeeeee0000000")
 
 
     return (

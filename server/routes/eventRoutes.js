@@ -15,6 +15,7 @@ router.get('/map',eventController.getMap);
 router.patch('/reschedule/:id/toggle',eventController.updateEvent);
 router.get('/round',eventController.getRound);
 router.get('/review',eventController.getReview);
+router.get('/schedule',eventController.getSchedule);
 
 
 
