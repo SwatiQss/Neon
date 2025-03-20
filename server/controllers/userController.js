@@ -1,8 +1,10 @@
 const User = require('../models/modelUser');
 const { createVibe } = require('./reviewController');
+const pool = require('../db'); // Import PostgreSQL client (db.js)
+
 
 exports.createUser = async (req, res) => {
-    const { id, name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at } = req.body;
+    const { name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at } = req.body;
 
     console.log("Received data:", req.body);  // To check the data
 
@@ -14,7 +16,7 @@ exports.createUser = async (req, res) => {
     try {
         // Call the model method to create a user
         const userId = await User.createUser(
-            id,
+            
             name,
             email,
             contact,
@@ -60,3 +62,28 @@ exports.getIntrest=async(req,res)=>{
 
     }
 }
+
+exports.getUser = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        // Check if the user exists with the correct email and password
+        const userResult = await pool.query(
+            "SELECT * FROM profile WHERE email = $1 AND password = $2",
+            [email, password]
+        );
+
+        if (userResult.rows.length === 0) {
+            return res.status(401).json({ message: "Invalid email or password" });
+        }
+
+        const user = userResult.rows[0];
+        res.json({ message: "Login successful", user });
+
+    } catch (error) {
+        console.error("Error SignIn:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
+

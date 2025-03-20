@@ -15,18 +15,18 @@ class User {
     }
 
     // Method to create a new user
-    static async createUser(id, name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at) {
+    static async createUser(name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at) {
         // SQL query to insert the data into the 'profile' table
         const sql = `
-            INSERT INTO profile (id, name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id
+            INSERT INTO profile ( name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *
         `;
-        const values = [id, name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at];
+        const values = [name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at];
 
         try {
             const result = await pool.query(sql, values);
             // Returning the inserted row's id
-            return result.rows[0].id; // Return the inserted ID
+            return result.rows[0] // Return the inserted ID
         } catch (err) {
             console.error('Error inserting user:', err);
             throw new Error('Error saving user data: ' + err.message); // Pass the error to the controller

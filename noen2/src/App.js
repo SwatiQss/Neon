@@ -19,6 +19,7 @@ import ViboModal from "./components/VibometerModel";
 import Login from "./pages/Login";
 import ScheduledRoundGolf from "./pages/RoundGolf/SsheduledRound";
 import RescheduleChoices from "./pages/RescheduleChoices";
+import SignIn from "./pages/Signin";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!sessionStorage.getItem("user"));
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/scheduled/:id" element={<ScheduledRoundGolf />} />
           <Route path="/choices" element={<RescheduleChoices />} />
           <Route path="/success" element={<RescheduleChoices />} />
+          <Route path="/signIn" element={<SignIn/>} />
         </Routes>
         <Footer />
         <Reschedulesure />

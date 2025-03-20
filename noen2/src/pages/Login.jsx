@@ -5,18 +5,18 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   // Initializing state with default values
   const [userData, setUserData] = useState({
-    id: 32,
+    //id: 32,
     name: '',
     email: '',
     contact: '',
-    dob: new Date('1989-12-13').toISOString(),
-    password: 'jhjkhjhjk',
+    dob: '',
+    password: '',
     avatar_public_id: "wegwvqgve23727831",
     avatar_url: "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8&w=1000&q=80", // Default avatar image
     created_at: "2025-02-18T10:19:28.790Z",
     updated_at: "2025-02-18T10:19:28.790Z"
   });
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   // Handling the input change dynamically
   const handleInputChange = (e) => {
@@ -33,7 +33,7 @@ const Login = () => {
 
     if (file) {
       const reader = new FileReader();
-      
+
       reader.onloadend = () => {
         // Update the avatar_url with the uploaded image URL (this example uses the URL from FileReader)
         setUserData(userData => ({
@@ -41,7 +41,7 @@ const Login = () => {
           avatar_url: reader.result // This gives a data URL of the uploaded image
         }));
       };
-      
+
       reader.readAsDataURL(file); // Convert the file to a data URL
     }
   };
@@ -61,9 +61,10 @@ const Login = () => {
       .then(response => response.json())
       .then(data => {
         console.log('User added:', data);
+        navigate("/signIn")
         // Optionally, show a success message or redirect the user
       })
-      
+
       .catch(error => {
         console.error('Error:', error);
         // Optionally, show an error message
@@ -78,7 +79,17 @@ const Login = () => {
         <div className="content">
           <div className="profile-img">
             {/* Profile image */}
-            <img src={userData.avatar_url} alt="Profile" className="profile-avatar" />
+            <div className="input-section">
+              <p className="para" style={{ color: "white" }}>Upload your profile picture</p>
+              <input
+                style={{ color: "white", fontSize: "10px" }}
+                type="file"
+                className="input"
+                accept="image/*" // Only accept image files
+              // Handle file change
+              />
+            </div>
+
           </div>
           <div className="profile-content">
             <div className="input-section">
@@ -137,25 +148,34 @@ const Login = () => {
                 onChange={handleInputChange}
               />
             </div>
-
-            {/* Image Upload Section */}
             <div className="input-section">
-              <p className="para">Upload your profile picture</p>
+              <p className="para">
+                Password
+              </p>
               <input
-                type="file"
                 className="input"
-                accept="image/*" // Only accept image files
-                 // Handle file change
+                name="password"
+                value={userData.password}
+                onChange={handleInputChange}
               />
             </div>
 
+            {/* Image Upload Section */}
+
+
             <div className="save-btn">
-              <div>
+              <div className="btnsection">
                 <button className="save" onClick={() => {
                   console.log(userData);
                   handleSubmit();
                 }}>
                   Submit
+                </button>
+                <button className="signIn" onClick={() => {
+                  console.log(userData);
+                  handleSubmit();
+                }}>
+                  Sign In
                 </button>
               </div>
             </div>
