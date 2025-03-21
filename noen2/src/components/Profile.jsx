@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import MyCard from "./MyCard";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { FaImage } from "react-icons/fa6";
 
 const interestsData1 = [
     { img: img1, text: "Golf" },
@@ -27,11 +28,47 @@ const interestsData2 = [
 ];
 
 const Profile = () => {
-    const [userData, setUserData] = useState({});
+    //const [userData, setUserData] = useState({});
+    const [userData, setUserData] = useState({
+        name: "",
+        email: "",
+        contact: "",
+        dob: "",
+        avatar_url: "",
+        interests: "",
+    });
+    const handleFileUpload = async (event) => {
+        const file = event.target.files[0];
+        const formData = new FormData();
+        formData.append("image", file);
+      
+        try {
+          const response = await fetch("http://localhost:5000/file/upload", {
+            method: "POST",
+            body: formData,
+          });
+           console.log("done")
+          const data = await response.json();
+          console.log(data,"datata");
+          if (data.imageUrl) {
+            setUserData((prev) => ({ ...prev, avatar_url: data.imageUrl })); // Store URL in state
+            console.log("Image uploaded:", data.imageUrl);
+          }
+          console.log("done3")
+        } catch (error) {
+          console.error("Error uploading file:", error);
+        }
+      };
     const [selectedInterests, setSelectedInterests] = useState([]);
     const [userId, setUserId] = useState(null);
     const [interestArr, setInterestArr] = useState("");
     const [present, setPresent] = useState([]);
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setUserData((prev) => ({ ...prev, [name]: value }));
+    };
+
+
 
     useEffect(() => {
         const savedData = sessionStorage.getItem("user");
@@ -91,30 +128,43 @@ const Profile = () => {
         <>
             <ToastContainer />
             <div className="profile">
-                <p className="heading"> Edit {userData.name}'s Profile</p>
+                <p className="heading"> Edit Profile</p>
                 <div className="content">
                     <div
                         className="profile-img"
                         style={{
                             backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.467), rgba(0, 0, 0, 0.9)), url(${userData.avatar_url})`
                         }}
-                    ></div>
+                    >
+                         <div className="input-section">
+                            <FaImage color="white" fontSize="20px" style={{marginTop:"36px",opacity:"0.5", marginLeft:"36px", position:"absolute", zIndex:"1000"}}/>
+             
+              <input
+                style={{ color: "white", fontSize: "10px",opacity:"0",width:"100px", height:"100px", position:"relative"}}
+                type="file"
+                className="input"
+                accept="image/*" // Only accept image files
+              // Handle file change
+              onChange={handleFileUpload}
+              />
+            </div>
+                    </div>
                     <div className="profile-content">
                         <div className="input-section">
                             <p className="para">What should we call you?</p>
-                            <input className="input" value={userData.name || ""} readOnly />
+                            <input className="input" value={userData.name || ""} name="name" onChange={handleInputChange}/>
                         </div>
                         <div className="input-section">
                             <p className="para">What's your email address?</p>
-                            <input className="input" style={{ backgroundColor: "#F5F5F5" }} value={userData.email || ""} readOnly />
+                            <input className="input" style={{ backgroundColor: "#F5F5F5" }} name="email" onChange={handleInputChange} value={userData.email || ""} />
                         </div>
                         <div className="input-section">
                             <p className="para">On which number can we contact you?</p>
-                            <input className="input" value={userData.contact || ""} readOnly />
+                            <input className="input" value={userData.contact || ""} name="contact" onChange={handleInputChange}  />
                         </div>
                         <div className="input-section">
                             <p className="para">When can we wish you a happy birthday?</p>
-                            <input className="input" value={userData.dob || ""} readOnly />
+                            <input className="input" value={userData.dob || ""} name="dob" onChange={handleInputChange} />
                         </div>
 
                         <div className="card-section">
