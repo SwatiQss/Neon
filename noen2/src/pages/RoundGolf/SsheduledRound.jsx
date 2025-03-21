@@ -37,6 +37,7 @@ const ScheduledRoundGolf = () => {
            
             },[]);
             const { id } = useParams(); 
+            console.log(id,"id")
     
             const [eventData,setEventData]=useState([]);
             //fetching the event data and vibes whose event id=given id
@@ -52,14 +53,23 @@ const ScheduledRoundGolf = () => {
         setState(data);
      }
      const [review2,setReview2]=useState([]);
-     const ide=2;
-     useEffect(()=>{
-         fetch(`http://localhost:5000/event/review?id=${ide}`)
-         .then(response=>response.json())
-         .then(data=>setReview2(data.review))
-         .catch(error=>console.error('Error',error));
-     },[]);
-     console.log(review2,"reviewwwww0000");
+    // const [review2, setReview2] = useState([]);
+
+useEffect(() => {
+    if (id) {  // Ensure id is available before making the request
+        fetch(`http://localhost:5000/reviews/getreview/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Fetched Reviews:", data);
+            setReview2(data);
+        })
+        .catch(error => console.error("Error fetching reviews:", error));
+    }
+    else{console.log("no id")}
+}, [id]); // ✅ Fix: Added id to the dependency array
+
+     setTimeout(()=>{console.log(review2,"reviewwwww0000");},8000)
+  
      const[name,setName]=useState("");
      useEffect(()=>{
        const savedData=sessionStorage.getItem('user');
@@ -251,7 +261,7 @@ const ScheduledRoundGolf = () => {
              <div className="review-cards">
                  {review2.map((arr,index)=>(
                     <div>
-                       <ReviewCard cmmt={arr.comment} rating={Math.floor(arr.average_rating)} user={arr.user_name} />
+                       <ReviewCard cmmt={arr.comment} rating={arr.rating} user={arr.user_name} img={arr.avatar_url} />
 
                     </div>
                  ))

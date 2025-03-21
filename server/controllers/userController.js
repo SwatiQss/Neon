@@ -4,7 +4,7 @@ const pool = require('../db'); // Import PostgreSQL client (db.js)
 
 
 exports.createUser = async (req, res) => {
-    const { name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at } = req.body;
+    const { name, email, contact, dob, password, avatar_public_id, avatar_url, interests, created_at, updated_at } = req.body;
 
     console.log("Received data:", req.body);  // To check the data
 
@@ -24,6 +24,7 @@ exports.createUser = async (req, res) => {
             password,  // You should hash the password here if needed
             avatar_public_id,
             avatar_url,
+            interests,
             created_at,
             updated_at
         );

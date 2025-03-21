@@ -3,22 +3,18 @@ import "../styles/ReviewCard.scss"
 import { FaStar } from "react-icons/fa6";
 import { useEffect,useState } from "react";
 import { IoIosStar } from "react-icons/io";
-const ReviewCard=({cmmt,rating,user})=>{
+const ReviewCard=({cmmt,rating,user,img})=>{
     const id=2;
 
-    const [review,setReview]=useState([]);
-    useEffect(()=>{
-        fetch(`http://localhost:5000/event/review?id=${id}`)
-        .then(response=>response.json())
-        .then(data=>setReview(data.review))
-        .catch(error=>console.error('Error',error));
-    },[]);
+    
     return (
         <>
         <div className="reviewcard">
             <div className="reviewcard-main">
                 <div className="user">
-                    <div className="user-img">
+                    <div className="user-img"  style={{
+                            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.467), rgba(0, 0, 0, 0.9)), url(${img})`
+                        }} >
 
                     </div>
 
@@ -36,11 +32,15 @@ const ReviewCard=({cmmt,rating,user})=>{
                 </div>
 
                 <div className="review-star">
-                     {[...Array(rating)].map((_, index) => (
-                                                       <IoIosStar key={index} style={{ color: "#FF385C", fontSize: "13px" }} />
-                                                   ))}
-                    
-                </div>
+    {Number.isInteger(rating) && rating > 0 ? (
+        [...Array(rating)].map((_, index) => (
+            <IoIosStar key={index} style={{ color: "#FF385C", fontSize: "13px" }} />
+        ))
+    ) : (
+        <p>No rating available</p> // Fallback message
+    )}
+</div>
+
 
                 <div className="read-more">
                     Read more

@@ -15,13 +15,13 @@ class User {
     }
 
     // Method to create a new user
-    static async createUser(name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at) {
+    static async createUser(name, email, contact, dob, password, avatar_public_id, avatar_url, interests, created_at, updated_at) {
         // SQL query to insert the data into the 'profile' table
         const sql = `
-            INSERT INTO profile ( name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *
+            INSERT INTO profile ( name, email, contact, dob, password, avatar_public_id, avatar_url, interests, created_at, updated_at)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *
         `;
-        const values = [name, email, contact, dob, password, avatar_public_id, avatar_url, created_at, updated_at];
+        const values = [name, email, contact, dob, password, avatar_public_id, avatar_url, interests, created_at, updated_at];
 
         try {
             const result = await pool.query(sql, values);
@@ -34,7 +34,7 @@ class User {
     }
 
     static async updateInterest(user_id,interest){
-        const sql=' UPDATE interests SET interest=$1 WHERE user_id=$2 RETURNING *';
+        const sql=' UPDATE profile SET interests=$1 WHERE id=$2 RETURNING *';
         const values=[interest,user_id];
 
         try{
@@ -49,7 +49,7 @@ class User {
     }
 
     static async getIntrest(){
-        const sql=`Select interest FROM interests where user_id=32`;
+        const sql=`Select interests FROM profile where id=32`;
         try{
             const result=await pool.query(sql);
             return result.rows;

@@ -31,19 +31,34 @@ const Profile = () => {
     const [selectedInterests, setSelectedInterests] = useState([]);
     const [userId, setUserId] = useState(null);
     const [interestArr, setInterestArr] = useState("");
+    const [present, setPresent] = useState([]);
 
     useEffect(() => {
-        const savedData = sessionStorage.getItem('user');
+        const savedData = sessionStorage.getItem("user");
         if (savedData) {
             const user = JSON.parse(savedData);
             setUserData(user);
             setUserId(user.id);
+            if (user.interests) {
+                setPresent(user.interests.split(",").map(item => item.trim())); // Correctly set existing interests
+            }
         }
     }, []);
 
     useEffect(() => {
         setInterestArr(selectedInterests.join(","));
     }, [selectedInterests]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/getintrest`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0 && data[0].interest) {
+                    setPresent(data[0].interest.split(",").map(item => item.trim()));
+                }
+            })
+            .catch(error => console.error("Error fetching interests:", error));
+    }, []);
 
     const handleInterestToggle = (selectedText) => {
         setSelectedInterests((prev) =>
@@ -62,38 +77,15 @@ const Profile = () => {
         }
 
         try {
-            const response = await axios.patch(`http://localhost:5000/update/${userId}/toggle`, {
+            await axios.patch(`http://localhost:5000/update/${userId}/toggle`, {
                 interest: interestArr
             });
-           
-
-
             notify();
+            setPresent(selectedInterests); // Update UI with new selected interests
         } catch (error) {
             console.error("Error updating interests:", error);
         }
     };
-    const [interest,setInterest]=useState([]);
-
-useEffect(()=>{
-    fetch(`http://localhost:5000/getintrest`)
-    .then(response=>response.json())
-    .then((data)=>{setInterest(data)
-    })
-    .catch(error=>console.error('Error:',error));
-},[]);
-const [present,setPresent]=useState([]);
-setTimeout(()=>{console.log(interest[0].interest.split(",").map(item => item.trim()));
-
-               setPresent(interest[0].interest.split(",").map(item=>item.trim()));
-},1000)
-
-        
-    
-
-
-  
-
 
     return (
         <>
@@ -101,7 +93,12 @@ setTimeout(()=>{console.log(interest[0].interest.split(",").map(item => item.tri
             <div className="profile">
                 <p className="heading"> Edit {userData.name}'s Profile</p>
                 <div className="content">
-                    <div className="profile-img"></div>
+                    <div
+                        className="profile-img"
+                        style={{
+                            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.467), rgba(0, 0, 0, 0.9)), url(${userData.avatar_url})`
+                        }}
+                    ></div>
                     <div className="profile-content">
                         <div className="input-section">
                             <p className="para">What should we call you?</p>
@@ -119,7 +116,7 @@ setTimeout(()=>{console.log(interest[0].interest.split(",").map(item => item.tri
                             <p className="para">When can we wish you a happy birthday?</p>
                             <input className="input" value={userData.dob || ""} readOnly />
                         </div>
-                        
+
                         <div className="card-section">
                             {interestsData1.map((arr, index) => (
                                 <MyCard
@@ -131,7 +128,7 @@ setTimeout(()=>{console.log(interest[0].interest.split(",").map(item => item.tri
                                 />
                             ))}
                         </div>
-                        
+
                         <div className="card-section">
                             {interestsData2.map((arr, index) => (
                                 <MyCard
@@ -162,8 +159,10 @@ setTimeout(()=>{console.log(interest[0].interest.split(",").map(item => item.tri
                         </div>
 
                         <div className="save-btn">
-                            <button className="save" onClick={handleSave}>Save</button>
-                            <button className="cancel" onClick={() => setSelectedInterests([])}>Cancel</button>
+                           <div className="btnsection">
+                           <button className="save" onClick={handleSave}>Save</button>
+                           <button className="cancel" onClick={() => setSelectedInterests([])}>Cancel</button>
+                           </div>
                         </div>
                     </div>
                 </div>

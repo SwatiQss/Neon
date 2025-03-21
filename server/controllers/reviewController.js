@@ -58,17 +58,25 @@ exports.createReview = async (req, res) => {
         res.status(500).json({ message: 'Failed to create review', error: err.message });
     }
 };
-exports.getReview=async(req,res)=>{
-    try{
-        const review=await Review.getReview();
-        res.json(review)
-    }catch(err){
-        console.error('Error fetching reviews:',err);
-        throw new Error('Error fetching reviews:'+err.message);
-
+exports.getReview = async (req, res) => {
+    const { id } = req.params;  // ✅ Fix: Extract `id` from route params
+    if (!id) {
+        return res.status(400).json({ error: "Event ID is required" });
     }
-}
 
+    try {
+        const reviews = await Review.getReview(id);  // ✅ Fix: Pass `id` to model function
+
+        if (!reviews.length) {
+            return res.status(404).json({ message: "No reviews found for this event" });
+        }
+
+        res.status(200).json(reviews);
+    } catch (err) {
+        console.error("Error fetching reviews:", err);
+        res.status(500).json({ error: err.message });  // ✅ Fix: Send error response instead of throwing
+    }
+};
 exports.createVibe=async(req,res)=>{
     const{
         user_id,

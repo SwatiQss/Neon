@@ -63,7 +63,7 @@ const Navbar = () => {
        </Link>
       </div>
       <div className="navinner">
-        <NavLink to="/" className="navLink" activeClassName="active">DashBoard</NavLink>
+        <NavLink to="/dashboard" className="navLink" activeClassName="active">DashBoard</NavLink>
         <NavLink to="/favourite" className="navLink" activeClassName="active">My favourites</NavLink>
         <NavLink to="/event" className="navLink" activeClassName="active">Upcoming events</NavLink>
 

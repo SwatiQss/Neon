@@ -43,7 +43,9 @@ const App = () => {
         {isLoggedIn && <Navbar />}
         <hr className="divider" />
         <Routes>
-          <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login setIsLoggedIn={setIsLoggedIn} />} />
+          {/* <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login setIsLoggedIn={setIsLoggedIn} />} /> */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Login/>} />
           <Route path="/favourite" element={<Favourite />} />
           <Route path="/event" element={<Events />} />
           <Route path="/feedback" element={<Feedback />} />
@@ -57,7 +59,7 @@ const App = () => {
           <Route path="/success" element={<RescheduleChoices />} />
           <Route path="/signIn" element={<SignIn/>} />
         </Routes>
-        <Footer />
+        {isLoggedIn && <Footer />}
         <Reschedulesure />
       </Router>
     </Provider>

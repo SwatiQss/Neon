@@ -1,4 +1,4 @@
-import "../styles/profile.scss";
+import "../styles/signIn.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +34,7 @@ const SignIn = () => {
 
       if (response.ok) {
         console.log("Login successful:", data);
-        sessionStorage.setItem("user", JSON.stringify(data)); // Store user data in sessionStorage
+        sessionStorage.setItem("user", JSON.stringify(data.user)); // Store user data in sessionStorage
         navigate("/dashboard"); // Redirect to dashboard
       } else {
         console.error("Login failed:", data.message);

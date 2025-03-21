@@ -19,6 +19,7 @@ const catagoryRoutes=require('./routes/categoryRoutes')
 const reviewRoutes = require('./routes/reviewRoutes');
 const mapRoutes=require("./routes/mapRoutes");
 const paymentRoutes=require("./routes/paymentRoutes");
+const uploadRoutes=require("./routes/uploadRoutes")
 const { type } = require("os");
 // WebSocket Connection
 const PING_INTERVAL=30000;
@@ -45,7 +46,8 @@ wss.on("connection", (ws) => {
 
 
 // Use routes with correct prefixes
-app.use('/', userRoutes);  // Add '/api' for user routes
+app.use('/', userRoutes);  
+app.use('/file', uploadRoutes);  // Add '/api' for user routes
 app.use('/event', eventRoutes);
 app.use('/reviews',reviewRoutes) ; 
 app.use('/categories',catagoryRoutes);
