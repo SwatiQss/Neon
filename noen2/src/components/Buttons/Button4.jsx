@@ -4,6 +4,8 @@ import "../../styles/btn4.scss"
 import { useState ,useEffect} from "react";
 const Button4=({props,sendDataParent})=>{
 const[cat,setCat]=useState(null);
+const [catFiltered,setCatFiltered]=useState([]);
+const savedEvent=sessionStorage.getItem("events");
 const handleFunction=(data)=>{
     setCat(data);
     sendDataParent(cat);
@@ -24,8 +26,7 @@ const handleFunction=(data)=>{
   }
     console.log("handleFunction");
 }
-const [catFiltered,setCatFiltered]=useState([]);
-const savedEvent=sessionStorage.getItem("events");
+
 
 
 

@@ -5,12 +5,13 @@ import "../../styles/btn3.scss";
 const Button3 = ({ locations, sendDataParent3 }) => {
     const [location, setLocation] = useState("Pick a Location");
     const [isOpen, setIsOpen] = useState(false);
+            // Retrieve and parse events from sessionStorage
+     const storedEvents = JSON.parse(sessionStorage.getItem("events")) || [];
 
     const handleSelectLocation = (selectedLocation) => {
         setLocation(selectedLocation);
 
-        // Retrieve and parse events from sessionStorage
-        const storedEvents = JSON.parse(sessionStorage.getItem("events")) || [];
+
 
         // Filter events based on selected location
         const filteredEvents = storedEvents.filter(event => event.location === selectedLocation);

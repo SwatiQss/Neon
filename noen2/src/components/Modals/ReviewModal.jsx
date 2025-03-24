@@ -106,7 +106,7 @@ const ReviewModal = () => {
 
     // Submit the review data
     const handleSubmit = () => {
-        console.log(reviewData);
+        console.log(reviewData,"rrrrrrr");
         fetch("http://localhost:5000/reviews/review", {
             method: "POST",
             headers: {

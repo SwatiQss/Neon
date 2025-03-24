@@ -2,26 +2,26 @@ const stripe = require("stripe")("sk_test_51QyrP8RwSMiXBxKwjfkHLlm8FCbneCAAERkxm
 
 exports.createPayment = async (req, res) => {
     try {
-       
+
         const { event_id, adult, child } = req.body;
 
-       
+
         const adultCount = parseInt(adult) || 0;
         const childCount = parseInt(child) || 0;
 
-        
+
         const adultPrice = 100000; // $1000 in cents
         const childPrice = 50000;  // $500 in cents
 
-        
+
         const totalAmount = (adultCount * adultPrice) + (childCount * childPrice);
 
-        
+
         if (totalAmount < 1) {
             return res.status(400).json({ error: "Total amount must be at least $0.01." });
         }
 
-       
+
         const lineItems = [];//line items is a list
 
         if (adultCount > 0) {//push adultdata in lineItems

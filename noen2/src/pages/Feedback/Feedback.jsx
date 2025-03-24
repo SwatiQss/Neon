@@ -8,7 +8,7 @@ const Feedback = () => {
   const [feedback, setFeedback] = useState([]);
   
   useEffect(() => {
-    fetch('http://localhost:5000/reviews/getreview')
+    fetch('http://localhost:5000/reviews/getreview/4')
       .then(response => response.json())
       .then(data => setFeedback(data))
       .catch(error => console.error('Error:', error));
@@ -39,11 +39,11 @@ const Feedback = () => {
         <div className="feedback-container">
           <p className="feedback-heading"> Hi {name},</p>
           <p className="feedback-para">Here are the glimpses of your feedback shared with us.</p>
-          {feedback
+          {feedback && feedback.length>0 ? feedback
   .filter(arr => arr.user_id === id) // Filter feedback for the specific user
   .map((arr, index) => (
-    <CardVibe key={index} title={arr.title} comment={arr.comment} vibes={arr.vibes}/>
-  ))
+    <CardVibe key={index} title={arr.event_title} comment={arr.comment} vibes={arr.vibes} props={arr.img}/>
+  )):<p>No Feedbacks Found</p>
 }
 
         </div>

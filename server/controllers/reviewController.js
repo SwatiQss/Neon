@@ -1,4 +1,4 @@
-const Review=require('../models/modelReview')
+const Review = require('../models/modelReview')
 exports.createReview = async (req, res) => {
     const {
         id,
@@ -77,26 +77,26 @@ exports.getReview = async (req, res) => {
         res.status(500).json({ error: err.message });  // ✅ Fix: Send error response instead of throwing
     }
 };
-exports.createVibe=async(req,res)=>{
-    const{
+exports.createVibe = async (req, res) => {
+    const {
         user_id,
         event_id,
         vibes,
         experience
-    }=req.body;
+    } = req.body;
 
-    console.log("received data",req.body);
-    try{
-        const vibe=await Review.createVibe(
+    console.log("received data", req.body);
+    try {
+        const vibe = await Review.createVibe(
             user_id,
             event_id,
             vibes,
             experience
         );
-        res.status(201).json({message:'Vibes added succefully'})
-    }catch(err){
-        console.error('Error creating review:',err.message);
-        res.status(500).json({message:'failed to create review',error:err.message});
-        
+        res.status(201).json({ message: 'Vibes added succefully' })
+    } catch (err) {
+        console.error('Error creating review:', err.message);
+        res.status(500).json({ message: 'failed to create review', error: err.message });
+
     }
 }

@@ -33,29 +33,29 @@ class User {
         }
     }
 
-    static async updateInterest(user_id,interest){
-        const sql=' UPDATE profile SET interests=$1 WHERE id=$2 RETURNING *';
-        const values=[interest,user_id];
+    static async updateInterest(user_id, interest) {
+        const sql = ' UPDATE profile SET interests=$1 WHERE id=$2 RETURNING *';
+        const values = [interest, user_id];
 
-        try{
+        try {
             console.log('UPDATE IN INTREST');
-            const result=await pool.query(sql,values);
+            const result = await pool.query(sql, values);
             return result.rows[0];
         }
-        catch (err){
-            console.error('Eror updating from model',err)
+        catch (err) {
+            console.error('Eror updating from model', err)
             throw new Error('failed from model');
         }
     }
 
-    static async getIntrest(){
-        const sql=`Select interests FROM profile where id=32`;
-        try{
-            const result=await pool.query(sql);
+    static async getIntrest() {
+        const sql = `Select interests FROM profile where id=32`;
+        try {
+            const result = await pool.query(sql);
             return result.rows;
-        }catch(err){
-            console.error('Error fetching intrest',err);
-            throw new Error ('Error fetching from intrets'+err.message);
+        } catch (err) {
+            console.error('Error fetching intrest', err);
+            throw new Error('Error fetching from intrets' + err.message);
         }
     }
 }

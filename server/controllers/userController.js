@@ -16,7 +16,7 @@ exports.createUser = async (req, res) => {
     try {
         // Call the model method to create a user
         const userId = await User.createUser(
-            
+
             name,
             email,
             contact,
@@ -37,29 +37,29 @@ exports.createUser = async (req, res) => {
     }
 };
 
-exports.updateInterest=async(req,res)=>{
-    const user_id=req.params.id;
-    const {interest}=req.body;
+exports.updateInterest = async (req, res) => {
+    const user_id = req.params.id;
+    const { interest } = req.body;
 
-    try{
-        const updatedInterest=await User.updateInterest(user_id,interest);
-        if(updatedInterest){
-            return res.json({updatedInterest:updatedInterest.interest});
+    try {
+        const updatedInterest = await User.updateInterest(user_id, interest);
+        if (updatedInterest) {
+            return res.json({ updatedInterest: updatedInterest.interest });
         }
-    }catch(err){
-        console.error("error updating intrest",err);
-        res.status(500).json({error:'failed to update category status'})
+    } catch (err) {
+        console.error("error updating intrest", err);
+        res.status(500).json({ error: 'failed to update category status' })
     }
 
 }
 
-exports.getIntrest=async(req,res)=>{
-    try{
-        const intrest=await User.getIntrest();
+exports.getIntrest = async (req, res) => {
+    try {
+        const intrest = await User.getIntrest();
         res.json(intrest)
-    }catch(err){
-        console.error('Error fetching intrests',err);
-        throw new Error('Error fetching intrests:'+err.message);
+    } catch (err) {
+        console.error('Error fetching intrests', err);
+        throw new Error('Error fetching intrests:' + err.message);
 
     }
 }

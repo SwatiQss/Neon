@@ -14,8 +14,6 @@ const Navbar = () => {
   const [letter, setLetter] = useState(""); // Initialize letter state
   const [showDropdown, setShowDropdown] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
-  
-
   const dropdownRef2 = useRef(null);
   const dropdownRef = useRef(null);
 
@@ -28,14 +26,19 @@ const Navbar = () => {
     }
   }, []); // Empty dependency array means this effect runs only once, when the component mounts.
 
+
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
 
+
   const toggleDropdown2 = () => {
     setShowDropdown2(!showDropdown2);
   };
-  console.log(letter,"rrrrrrrrrrrrrrrr");
+  // console.log(letter,"rrrrrrrrrrrrrrrr");
+
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -54,6 +57,8 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside2);
     };
   }, []);
+
+  
 
   return (
     <nav className="navbar">

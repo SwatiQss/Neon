@@ -4,8 +4,6 @@ import L from "leaflet";
 import MapPopup from "../Modals/MapPopUp"; // Import
 import "../../styles/map.scss";
 import { useState, useEffect } from "react";
-
-// Fix Leaflet's missing marker issue
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
@@ -30,7 +28,7 @@ const MapComponent = () => {
   }, []);
 
   sessionStorage.setItem('maps', JSON.stringify(maps));
-  console.log(maps, "mmmmmmmmmmm");
+ 
 
   // Calculate center dynamically if possible
   const calculateCenter = () => {

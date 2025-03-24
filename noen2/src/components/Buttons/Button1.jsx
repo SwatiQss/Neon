@@ -59,14 +59,14 @@ const Button1 = ({ sendDataParent }) => {
       {showCalendar && (
         <DatePicker
           selected={startDate}
-          onChange={(date) => {setStartDate(date)
-            setShowCalendar(!setShowCalendar)
+          onChange={(date) => {
+            setStartDate(date);
+            setShowCalendar(!setShowCalendar);
           }} // Update startDate
           dateFormat="yyyy/MM/dd"
           inline
         />
       )}
-
     </>
   );
 };
