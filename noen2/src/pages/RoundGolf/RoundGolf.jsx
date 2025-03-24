@@ -19,11 +19,14 @@ import img5 from "../../img/yoga.jpg"
 import ModalRescheduleImg from "../../components/Reschedule/ModalRescheduleImgSection";
 import { blur } from "d3";
 import ShowImg from "../../components/Modals/ShowImg";
+import { useParams } from "react-router-dom";
 const imgarr2 = [img1, img2, img3, img4, img5]
 
 
 const RoundGolf = () => {
+    const { id } = useParams(); 
         const [eventId,setEventId]=useState(0);
+        
        
         useEffect(()=>{
             const savedId=sessionStorage.getItem('reserved');
@@ -54,6 +57,32 @@ const handleClick2=()=>{
 
 }
 
+const [review2,setReview2]=useState([]);
+// const [review2, setReview2] = useState([]);
+
+useEffect(() => {
+if (id) {  // Ensure id is available before making the request
+    fetch(`http://localhost:5000/reviews/getreview/${id}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log("Fetched Reviews:", data);
+        setReview2(data);
+    })
+    .catch(error => console.error("Error fetching reviews:", error));
+}
+else{console.log("no id")}
+}, []); 
+
+setTimeout(()=>{console.log(review2,"reviewwwww0000");},8000)
+const [delayedReviews, setDelayedReviews] = useState([]);
+useEffect(() => {
+    const timer = setTimeout(() => {
+      setDelayedReviews(review2); // Set the reviews after 8 seconds
+    }, 4000);
+  
+    return () => clearTimeout(timer); // Cleanup timeout when component unmounts
+  }, [review2]); // Runs when `review2` changes
+       
 
     return (
         <>
@@ -222,25 +251,18 @@ const handleClick2=()=>{
                  </div>
              </div>
              <div className="review-cards">
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-                 <div>
-                     <ReviewCard />
-                 </div>
-             </div>
+    {delayedReviews.length > 0 &&
+      delayedReviews.map((arr, index) => (
+        <div key={index}>
+          <ReviewCard
+            cmmt={arr.comment}
+            rating={arr.rating}
+            user={arr.user_name}
+            img={arr.avatar_url}
+          />
+        </div>
+      ))}
+  </div>
              <div className="arrow">
                  <PiArrowCircleLeftThin style={{ color: "grey", fontSize: "48px" }} />
                  <PiArrowCircleRightThin style={{ color: "black", fontSize: "48px" }} />

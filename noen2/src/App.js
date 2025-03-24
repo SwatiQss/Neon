@@ -50,7 +50,7 @@ const App = () => {
           <Route path="/event" element={<Events />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/setting" element={<Settings />} />
-          <Route path="/roundgolf" element={<RoundGolf />} />
+          <Route path="/roundgolf/:id" element={<RoundGolf />} />
           <Route path="/profile" element={<EditProfile />} />
           <Route path="/viboModal" element={<ViboModal />} />
           <Route path="/modalNext" element={<ModalRescheduleNext />} />

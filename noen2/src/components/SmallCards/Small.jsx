@@ -47,7 +47,7 @@ const Smal = ({ props, catName, title, index, category_id, saved_status,id ,temp
                     <div className="remove2">
                         {index}
                     </div>
-                    <Link to="/roundgolf" className="Link-card" >
+                    <Link to={`/roundgolf/${id}`} className="Link-card" >
                     <img src={props}></img>
                     </Link>
                     

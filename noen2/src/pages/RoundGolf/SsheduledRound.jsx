@@ -66,7 +66,7 @@ useEffect(() => {
         .catch(error => console.error("Error fetching reviews:", error));
     }
     else{console.log("no id")}
-}, [id]); // ✅ Fix: Added id to the dependency array
+}, []); // ✅ Fix: Added id to the dependency array
 
      setTimeout(()=>{console.log(review2,"reviewwwww0000");},8000)
   
@@ -93,6 +93,15 @@ useEffect(() => {
         .catch(error=>console.error('Error',error));
       },[buttonClicked]);
         console.log(favourite,"favvvvvvvvvvvv");
+        const [delayedReviews, setDelayedReviews] = useState([]);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setDelayedReviews(review2); // Set the reviews after 8 seconds
+  }, 4000);
+
+  return () => clearTimeout(timer); // Cleanup timeout when component unmounts
+}, [review2]); // Runs when `review2` changes
      
     return (
         <>
@@ -259,21 +268,24 @@ useEffect(() => {
                  </div>
              </div>
              <div className="review-cards">
-                 {review2 && review2.size>0 && review2.map((arr,index)=>(
-                    <div>
-                       <ReviewCard cmmt={arr.comment} rating={arr.rating} user={arr.user_name} img={arr.avatar_url} />
-
-                    </div>
-                 ))
-                }
-              
-             </div>
-             <div className="arrow">
+    {delayedReviews.length > 0 &&
+      delayedReviews.map((arr, index) => (
+        <div key={index}>
+          <ReviewCard
+            cmmt={arr.comment}
+            rating={arr.rating}
+            user={arr.user_name}
+            img={arr.avatar_url}
+          />
+        </div>
+      ))}
+  </div>
+            {delayedReviews.length>0 &&  <div className="arrow">
                  <PiArrowCircleLeftThin style={{ color: "grey", fontSize: "48px" }} />
                  <PiArrowCircleRightThin style={{ color: "black", fontSize: "48px" }} />
 
 
-             </div>
+             </div>}
 
              <div className="recommed-section">
                  <div className="recommed-section-heading">
