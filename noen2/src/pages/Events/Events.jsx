@@ -1,14 +1,14 @@
 import "../../styles/events.scss";
-import Button1 from "../../components/Button1";
-import Button2 from "../../components/Button2";
-import Smal from "../../components/Small";
+import Button1 from "../../components/Buttons/Button1";
+import Button2 from "../../components/Buttons/Button2";
+import Smal from "../../components/SmallCards/Small";
 import img1 from "../../img/golf.jpg";
 import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg";
 import img5 from "../../img/yoga.jpg";
-import Button3 from "../../components/Button3";
-import Button4 from "../../components/Button4";
+import Button3 from "../../components/Buttons/Button3";
+import Button4 from "../../components/Buttons/Button4";
 import { useEffect, useState } from "react";
 
 const imgarr2 = [img1, img2, img3, img4, img5];
@@ -65,7 +65,8 @@ const Events = () => {
     if (clickedButton === "btn4") {
       const savedData = sessionStorage.getItem("catFiltered");
       const event = savedData ? JSON.parse(savedData) : [];
-      setFiltered(event);
+      if(event && event.size>0)
+         setFiltered(event);
     }
   }, [messageChild, clickedButton]);
 
@@ -134,7 +135,7 @@ const Events = () => {
         </div>
 
         <div className="card-section">
-          {filtered &&
+          {filtered && 
             filtered.map((arr, index) => (
               <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name} />
             ))}

@@ -1,6 +1,6 @@
 import "../../styles/feedback.scss";
-import Vibe from "../../components/Vibemeter";
-import CardVibe from "../../components/CardVibe";
+import Vibe from "../../components/Meters/Vibemeter";
+import CardVibe from "../../components/Modals/CardVibe";
 import { useEffect } from "react";
 import { useState } from "react";
 

@@ -1,19 +1,17 @@
 import "../../styles/favourite.scss"
-import Smal from "../../components/Small";
+import Smal from "../../components/SmallCards/Small";
 import img1 from "../../img/golf.jpg";
 import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
-import Recomedation from "../../components/Recommendation";
-import Button1 from "../../components/Button1";
+import Recomedation from "../../components/Recommedation/Recommendation";
+//import Button1 from "../../components/Button1";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { PiArrowCircleRightThin } from "react-icons/pi";
-import Button2 from "../../components/Button2";
-import Small3 from "../../components/Small3";
-import Small5 from "../../components/Small5";
+//import Button2 from "../../components/Button2";
+import Small3 from "../../components/SmallCards/Small3";
 import { useEffect, useState } from "react";
-import axios from "axios";
 const imgarr2=[img1,img2,img3,img4,img5]
 const heading="Explore the deep Sea";
 const date="from Nov 10 to 29, 2022";

@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import Dropdown from "../dropDown";
 import { NavLink } from "react-router-dom";
 import { CiGlobe } from "react-icons/ci";
-import Reschedule from "../Reschedule";
+import Reschedule from "../Reschedule/Reschedule";
 
 
 const Navbar = () => {
@@ -58,7 +58,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-       <Link to="/">
+       <Link to="/dashboard">
        <img className="img" src="/assets/img/logo2.png" />
        </Link>
       </div>

@@ -1,16 +1,16 @@
 import { FaStar } from "react-icons/fa6";
 import "../../styles/roundgolf.scss"
-import AddReview from "../../components/AddReview";
+import AddReview from "../../components/Reviews/AddReview";
 import { GrAppsRounded } from "react-icons/gr";
-import Reserve from "../../components/Reserve";
-import Scheduled from "../../components/Scheduled";
+import Reserve from "../../components/Reserve/Reserve";
+import Scheduled from "../../components/Reschedule/Scheduled";
 import { CiLocationOn } from "react-icons/ci";
 import { FaGrinHearts } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
-import ReviewCard from "../../components/ReviewCard";
+import ReviewCard from "../../components/Reviews/ReviewCard";
 import { PiArrowCircleLeftThin } from "react-icons/pi";
 import { PiArrowCircleRightThin } from "react-icons/pi";
-import Small3 from "../../components/Small3";
+import Small3 from "../../components/SmallCards/Small3";
 import img1 from "../../img/golf.jpg";
 import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
@@ -18,7 +18,7 @@ import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
 import { useState,useEffect } from "react";
 import { blur } from "d3";
-import ShowImg from "../../components/ShowImg";
+import ShowImg from "../../components/Modals/ShowImg";
 import { useParams } from "react-router-dom";
 import { IoIosStar } from "react-icons/io";
 const imgarr2 = [img1, img2, img3, img4, img5]
@@ -259,7 +259,7 @@ useEffect(() => {
                  </div>
              </div>
              <div className="review-cards">
-                 {review2.map((arr,index)=>(
+                 {review2 && review2.size>0 && review2.map((arr,index)=>(
                     <div>
                        <ReviewCard cmmt={arr.comment} rating={arr.rating} user={arr.user_name} img={arr.avatar_url} />
 

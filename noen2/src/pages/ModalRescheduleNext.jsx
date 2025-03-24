@@ -1,16 +1,16 @@
-import AddReview from "../components/AddReview";
-import AddReview2 from "../components/AddReview2";
-import ModalRescheduleImg from "../components/ModalRescheduleImgSection";
+import AddReview from "../components/Reviews/AddReview";
+import AddReview2 from "../components/Reviews/AddReview2";
+import ModalRescheduleImg from "../components/Reschedule/ModalRescheduleImgSection";
 import "../styles/modalreschedule.scss";
-import Button2 from "../components/Button2";
-import Button4 from "../components/Button4";
-import Smal from "../components/Small";
+import Button2 from "../components/Buttons/Button2";
+import Button4 from "../components/Buttons/Button4";
+import Smal from "../components/SmallCards/Small";
 import img1 from "../img/golf.jpg";
 import img2 from "../img/surfing.jpg";
 import img3 from "../img/holiday_0.png";
 import img4 from "../img/island.jpg"
 import img5 from "../img/yoga.jpg"
-import ReserveMySeat from "../components/ReserveMySeat";
+import ReserveMySeat from "../components/Reserve/ReserveMySeat";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const imgarr2=[img1,img2,img3,img4,img5]

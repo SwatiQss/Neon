@@ -1,16 +1,16 @@
-import AddChoices from "../components/AddChoices";
-import ModalRescheduleImg from "../components/ModalRescheduleImgSection";
+import AddChoices from "../components/Reviews/AddChoices";
+import ModalRescheduleImg from "../components/Reschedule/ModalRescheduleImgSection";
 import "../styles/modalreschedule.scss";
-import Button2 from "../components/Button2";
-import Button4 from "../components/Button4";
-import ModalRescheduleImg2 from "../components/ModalRescheduleImgSection2";
-import Smal from "../components/Small";
+import Button2 from "../components/Buttons/Button2";
+import Button4 from "../components/Buttons/Button4";
+import ModalRescheduleImg2 from "../components/Reschedule/ModalRescheduleImgSection2";
+import Smal from "../components/SmallCards/Small";
 import img1 from "../img/golf.jpg";
 import img2 from "../img/surfing.jpg";
 import img3 from "../img/holiday_0.png";
 import img4 from "../img/island.jpg"
 import img5 from "../img/yoga.jpg"
-import ReserveMySeat from "../components/ReserveMySeat";
+import ReserveMySeat from "../components/Reserve/ReserveMySeat";
 import { useEffect, useState } from "react";
 const imgarr2=[img1,img2,img3,img4,img5]
 
