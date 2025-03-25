@@ -14,7 +14,7 @@ const Feedback = () => {
       .catch(error => console.error('Error:', error));
   }, []);
 
-  console.log(feedback, "ffffffffffff");
+  console.log(feedback.filter((arr)=>arr.vibes!=""), "ffffffffffff");
 
   // Store feedback data in sessionStorage
   sessionStorage.setItem('feedback', JSON.stringify(feedback));
@@ -32,6 +32,7 @@ const Feedback = () => {
   console.log(id,"id");
   console.log(name,"name");
 
+ 
   return (
     <>
       <div className="feedback">
@@ -39,12 +40,24 @@ const Feedback = () => {
         <div className="feedback-container">
           <p className="feedback-heading"> Hi {name},</p>
           <p className="feedback-para">Here are the glimpses of your feedback shared with us.</p>
-          {feedback && feedback.length>0 ? feedback
-  .filter(arr => arr.user_id === id) // Filter feedback for the specific user
-  .map((arr, index) => (
-    <CardVibe key={index} title={arr.event_title} comment={arr.comment} vibes={arr.vibes} props={arr.img}/>
-  )):<p>No Feedbacks Found</p>
-}
+          {feedback && feedback.length > 0 ? (
+  feedback
+    .filter(arr => arr.vibes != "") // Filter feedback for the specific user
+    .map((arr, index) => 
+      arr.vibes!="" ? (
+        <CardVibe 
+          key={index} 
+          title={arr.event_title} 
+          comment={arr.comment} 
+          vibes={arr.vibes} 
+          props={arr.img} 
+        />
+      ) : null
+    )
+) : (
+  <p>No Feedbacks Found</p>
+)}
+
 
         </div>
       </div>

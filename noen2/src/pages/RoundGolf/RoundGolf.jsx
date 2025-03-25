@@ -16,7 +16,6 @@ import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg"
 import img5 from "../../img/yoga.jpg"
-import ModalRescheduleImg from "../../components/Reschedule/ModalRescheduleImgSection";
 import { blur } from "d3";
 import ShowImg from "../../components/Modals/ShowImg";
 import { useParams } from "react-router-dom";
@@ -40,7 +39,7 @@ const RoundGolf = () => {
         const [eventData,setEventData]=useState([]);
         //fetching the event data and vibes whose event id=given id
  useEffect(()=>{
-    fetch(`http://localhost:5000/event/round?id=${eventId}`)
+    fetch(`http://localhost:5000/event/round/${id}`)
     .then(response=>response.json())
     .then(data=>setEventData(data.round))
     .catch(error=>console.error('Error:',error));

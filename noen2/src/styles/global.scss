@@ -5,7 +5,13 @@ body {
   font-family: $font-stack;
   background-color: $Background-colour;
   overflow-x: hidden;
+  overflow-y: scroll;
   width: 100%;
+}
+/* Hide scrollbar for WebKit browsers */
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Optional: Makes scrollbar invisible */
 }
 
 /* Apply this to the body and html */

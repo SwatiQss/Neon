@@ -32,7 +32,7 @@ FROM reviews r
 JOIN events e ON r.event_id = e.id
 LEFT JOIN vibes v ON r.user_id = v.user_id
 JOIN profile u ON r.user_id = u.id
-WHERE r.user_id = $1
+WHERE r.event_id = $1
 ORDER BY r.id DESC;  -- Order by latest reviews first
 
         `;

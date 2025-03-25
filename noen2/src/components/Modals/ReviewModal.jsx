@@ -32,6 +32,7 @@ const Rating = ({ label, fieldName, setReviewData }) => {
             </div>
             <div className="rating-star">
                 {[1, 2, 3, 4, 5].map((starValue) => (
+                    
                     <CiStar
                         key={starValue}
                         style={{ color: getStarColor(starValue), fontSize: "24px" }}
@@ -154,15 +155,12 @@ const handleClick=()=>{
          </div>
 
          <div className="comment-section">
-             <input
-                 type="text"
-                 className="review-input"
-                 name="comment"
-                 value={reviewData.comment}
+         <textarea  type="text" className="review-input" name="comment" rows="6" cols="50"  value={reviewData.comment}
                  onChange={handleInputChange}
-                 placeholder="Add your comment here"
-             />
-         </div>
+                 placeholder="Add your comment here"  ></textarea>
+         </div> 
+
+
 <div className="btn0" style={{display:"flex",justifyContent:"space-around"}}>
  
 <button className="review-btn" onClick={handleSubmit}>
