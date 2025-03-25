@@ -1,6 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../../styles/speed.scss"
 import * as d3 from "d3";
+//import { VscSmiley } from "react-icons/vsc";
+import { FaFaceGrinHearts } from "react-icons/fa6";
+import { IoSad } from "react-icons/io5";
+import { FaSadCry } from "react-icons/fa";
+import { FaSmile } from "react-icons/fa";
+import { FaAngry } from "react-icons/fa";
+import { FaSadTear } from "react-icons/fa";
+import { BsEmojiGrimaceFill } from "react-icons/bs";
 
 const Speedometer = ({speed,setSpeed}) => {
   const svgRef = useRef(null); 
@@ -77,14 +85,14 @@ const Speedometer = ({speed,setSpeed}) => {
   return (
     <div className="speedo">
       <svg ref={svgRef}></svg>
-      <input
-        type="range"
-        min="0"
-        max="100"
-        className="speed-input"
-        value={speed}
-        onChange={(e) => setSpeed(Number(e.target.value))}
-      />
+      <div className="emoji" style={{display:"flex",gap:"10px", justifyContent:"center", marginBottom:"10px"}} >
+        <FaSmile onClick={(e) => setSpeed(Number(16))}  value={speed}  color="#55C03A" fontSize="30px"   />
+          <FaFaceGrinHearts onClick={(e) => setSpeed(Number(32)) } value={speed} color="#BBBB0F" fontSize="30px"   />
+            <FaSadCry  onClick={(e) => setSpeed(Number(48))} value={speed} color="#FFFF02" fontSize="30px"  />
+              <FaSadTear onClick={(e) => setSpeed(Number(64))} value={speed} color="#FBA500" fontSize="30px" />
+                <FaAngry onClick={(e) => setSpeed(Number(80))} value={speed} color="#F84600" fontSize="30px" />
+                <BsEmojiGrimaceFill onClick={(e) => setSpeed(Number(100))} value={speed} color="#F80100" fontSize="30px"  />
+      </div>
       
     </div>
   );

@@ -23,8 +23,8 @@ import { FaSadCry } from "react-icons/fa";
 const emotions = [
   <VscSmiley color="#55C03A" fontSize="50px"  />,
   <FaFaceGrinHearts color="#ACE50E" fontSize="50px" />,
-  <IoSad color="#BBBB0F" fontSize="50px"/>,
-  <FaSadCry color="A4B465" fontSize="50px"/>,
+  <IoSad color="#BBBB0F" fontSize="50px"  />,
+  <FaSadCry color="A4B465" fontSize="50px"  />,
   <IoSad color="#BBBB0F" fontSize="50px" />,
 ];
 

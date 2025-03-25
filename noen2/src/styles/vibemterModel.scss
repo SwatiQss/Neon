@@ -22,7 +22,7 @@
              font-family: 'CustomFont2',sans-serif;
              font-size: 14px;
              margin-left: 19px;
-             width: 450px;
+             width: 500px;
              color: #222222;
              letter-spacing: 0.35px;
              line-height: 16px;
@@ -46,8 +46,9 @@
         margin-left: 24px;
         .review-input{
             width: 450px;
-            height: 130px;
+            height: 120px !important;
             border: 1px solid#DDDDDD;
+            margin-top: 10px;
             border-radius: 6px;
             box-shadow: 0px 3px 6px #DDDDDD;
     

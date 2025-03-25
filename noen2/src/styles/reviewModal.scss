@@ -2,14 +2,15 @@
 .reviewModal{
 
 display: flex;
-width: 524px;
-height: 498px;
+width: 600px;
+height: 510px;
+margin-top: 10px;
 flex-direction: column;
 gap: 14px;
-padding: 10px;
 background-color: #fff;
-border-radius: 8px;
-box-shadow: 0px 3px 6px #00000029;
+border-radius: 0px !important;
+box-shadow: none !important;
+
 .review-heading{
     letter-spacing: 0.79px;
     color: #222222;
@@ -31,27 +32,29 @@ box-shadow: 0px 3px 6px #00000029;
 .review-star1{
     display: flex;
     justify-content: space-around;
-    gap: 200px;
+    gap: 180px;
 }
 
 .review-star2{
     display: flex;
     justify-content: space-around;
-    gap: 200px;
+    gap: 180px;
 }
 .review-star3{
     display: flex;
     justify-content: space-around;
 width: 50px;
-margin-left: 14px;
+margin-left: 17px;
     
     
 }
 .comment-section{
     width: 480px;
     height:120px;
-    margin-left: 24px;
+  
+    //margin-left: 24px;
     .review-input{
+        font-family: "CustomFont1",sans-serif;
         width: 480px;
         height: 140px !important;
         border: 1px solid#DDDDDD;
@@ -63,20 +66,22 @@ margin-left: 14px;
     }
 }
 
-.review-btn{
-    margin-top: 35px;
-    height:33px;
-    width: 98px;
-    margin-left: 20px;
-    background-color: #222222;
-    color: #fff;
-    border-radius: 6px;
-    border: none;
+.btn0{
+    display: flex !important;
+    justify-content: left !important;
+    gap: 300px;
 
+    .review-btn{
+        margin-top: 35px;
+        height:33px;
+        width: 98px;
+        //margin-left: 2px;
+        background-color: #222222;
+        color: #fff;
+        border-radius: 6px;
+        border: none;
     
-    
-
-
+    }
 }
 
 

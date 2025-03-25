@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     
   const [user, setUser] = useState(() => {
-    return JSON.parse(localStorage.getItem("user")) || null;
+    return JSON.parse(sessionStorage.getItem("user")) || null;
   });
   useEffect(() => {
     console.log("User state updated:", user);
@@ -14,8 +14,8 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await axios.post("http://localhost:5000/signIn", { email, password });
 
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user)); // Store full user data
+      sessionStorage.setItem("token", res.data.token);
+      sessionStorage.setItem("user", JSON.stringify(res.data.user)); // Store full user data
       setUser(res.data.user); // Update state
       console.log(user,res.data.token)
     } catch (error) {

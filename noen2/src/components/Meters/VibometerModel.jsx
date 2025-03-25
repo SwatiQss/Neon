@@ -88,7 +88,7 @@ useEffect(() => {
             .catch((error) => {
                 console.log("Error", error);
             })
-            navigate('/scheduled');
+            navigate('/feedback');
     }
 
     return (
@@ -110,19 +110,22 @@ useEffect(() => {
 
                 </div>
                 <div className="comment-section">
-                    <input type="text"
+                    <textarea type="text"
+                    rows="6" cols="50" 
                         className="review-input"
                         name="experience"
                         value={vibo.experience}
                         onChange={handleInputChange}>
-                    </input>
+                    </textarea>
 
                 </div>
 
-                <button className="review-btn" onClick={handleSubmit}>
+              <div className="btn0">
+              <button className="review-btn" onClick={handleSubmit}>
                     Submit
                 </button>
 
+              </div>
 
             </div>
 
