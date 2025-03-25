@@ -148,6 +148,7 @@ const Events = () => {
               <Smal key={index} props={arr.img} title={arr.title} catName={arr.category_name} />
             ))}
         </div>
+        
 
         <button className="btn5">Load more</button>
       </div>

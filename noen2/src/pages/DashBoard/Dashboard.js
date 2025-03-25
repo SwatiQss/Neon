@@ -152,7 +152,7 @@ const scrollLeft2 = () => {
       </p>
 
       <div className="Card-container">
-        <div className="card-section" ref={cardContainerRef}>
+        <div className="card-section" ref={cardContainerRef} >
           {events3.map((arr, index) => (
             <Link to={`/scheduled/${arr.id}`} className="Link-card">
               <Golf

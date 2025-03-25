@@ -4,6 +4,7 @@ import img1 from "../../img/golf.jpg";
 import img2 from "../../img/surfing.jpg";
 import img3 from "../../img/holiday_0.png";
 import img4 from "../../img/island.jpg"
+import { useRef } from "react";
 import img5 from "../../img/yoga.jpg"
 import Recomedation from "../../components/Recommedation/Recommendation";
 //import Button1 from "../../components/Button1";
@@ -20,6 +21,11 @@ const para="10:30 AM -7:40 PM";
 
 const Favourite=()=>{
 
+   const [scrollIndex, setScrollIndex] = useState(0);
+    const [maxScroll, setMaxScroll] = useState(0);
+    const cardContainerRef = useRef(null);
+    const [leftArrowColor, setLeftArrowColor] = useState("grey");
+    const [rightArrowColor, setRightArrowColor] = useState("black");
   const[name,setName]=useState("");
   useEffect(()=>{
     const savedData=sessionStorage.getItem('user');
@@ -28,6 +34,21 @@ const Favourite=()=>{
       setName(user.name);
     }
   },[]);
+  const scrollLeft = () => {
+    if (cardContainerRef.current && scrollIndex > 0) {
+      const container = cardContainerRef.current;
+      container.scrollBy({ left: -container.offsetWidth, behavior: "smooth" });
+      setScrollIndex((prev) => Math.max(prev - 1, 0));
+    }
+  };
+
+  const scrollRight = () => {
+    if (cardContainerRef.current && scrollIndex < maxScroll) {
+      const container = cardContainerRef.current;
+      container.scrollBy({ left: container.offsetWidth, behavior: "smooth" });
+      setScrollIndex((prev) => Math.min(prev + 1, maxScroll));
+    }
+  };
   
 
   const[favourite,setFavourite]=useState([]);
@@ -54,6 +75,11 @@ const Favourite=()=>{
       .catch(error => console.error('Error:', error));
   }, []);
   sessionStorage.setItem('events', JSON.stringify(events2));
+  useEffect(() => {
+    setLeftArrowColor(scrollIndex === 0 ? "grey" : "black");
+    setRightArrowColor(scrollIndex === maxScroll ? "grey" : "black");
+  }, [scrollIndex, maxScroll]);
+
     return (
         <>
         <div className="favourite">
@@ -75,21 +101,27 @@ const Favourite=()=>{
      </div>
   
      <p className="heading">{name}, we have founds some recomedation for You</p>
-     <div className="cards">
-      <div className="recommend">
-      <Recomedation props={img1}  prop2={heading} prop3={date} prop4={para}/>
-      </div>
-    <div className="recommend">
-    <Recomedation props={img5}  prop2={"Swimming game for below 18years"} prop3={date} prop4={para}/>
-    </div>
+     <div className="cards" ref={cardContainerRef} >
+    
+       {events2.map((arr,index)=>(
+  <div className="recommend">
+        <Recomedation props={arr.img}  prop2={heading} prop3={date} prop4={para}/>
+     </div>
+       ))} 
+      
+    
     
      </div>
      <div className="arrow">
-          <PiArrowCircleLeftThin style={{color:"grey",fontSize:"48px"}} />
-          <PiArrowCircleRightThin style={{color:"black",fontSize:"48px"}} />
-           
-     
-          </div>
+          <PiArrowCircleLeftThin
+            style={{ color: leftArrowColor, fontSize: "48px" }}
+            onClick={scrollLeft}
+          />
+          <PiArrowCircleRightThin
+            style={{ color: rightArrowColor, fontSize: "48px" }}
+            onClick={scrollRight}
+          />
+        </div>
           <p className="heading">Top 5 activities on the island today</p>
           <div className="card-section" >
             <div className="card-section2">
