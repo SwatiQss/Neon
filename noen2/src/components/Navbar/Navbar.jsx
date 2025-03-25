@@ -78,7 +78,7 @@ const Navbar = () => {
             <div className="user-img2"></div>
           </div>
           {showDropdown2 && (
-            <Reschedule className="dropdown2" />
+            <Reschedule className="dropdown2" parentClick={toggleDropdown2} />
           )}
         </div>
         

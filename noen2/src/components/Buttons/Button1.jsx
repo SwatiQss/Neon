@@ -17,7 +17,6 @@ const Button1 = ({ sendDataParent }) => {
       const date = new Date(startDate);
       const formattedDate = format(date, "yyyy/MM/dd");
       console.log(formattedDate, "formatted date");
-
       const savedEvent = sessionStorage.getItem("events");
       if (savedEvent) {
         const events = JSON.parse(savedEvent); // Parse the string into an array

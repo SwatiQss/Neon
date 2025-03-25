@@ -9,10 +9,12 @@ const Smal = ({ props, catName, title, index, category_id, saved_status,id ,temp
     const [isActive, setIsactive] = useState(saved_status)
     const handleClick = async () => {
         
+        console.log(saved_status,"gg");
     try {
         // Toggle the state first
         const newStatus = !isActive; // Toggle the status
         setIsactive(newStatus); // Update the local state immediately
+        
 
         // Send the update to the backend
         const response = await axios.patch(`http://localhost:5000/categories/category/${category_id}/toggle`, { active: newStatus });

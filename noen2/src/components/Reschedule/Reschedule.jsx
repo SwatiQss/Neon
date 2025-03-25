@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 import { openModal2 } from "../../redux/modalSlice2";
 
 
-const Reschedule=()=>{
+
+const Reschedule=({parentClick})=>{
     const dispatch=useDispatch();
      const [notifications, setNotifications] = useState([]);
     
@@ -23,6 +24,10 @@ const Reschedule=()=>{
             }
         }
         
+        const handleClick=()=>{
+            parentClick();
+            
+        }
      
         useEffect(()=>{
             const ws=new WebSocket("ws://localhost:5000");
@@ -44,14 +49,21 @@ const Reschedule=()=>{
             };
         },[]);
 
-   
+        const [name, setName] = useState("");
+        useEffect(() => {
+          const savedData = sessionStorage.getItem("user");
+          if (savedData) {
+            const user = JSON.parse(savedData);
+            setName(user.name); // Set the first letter of user's name
+          }
+        }, []);
     
 
     return(
         <>
         <div className="reschedule">
             <div className="reschedule-heading">
-Hey Charlie<BiSolidBellRing style={{color:"#EEFF00",marginLeft:"8px"}}/>
+Hey {name}<BiSolidBellRing style={{color:"#EEFF00",marginLeft:"8px"}}/>
             </div>
             <div className="reschedule-para">
            {parsedMessage}
@@ -61,7 +73,7 @@ Hey Charlie<BiSolidBellRing style={{color:"#EEFF00",marginLeft:"8px"}}/>
                      <button className="reschedule-btn1" onClick={()=>dispatch(openModal2())}>Reschedule</button>
               
 
-               <div className="reschedule-cancel">
+               <div className="reschedule-cancel" onClick={handleClick}>
                      Cancel
                </div>
 

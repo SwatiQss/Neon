@@ -41,6 +41,14 @@ const Events = () => {
     setFiltered(data);
     console.log("walkdata")
   }
+  const [name, setName] = useState("");
+  useEffect(() => {
+    const savedData = sessionStorage.getItem("user");
+    if (savedData) {
+      const user = JSON.parse(savedData);
+      setName(user.name); // Set the first letter of user's name
+    }
+  }, []);
 
   const locationOptions = [
     "Sindhu",
@@ -73,7 +81,7 @@ const Events = () => {
   return (
     <>
       <div className="events">
-        <div className="heading">Hey Charlie,</div>
+        <div className="heading">Hey {name},</div>
         <div className="para">Let's find something exciting for you.</div>
         <div className="btns">
           <div className="upper">

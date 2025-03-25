@@ -3,7 +3,7 @@ const pool = require('../db');
 
 class Category {
     static async getCategory() {
-        const sql = 'SELECT c.category_id, c.category_name, c.saved_status, e.title, e.img FROM category c JOIN  events e ON c.event_id = e.id;';
+        const sql = 'SELECT c.category_id, c.category_name, c.saved_status, e.title, e.img FROM category c JOIN  events e ON c.event_id = e.id LIMIT 5';
         try {
             const result = await pool.query(sql);
             return result.rows;

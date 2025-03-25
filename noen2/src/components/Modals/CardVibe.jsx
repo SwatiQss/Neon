@@ -10,7 +10,8 @@ const CardVibe=({props,title,comment,vibes})=>{
     return (
         <>
         <div className="Vibe-card">
-            <div className="vibecard-img" style={{ background: `url(${props})`}}>
+            <div className="vibecard-img"style={{ background: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${props})`, backgroundSize: "cover", backgroundPosition: "center" }}
+            >
                 <div className="vibeimg-content">
                     <p className="vibepara1">{title}</p>
                     <p className="vibedate">Nov 10, 2022</p>

@@ -214,7 +214,7 @@ const scrollLeft2 = () => {
 
         <div className="card-section">
           <div className="card-section2">
-            {events2.map((arr, index) => (
+            {category.map((arr, index) => (
               <Smal
                 key={index}
                 index={index + 1}
