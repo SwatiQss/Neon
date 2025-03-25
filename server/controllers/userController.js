@@ -1,7 +1,10 @@
 const User = require('../models/modelUser');
+const express=require('express');
 const { createVibe } = require('./reviewController');
 const pool = require('../db'); // Import PostgreSQL client (db.js)
-
+require("dotenv").config();
+const app=express();
+const jwt=require("jsonwebtoken");
 
 exports.createUser = async (req, res) => {
     const { name, email, contact, dob, password, avatar_public_id, avatar_url, interests, created_at, updated_at } = req.body;
@@ -78,8 +81,31 @@ exports.getUser = async (req, res) => {
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
-        const user = userResult.rows[0];
-        res.json({ message: "Login successful", user });
+        const token=jwt.sign({email:email},process.env.JWT_SECRET,{
+            expiresIn:'1h',
+        });
+        //protected Route
+      
+       const user = userResult.rows[0];
+       res.json({token,user});
+        //res.json({ message: "Login successful", user });
+        app.get("/protected", authenticateToken, (req, res) => {
+            res.json({ message: `Hello,This is a protected route.` });
+          });
+          
+          // Middleware to verify JWT
+          function authenticateToken(req, res, next) {
+            const token = req.headers["authorization"]?.split(" ")[1];
+            if (!token) return res.sendStatus(401);
+            if (!process.env.JWT_SECRET) {
+                throw new Error("JWT_SECRET is not defined in .env");
+              }
+            jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+              if (err) return res.sendStatus(403);
+              req.user = user;
+              next();
+            });
+        }
 
     } catch (error) {
         console.error("Error SignIn:", error);

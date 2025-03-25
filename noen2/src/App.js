@@ -20,6 +20,8 @@ import Login from "./pages/Login";
 import ScheduledRoundGolf from "./pages/RoundGolf/SsheduledRound";
 import RescheduleChoices from "./pages/RescheduleChoices";
 import SignIn from "./pages/Signin";
+import { AuthProvider } from "./components/AuthContext";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!sessionStorage.getItem("user"));
@@ -38,13 +40,14 @@ const App = () => {
   }, []);
 
   return (
-    <Provider store={store}>
+   <AuthProvider>
+     <Provider store={store}>
       <Router>
         {isLoggedIn && <Navbar />}
         <hr className="divider" />
         <Routes>
           {/* <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login setIsLoggedIn={setIsLoggedIn} />} /> */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/" element={<Login/>} />
           <Route path="/favourite" element={<Favourite />} />
           <Route path="/event" element={<Events />} />
@@ -63,7 +66,9 @@ const App = () => {
         <Reschedulesure />
       </Router>
     </Provider>
+   </AuthProvider>
   );
 };
 
 export default App;
+ 

@@ -54,6 +54,7 @@ app.use('/reviews', reviewRoutes);
 app.use('/categories', catagoryRoutes);
 app.use('/maps', mapRoutes);
 app.use('/stripe', paymentRoutes)
+
 // Starting the server
 const PORT = 5000;
 server.listen(PORT, () => {

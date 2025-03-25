@@ -1,6 +1,9 @@
 import "../styles/signIn.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../components/AuthContext";
+
+
 
 const SignIn = () => {
   // Initializing state with default values
@@ -8,6 +11,7 @@ const SignIn = () => {
     email: '',
     password: '',
   });
+  const {login}=useContext(AuthContext)
 
   const navigate = useNavigate();
 
@@ -20,30 +24,40 @@ const SignIn = () => {
     }));
   };
 
-  const handleSubmit = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+  // const handleSubmit = async () => {
+  //   try {
+  //     const response = await fetch("http://localhost:5000/signin", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(userData),
+        
+  //     });
 
-      const data = await response.json();
+  //     const data = await response.json();
+  //     console.log(data.token,"reponse")
 
-      if (response.ok) {
-        console.log("Login successful:", data);
-        sessionStorage.setItem("user", JSON.stringify(data.user)); // Store user data in sessionStorage
-        navigate("/dashboard"); // Redirect to dashboard
-      } else {
-        console.error("Login failed:", data.message);
-        alert(data.message); // Show error message if login fails
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again.");
-    }
+  //     if (response.ok) {
+  //       console.log("Login successful:", data);
+  //       console.log(response.token);
+  //       localStorage.setItem("token", response.token);
+  //       sessionStorage.setItem("user", JSON.stringify(data.user)); // Store user data in sessionStorage
+  //       navigate("/dashboard"); // Redirect to dashboard
+  //     } else {
+  //       console.error("Login failed:", data.message);
+  //       alert(data.message); // Show error message if login fails
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     alert("An error occurred. Please try again.");
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(userData.email, userData.password);
+    navigate("/dashboard");
   };
 
   return (
