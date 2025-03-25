@@ -8,7 +8,7 @@ const [catFiltered,setCatFiltered]=useState([]);
 const savedEvent=sessionStorage.getItem("events");
 const handleFunction=(data)=>{
     setCat(data);
-    sendDataParent(cat);
+    sendDataParent(catFiltered);
     if(savedEvent){
         const events=JSON.parse(savedEvent);
         console.log(events);
