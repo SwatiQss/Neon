@@ -21,11 +21,11 @@ import { FaSadCry } from "react-icons/fa";
 
 
 const emotions = [
-  <VscSmiley color="#55C03A" fontSize="50px"  />,
-  <FaFaceGrinHearts color="#ACE50E" fontSize="50px" />,
-  <IoSad color="#BBBB0F" fontSize="50px"  />,
-  <FaSadCry color="A4B465" fontSize="50px"  />,
-  <IoSad color="#BBBB0F" fontSize="50px" />,
+  <VscSmiley color="#BBBB0F" fontSize="50px"  />,
+  <FaFaceGrinHearts color="BBBB0F" fontSize="50px" />,
+  <IoSad color="#FFFF02" fontSize="50px"  />,
+  <FaSadCry color="#FBA500" fontSize="50px"  />,
+  <IoSad color="#F80100" fontSize="50px" />,
 ];
 
 
@@ -214,7 +214,7 @@ const scrollLeft2 = () => {
 
         <div className="card-section">
           <div className="card-section2">
-            {category.map((arr, index) => (
+            {events2.map((arr, index) => (
               <Smal
                 key={index}
                 index={index + 1}

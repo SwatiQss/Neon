@@ -4,6 +4,7 @@ import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const Smal = ({ props, catName, title, index, category_id, saved_status,id ,temp,onClick}) => {
 
     const [isActive, setIsactive] = useState(saved_status)

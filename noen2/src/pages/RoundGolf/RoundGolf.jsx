@@ -39,11 +39,13 @@ const RoundGolf = () => {
         const [eventData,setEventData]=useState([]);
         //fetching the event data and vibes whose event id=given id
  useEffect(()=>{
-    fetch(`http://localhost:5000/event/round/${id}`)
+    fetch(`http://localhost:5000/event/round?id=${id}`)
     .then(response=>response.json())
-    .then(data=>setEventData(data.round))
+    .then((data)=>{setEventData(data.round)
+        console.log(data.round);
+    })
     .catch(error=>console.error('Error:',error));
- },[eventId]);
+ },[id]);
  console.log(eventData,"eeeeeeeeeee0000000")
 
  const[state,setState]=useState(false);

@@ -9,7 +9,7 @@ const AddReview2 = () => {
           <div className="add-left-down">
             We are sure that you have enjoyed this eveent a lot, would like to
             share your feedback with us.it help us to improve and serve you
-            better
+            better 
           </div>
         </div>
         

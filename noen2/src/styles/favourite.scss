@@ -49,7 +49,14 @@
         display: flex;
         gap: 10px;
         flex-direction: row;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
 
+
+    }
+    .cards::-webkit-scrollbar{
+        width: 0px;
+        background: transparent;
     }
     .arrow{
         display: flex;

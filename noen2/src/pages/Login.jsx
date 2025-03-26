@@ -91,25 +91,21 @@ const Login = () => {
     const updatedUserData = { ...userData, interests: interestArr };
     console.log(userData);
     sessionStorage.setItem('user', JSON.stringify(updatedUserData));
-
-    // Make the POST request to your backend API
     fetch('http://localhost:5000/profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(updatedUserData)  // Send user data as JSON
+      body: JSON.stringify(updatedUserData)  
     })
       .then(response => response.json())
       .then(data => {
         console.log('User added:', data);
         navigate("/signIn")
-        // Optionally, show a success message or redirect the user
       })
 
       .catch(error => {
         console.error('Error:', error);
-        // Optionally, show an error message
       });
   };
 
@@ -132,8 +128,7 @@ const Login = () => {
                 style={{ color: "white", fontSize: "10px",opacity:"0",width:"100px", height:"100px", position:"relative"}}
                 type="file"
                 className="input"
-                accept="image/*" // Only accept image files
-              // Handle file change
+                accept="image/*" 
               onChange={handleFileUpload}
               />
             </div>
@@ -141,9 +136,11 @@ const Login = () => {
           </div>
           <div className="profile-content">
             <div className="input-section">
+              <div>
               <p className="para">
                 What should we call you?
               </p>
+              </div>
               <input
                 className="input"
                 name="name"

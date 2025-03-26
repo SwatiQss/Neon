@@ -7,49 +7,46 @@ import island from "../../img/island.jpg";
 import music from "../../img/music.jpg"
 import music2 from "../../img/music.png"
 import music3 from "../../img/music3.jpg"
+import { useNavigate } from "react-router-dom";
 //import swim from "../img/swim.jpg"
 import { Navigation } from "swiper/modules"; // Import Navigation module
+import { useEffect, useState } from "react";
+import { filter } from "d3";
 
 
 
 
 const ModalRescheduleImg2 = () => {
-    const images=[
-        golf,island
-    ]
-const cards=[
-  {
-  img:music3,
-  title:"Jazz Concert",
-  location:"Sindalh city",
-  date:"Jan 01, 2025",
-  time:"07:00 AM|12:00 AM|05:00 AM"
-},
-{
-  img:music,
-  title:"Jazz Concert",
-  location:"Sindalh City",
-  date:"Jan 02, 2025",
-  time:"07:00 AM|12:00 AM|05:00 AM"
-},{
-  img:music2,
-  title:"Rock Concert",
-  location:"Sindalh City",
-  date:"Jan 03, 2025",
-  time:"07:00 AM|12:00 AM|05:00 AM"
-}
-]
-    images.map((img)=>(
-        console.log(img)
-    ))
+  const time="07:00 AM|12:00 AM|05:00 AM"
+
+const [data,setData]=useState([]);
+const[date,setDate]=useState(null);
+ useEffect(()=>{
+  const events=sessionStorage.getItem("events");
+ const eventData=JSON.parse(events);
+ const filter=eventData.filter((arr) => {
+  const eventDate = new Date(arr.from_date);
+  const formattedDate = eventDate.toISOString().split('T')[0]; 
+  setDate(formattedDate);
+  return formattedDate === "2025-03-10"; 
+})
+ setData(filter);
+ 
+ },[]);
+ 
+ console.log(data, "00000000");
+
+
+
+    const navigate=useNavigate();
     return (
         <>
             <div className="img-section">
             <Swiper
-          modules={[Navigation]} // Use Navigation instead of Autoplay
-          navigation={true} // Enables next/prev arrows
+          modules={[Navigation]} 
+          navigation={true} 
           loop={true}
-          grabCursor={true} // Makes cursor look like it's draggable
+          grabCursor={true} 
           simulateTouch={true} 
           className="slider-container"
         >
@@ -57,7 +54,7 @@ const cards=[
       
 
                {
-                cards.map((card,index)=>(
+                data.map((card,index)=>(
                   <SwiperSlide key={index}>
                     <div className="slide">
                     <img src={`${card.img}`} className="img"></img>
@@ -71,15 +68,15 @@ const cards=[
                 </div>
                 <div className="section-content-3">
                     <div className="content3-one">
-                    {card.date}
+                    {date}
                     </div>
                     <div className="content3-two">
-                   {card.time}
+                   {time}
                     </div>
                   
                 </div>
                 <div className="section-content-4">
-                    <button className="section-4-btn">
+                    <button className="section-4-btn" onClick={()=>navigate(`/roundgolf/${card.id}`)}>
 Yes I'm in
                     </button>
                 </div>
