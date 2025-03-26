@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";  
-
+import { store } from "./redux/store";
 import "./styles/global.scss";
 import Dashboard from "./pages/DashBoard/Dashboard";
 import Favourite from "./pages/My-favourite/Favourite";
@@ -24,7 +27,9 @@ import { AuthProvider } from "./components/AuthContext";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!sessionStorage.getItem("user"));
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    !!sessionStorage.getItem("user")
+  );
 
   useEffect(() => {
     const handleStorageChange = () => {
@@ -40,35 +45,41 @@ const App = () => {
   }, []);
 
   return (
-   <AuthProvider>
-     <Provider store={store}>
-      <Router>
-        {isLoggedIn && <Navbar />}
-        <hr className="divider" />
-        <Routes>
-          {/* <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login setIsLoggedIn={setIsLoggedIn} />} /> */}
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-          <Route path="/" element={<Login/>} />
-          <Route path="/favourite" element={<Favourite />} />
-          <Route path="/event" element={<Events />} />
-          <Route path="/feedback" element={<Feedback />} />
-          <Route path="/setting" element={<Settings />} />
-          <Route path="/roundgolf/:id" element={<RoundGolf />} />
-          <Route path="/profile" element={<EditProfile />} />
-          <Route path="/viboModal" element={<ViboModal />} />
-          <Route path="/modalNext" element={<ModalRescheduleNext />} />
-          <Route path="/scheduled/:id" element={<ScheduledRoundGolf />} />
-          <Route path="/choices" element={<RescheduleChoices />} />
-          <Route path="/success" element={<RescheduleChoices />} />
-          <Route path="/signIn" element={<SignIn/>} />
-        </Routes>
-        {isLoggedIn && <Footer />}
-        <Reschedulesure />
-      </Router>
-    </Provider>
-   </AuthProvider>
+    <AuthProvider>
+      <Provider store={store}>
+        <Router>
+          {isLoggedIn && <Navbar />}
+          <hr className="divider" />
+          <Routes>
+            {/* <Route path="/" element={isLoggedIn ? <Dashboard /> : <Login setIsLoggedIn={setIsLoggedIn} />} /> */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/" element={<Login />} />
+            <Route path="/favourite" element={<Favourite />} />
+            <Route path="/event" element={<Events />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/setting" element={<Settings />} />
+            <Route path="/roundgolf/:id" element={<RoundGolf />} />
+            <Route path="/profile" element={<EditProfile />} />
+            <Route path="/viboModal" element={<ViboModal />} />
+            <Route path="/modalNext" element={<ModalRescheduleNext />} />
+            <Route path="/scheduled/:id" element={<ScheduledRoundGolf />} />
+            <Route path="/choices" element={<RescheduleChoices />} />
+            <Route path="/success" element={<RescheduleChoices />} />
+            <Route path="/signIn" element={<SignIn />} />
+          </Routes>
+          {isLoggedIn && <Footer />}
+          <Reschedulesure />
+        </Router>
+      </Provider>
+    </AuthProvider>
   );
 };
 
 export default App;
- 

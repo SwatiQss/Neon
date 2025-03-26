@@ -48,7 +48,7 @@ wss.on("connection", (ws) => {
 
 // Use routes with correct prefixes
 app.use('/', userRoutes);
-app.use('/file', uploadRoutes);  // Add '/api' for user routes
+app.use('/file', uploadRoutes); 
 app.use('/event', eventRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/categories', catagoryRoutes);
