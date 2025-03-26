@@ -123,6 +123,7 @@ const scrollLeft2 = () => {
 
       .catch((error) => console.error("Error:", error));
   }, []);
+  sessionStorage.setItem("cat", JSON.stringify(category));
   console.log(category, "categoryyyyyyyyyyyyyyyy");
 
   const [name, setName] = useState("");

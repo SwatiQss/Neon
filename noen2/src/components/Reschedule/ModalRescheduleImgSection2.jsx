@@ -28,7 +28,7 @@ const[date,setDate]=useState(null);
   const eventDate = new Date(arr.from_date);
   const formattedDate = eventDate.toISOString().split('T')[0]; 
   setDate(formattedDate);
-  return formattedDate === "2025-03-10"; 
+  return formattedDate === "2025-03-31"; 
 })
  setData(filter);
  

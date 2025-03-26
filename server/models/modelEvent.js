@@ -7,7 +7,7 @@ class Event {
   static async getEvent() {
     const sql = `SELECT e.*, c.category_name, c.category_id
 FROM events e
-JOIN category c ON e.id = c.event_id LIMIT 5;
+JOIN category c ON e.id = c.event_id WHERE e.status='cancel';
 `;
     try {
       const result = await pool.query(sql);
