@@ -49,7 +49,7 @@ class User {
     }
 
     static async getIntrest() {
-        const sql = `Select interests FROM profile where id=32`;
+        const sql = `Select interests FROM profile where id=8`;
         try {
             const result = await pool.query(sql);
             return result.rows;

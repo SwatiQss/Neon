@@ -96,6 +96,7 @@ const Profile = () => {
             })
             .catch(error => console.error("Error fetching interests:", error));
     }, []);
+    console.log(present,"ooo")
 
     const handleInterestToggle = (selectedText) => {
         setSelectedInterests((prev) =>
@@ -123,6 +124,17 @@ const Profile = () => {
             console.error("Error updating interests:", error);
         }
     };
+    const [showCards, setShowCards] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowCards(true);
+        }, 4000);
+
+        return () => clearTimeout(timer); // Cleanup timeout when component unmounts
+    }, []);
+
+
 
     return (
         <>
@@ -166,9 +178,20 @@ const Profile = () => {
                             <p className="para">When can we wish you a happy birthday?</p>
                             <input className="input" value={userData.dob || ""} name="dob" onChange={handleInputChange} />
                         </div>
-
                         <div className="card-section">
-                            {interestsData1.map((arr, index) => (
+            {showCards &&
+                present.map((arr, index) => (
+                    <MyCard
+                        key={index}
+                        props={arr.img}
+                        text={arr.text}
+                        onClick={() => handleInterestToggle(arr.text)}
+                        isSelected={selectedInterests.includes(arr.text) || present.includes(arr.text)}
+                    />
+                ))}
+        </div>
+                        {/* <div className="card-section">
+                            {present.map((arr, index) => (
                                 <MyCard
                                     key={index}
                                     props={arr.img}
@@ -177,19 +200,7 @@ const Profile = () => {
                                     isSelected={selectedInterests.includes(arr.text) || present.includes(arr.text)}
                                 />
                             ))}
-                        </div>
-
-                        <div className="card-section">
-                            {interestsData2.map((arr, index) => (
-                                <MyCard
-                                    key={index}
-                                    props={arr.img}
-                                    text={arr.text}
-                                    onClick={() => handleInterestToggle(arr.text)}
-                                    isSelected={selectedInterests.includes(arr.text) || present.includes(arr.text)}
-                                />
-                            ))}
-                        </div>
+                        </div> */}
 
                         <div className="input-section">
                             <p className="para">Please let us know if you have some interests</p>

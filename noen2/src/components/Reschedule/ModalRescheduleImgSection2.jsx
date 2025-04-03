@@ -2,16 +2,11 @@ import "../../styles/modalrescheduleImg.scss"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import golf from "../../img/golf.jpg";
-import island from "../../img/island.jpg";
-import music from "../../img/music.jpg"
-import music2 from "../../img/music.png"
-import music3 from "../../img/music3.jpg"
 import { useNavigate } from "react-router-dom";
 //import swim from "../img/swim.jpg"
 import { Navigation } from "swiper/modules"; // Import Navigation module
 import { useEffect, useState } from "react";
-import { filter } from "d3";
+
 
 
 

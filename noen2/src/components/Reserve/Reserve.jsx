@@ -2,9 +2,10 @@ import { Children, useEffect } from "react";
 import "../../styles/reserve.scss"
 import {loadStripe} from '@stripe/stripe-js';
 import { useState } from "react";
+import axios from "axios";
 
 
-const Reserve=()=>{
+const Reserve=({id})=>{
     const [eventId,setEventId]=useState(0);
    
     useEffect(()=>{
@@ -41,27 +42,33 @@ const Reserve=()=>{
 
  
     const total=1000;
-    const makePayment=async ()=>{
-        const stripe=await loadStripe("pk_test_51QyrP8RwSMiXBxKwxu29te0wGJmfTNigifugMlMA3ua6C2T9A5VPXKt11lSZPQQL3LRv1ifMbuMKqYK8HbJ3MmQk00bEnZkEQH")
-        //stripe publishable key
-
-        const headers={
-            "Content-Type":"application/json"
+     let  active='active'
+     const handleRescheduleAndPayment = async () => {
+        try {
+            // 1. Reschedule the event
+            const rescheduleResponse = await axios.patch(`http://localhost:5000/event/reschedule/${id}/toggle`, {
+                schedule: active,
+            });
+            console.log("Reschedule Response:", rescheduleResponse.data);
+    
+            // 2. Proceed with payment after rescheduling
+            const stripe = await loadStripe("pk_test_51QyrP8RwSMiXBxKwxu29te0wGJmfTNigifugMlMA3ua6C2T9A5VPXKt11lSZPQQL3LRv1ifMbuMKqYK8HbJ3MmQk00bEnZkEQH");
+    
+            const headers = { "Content-Type": "application/json" };
+            const response = await fetch(`http://localhost:5000/stripe/create-checkout-session`, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(reserveData)
+            });
+    
+            const session = await response.json();
+            await stripe.redirectToCheckout({ sessionId: session.id });
+    
+        } catch (error) {
+            console.error("Error in handling reschedule or payment:", error);
         }
-        
-        const response=await fetch(`http://localhost:5000/stripe/create-checkout-session`,{
-            method:'POST',
-            headers:headers,
-            body:JSON.stringify(reserveData)
-        })
-
-        const session=await response.json();
-
-        const result=stripe.redirectToCheckout({
-            sessionId:session.id
-        })
-
-    }
+    };
+    
     return (
         <>
         <div className="reserve-card1">
@@ -147,7 +154,7 @@ const Reserve=()=>{
                 
 
                 <div className="reserve-button">
-                    <button className="reserve-btn" onClick={makePayment}>
+                    <button className="reserve-btn" onClick={ handleRescheduleAndPayment}>
                         Reserve my seats
 
                     </button>

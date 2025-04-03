@@ -248,7 +248,7 @@ useEffect(() => {
                  </div>
 
                  <div className="left-section" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                     <Reserve />
+                     <Reserve id={id} />
                  </div>
              </div>
              <div className="review-cards">
