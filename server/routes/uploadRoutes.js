@@ -2,10 +2,7 @@ const express = require("express");
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
-
 const router = express.Router();
-
-// Configure Cloudinary
 cloudinary.config({ 
     cloud_name: 'ddspxsta9', 
     api_key: '294679411787139', 
